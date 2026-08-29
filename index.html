@@ -184,29 +184,41 @@
       margin-top: 8px;
     }
 
-    /* Navbar */
+    
+    /* ==========================================
+       Polished, Professional Header & Navigation
+       ========================================== */
     .navbar, .nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+      box-shadow: 0 4px 20px -2px rgba(11, 26, 46, 0.03);
     }
     .nav-inner {
-      height: 72px;
+      height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: clamp(16px, 2.5vw, 36px);
+      padding: 0 4px;
     }
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
       font-weight: 800;
-      font-size: 1.12rem;
+      font-size: 1.15rem;
       color: var(--navy-900);
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .brand span:last-child {
+      white-space: nowrap;
     }
     .logo-mark, .brand-mark {
       width: 40px;
@@ -219,67 +231,60 @@
       font-size: 0.95rem;
       font-weight: 800;
       box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      flex-shrink: 0;
     }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 20px;
-      font-size: 0.92rem;
+      gap: clamp(6px, 1.2vw, 18px);
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--slate-700);
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
-    .nav-links a { transition: color 0.15s ease; }
-    .nav-links a:hover { color: var(--blue-600); }
-    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .nav-links a {
+      white-space: nowrap;
+      padding: 7px 12px;
+      border-radius: 999px;
+      transition: all 0.18s ease;
+      color: var(--slate-700);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .nav-links a:hover {
+      color: var(--blue-600);
+      background: var(--blue-50);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .nav-actions .btn {
+      white-space: nowrap;
+      padding: 9px 18px;
+      font-size: 0.88rem;
+    }
     .menu-toggle, .hamb {
       display: none;
       background: #fff;
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-sm);
-      padding: 8px 12px;
-      font-weight: 600;
+      padding: 8px 14px;
+      font-weight: 700;
       color: var(--navy-900);
       cursor: pointer;
     }
 
-    /* Sticky Quick Sub-navigation */
+    /* Cleaned up Quick Anchor Sub-Navigation */
     .quick {
-      position: sticky;
-      top: 72px;
-      z-index: 90;
-      background: rgba(248, 250, 252, 0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-      padding: 10px 0;
-      overflow-x: auto;
+      display: none; /* Removed the duplicate choked up strip in favor of the clean top nav */
     }
-    .quick-scroll {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      padding-bottom: 2px;
-    }
-    .quick-scroll::-webkit-scrollbar { display: none; }
-    .quick-scroll a {
-      white-space: nowrap;
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--slate-700);
-      transition: all 0.15s ease;
-      box-shadow: var(--shadow-sm);
-      flex: 0 0 auto;
-    }
-    .quick-scroll a:hover {
-      background: var(--blue-600);
-      color: #fff;
-      border-color: var(--blue-600);
-      transform: translateY(-1px);
-    }
+
 
     /* Hero Section */
     .hero {
@@ -467,7 +472,1267 @@
     .quick-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
     .quick-card p { font-size: 0.88rem; color: var(--slate-500); }
 
-    /* Suite Controls & Currency Switcher */
+    /* Library Toolbar & Grid */
+    .library-tools, .resource-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 14px 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .filter-buttons, .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .chip, .filter {
+      border: 1px solid var(--slate-200);
+      background: #ffffff;
+      color: var(--slate-700);
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 7px 16px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .chip:hover, .filter:hover {
+      background: var(--slate-100);
+      color: var(--navy-900);
+    }
+    .chip.active, .filter.active {
+      background: var(--navy-900);
+      color: #ffffff;
+      border-color: var(--navy-900);
+    }
+    .resource-count {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--slate-500);
+    }
+
+    .library-grid, .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .resource-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      min-height: 310px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .resource-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue-600), #60a5fa);
+      opacity: 0;
+      transition: 0.2s ease;
+    }
+    .resource-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: #bbd0ee;
+    }
+    .resource-card:hover::before { opacity: 1; }
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .pill, .resource-tag {
+      width: fit-content;
+      background: var(--blue-50);
+      color: var(--blue-700);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+    .tag {
+      font-size: 0.74rem;
+      color: var(--slate-500);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .resource-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue-50), #f8fbff);
+      border: 1px solid #dceaff;
+      display: grid;
+      place-items: center;
+      color: var(--blue-600);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .resource-card h3 { font-size: 1.15rem; margin: 4px 0 8px; }
+    .resource-card p {
+      font-size: 0.9rem;
+      color: var(--slate-500);
+      line-height: 1.55;
+      flex-grow: 1;
+      margin-bottom: 16px;
+    }
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--slate-100);
+    }
+    .link-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--slate-200);
+      border-radius: 999px;
+      padding: 7px 14px;
+      color: var(--slate-700);
+      background: #fff;
+      font-size: 0.84rem;
+      font-weight: 700;
+      transition: all 0.15s;
+    }
+    .link-action:hover {
+      border-color: var(--blue-600);
+      color: var(--blue-600);
+      background: var(--blue-50);
+    }
+
+    .empty-state, .empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      background: #fff;
+      border: 1px dashed var(--slate-300);
+      border-radius: var(--radius-lg);
+      display: none;
+    }
+    .resource-note {
+      margin: 16px 0 24px;
+      background: #f0f7ff;
+      border: 1px solid #d7e8ff;
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      font-size: 0.92rem;
+      color: var(--navy-900);
+    }
+
+    /* Two Columns Layout */
+    .two-col, .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .panel, .deep-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .deep-card:hover {
+      border-color: #bbd0ee;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .country-label {
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      color: var(--navy-900);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .icon-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--blue-50);
+      color: var(--blue-600);
+      display: inline-grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    .pro-list {
+      list-style: none;
+      margin: 14px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .pro-list li {
+      position: relative;
+      padding: 10px 14px 10px 38px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: var(--slate-700);
+      line-height: 1.5;
+    }
+    .pro-list li::before {
+      content: "✓";
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      background: var(--blue-50);
+      color: var(--blue-600);
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .mini-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--slate-200);
+      background: #fff;
+      color: var(--blue-600);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: all 0.15s;
+    }
+    .mini-link:hover {
+      background: var(--blue-50);
+      border-color: var(--blue-100);
+      color: var(--blue-700);
+    }
+    .note-box {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      color: #7c2d12;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .prompt-framework {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .framework-step {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .framework-step strong { display: block; color: var(--navy-900); font-size: 0.95rem; margin-bottom: 4px; }
+    .framework-step span { color: var(--slate-500); font-size: 0.84rem; }
+
+    /* Interactive Checklist (Roadmap) */
+    .checklist { display: grid; gap: 14px; }
+    .check-item {
+      display: flex;
+      gap: 16px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .check-item:hover {
+      background: #ffffff;
+      border-color: var(--blue-600);
+      box-shadow: var(--shadow-sm);
+    }
+    .check-item.completed {
+      background: var(--emerald-50);
+      border-color: var(--emerald-600);
+    }
+    .check-item.completed h3 {
+      text-decoration: line-through;
+      color: var(--slate-600);
+    }
+    .check {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--blue-600);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .check-item.completed .check { background: var(--emerald-600); }
+    .check-item h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .check-item p { color: var(--slate-500); font-size: 0.9rem; }
+    .progress-bar-container {
+      margin-top: 12px;
+      background: var(--slate-200);
+      border-radius: 999px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--emerald-600);
+      transition: width 0.3s ease;
+    }
+
+    /* Card Grid */
+    .card-grid, .info-grid, .tools-grid, .learning-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .tools-grid { grid-template-columns: repeat(4, 1fr); }
+    .info-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .info-card:hover {
+      border-color: #bbd0ee;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .info-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+    }
+    .bullet-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: var(--blue-50);
+      color: var(--blue-600);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .info-card p {
+      color: var(--slate-500);
+      margin-top: 10px;
+      font-size: 0.92rem;
+    }
+
+    /* Tabs & Interactive Builders */
+    .tab-nav {
+      display: flex;
+      gap: 8px;
+      border-bottom: 2px solid var(--slate-200);
+      margin-bottom: 28px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .tab-btn {
+      padding: 12px 18px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--slate-500);
+      cursor: pointer;
+      white-space: nowrap;
+      margin-bottom: -6px;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { color: var(--navy-900); }
+    .tab-btn.active {
+      color: var(--blue-600);
+      border-bottom-color: var(--blue-600);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.25s ease; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Interactive Worksheet Inputs */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .form-group, .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group.full, .field-group.full {
+      grid-column: 1 / -1;
+    }
+    .form-group label, .field-group label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--slate-700);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .form-group input, .form-group textarea, .form-group select,
+    .field-group input, .field-group textarea, .field-group select {
+      padding: 10px 14px;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-family: inherit;
+      color: var(--slate-900);
+      background: var(--slate-50);
+      outline: none;
+      transition: all 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus,
+    .field-group input:focus, .field-group textarea:focus, .field-group select:focus {
+      border-color: var(--blue-600);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+    .form-group textarea, .field-group textarea {
+      resize: vertical;
+      min-height: 75px;
+    }
+    .field-help {
+      font-size: 0.78rem;
+      color: var(--slate-500);
+    }
+    .field-counter {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 0.74rem;
+      color: var(--slate-400);
+    }
+    .field-error {
+      display: none;
+      color: #b91c1c;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .field-group.is-invalid input, .field-group.is-invalid textarea {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+    }
+    .field-group.is-invalid .field-error { display: block; }
+    .required-mark { color: #dc2626; font-weight: 900; }
+
+    /* Calculator Table */
+    .calc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+    .calc-table th, .calc-table td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .calc-table th {
+      background: var(--slate-100);
+      color: var(--slate-700);
+      font-weight: 700;
+    }
+    .calc-table input[type="number"] {
+      width: 110px;
+      padding: 6px 10px;
+      border: 1px solid var(--slate-200);
+      border-radius: 6px;
+      text-align: right;
+      font-size: 0.9rem;
+      outline: none;
+      background: #fff;
+    }
+    .calc-table input[type="number"]:focus {
+      border-color: var(--blue-600);
+    }
+    .calc-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .calc-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      text-align: center;
+    }
+    .calc-card span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--slate-500);
+      text-transform: uppercase;
+    }
+    .calc-card strong {
+      display: block;
+      font-size: 1.6rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin-top: 6px;
+      color: var(--navy-900);
+    }
+    .calc-card.profit-card strong { color: var(--emerald-600); }
+
+    /* SWOT Matrix */
+    .swot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 16px;
+    }
+    .swot-box {
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border: 1px solid var(--slate-200);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .swot-box.strengths { background: #ecfdf5; border-color: #a7f3d0; }
+    .swot-box.strengths h4 { color: #047857; }
+    .swot-box.weaknesses { background: #fffbeb; border-color: #fde68a; }
+    .swot-box.weaknesses h4 { color: #b45309; }
+    .swot-box.opportunities { background: #eff6ff; border-color: #bfdbfe; }
+    .swot-box.opportunities h4 { color: #1d4ed8; }
+    .swot-box.threats { background: #fff1f2; border-color: #fecdd3; }
+    .swot-box.threats h4 { color: #be123c; }
+    .swot-box textarea {
+      width: 100%;
+      min-height: 85px;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 6px;
+      padding: 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: #fff;
+      outline: none;
+      resize: vertical;
+    }
+
+    /* AI Business Result Generator Section */
+    .ai-generator {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+    .ai-generator-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .generator-badge {
+      white-space: nowrap;
+      background: #ecfdf5;
+      color: #047857;
+      border: 1px solid #bbf7d0;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+    .generator-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .generator-form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+    .generator-output-panel {
+      background: linear-gradient(180deg, var(--navy-950), var(--navy-900));
+      border: 1px solid #233e70;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 140px;
+      color: #fff;
+    }
+    .output-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .output-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-whatsapp-copy {
+      background: #16a34a;
+      color: #fff;
+    }
+    .btn-whatsapp-copy:hover {
+      background: #12843d;
+    }
+    #generatedPrompt {
+      width: 100%;
+      min-height: 480px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.08);
+      color: #f8fbff;
+      padding: 16px;
+      font-size: 0.9rem;
+      line-height: 1.62;
+      resize: vertical;
+      outline: none;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    #generatedPrompt:focus {
+      box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.18);
+    }
+    .generator-status {
+      min-height: 1.25rem;
+      margin-top: 10px;
+      color: #bfdbfe;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .generator-status.success { color: #bbf7d0; }
+    .generator-status.warn { color: #fde68a; }
+    .privacy-guard {
+      background: #f8fafc;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-top: 14px;
+      color: var(--slate-700);
+      font-size: 0.88rem;
+    }
+
+    /* Business Stage Quiz Section */
+    .stage-quiz {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      scroll-margin-top: 120px;
+    }
+    .quiz-shell {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+    .quiz-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .quiz-badge {
+      white-space: nowrap;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #cfe0ff;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    .quiz-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .quiz-panel {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+    }
+    .quiz-field, .quiz-question {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .quiz-question.is-invalid {
+      border-color: #f97316;
+      box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.10);
+    }
+    .quiz-question h3 {
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .quiz-question h3::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--blue-600);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+    }
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .quiz-option {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .quiz-option:hover {
+      border-color: #bbd0ee;
+      background: #f8fbff;
+    }
+    .quiz-option.is-selected {
+      border-color: #93c5fd;
+      background: #eff6ff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+    }
+    .quiz-option input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: var(--blue-600);
+    }
+    .quiz-option strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--navy-900);
+      line-height: 1.3;
+    }
+    .quiz-option span span {
+      display: block;
+      color: var(--slate-500);
+      font-size: 0.78rem;
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+    .quiz-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .quiz-status {
+      font-size: 0.85rem;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--slate-100);
+      border: 1px solid var(--slate-200);
+      color: var(--slate-600);
+      font-weight: 700;
+    }
+    .quiz-status.success {
+      background: #ecfdf5;
+      border-color: #bbf7d0;
+      color: #047857;
+    }
+    .quiz-status.warn {
+      background: #fff7ed;
+      border-color: #fed7aa;
+      color: #9a3412;
+    }
+    .quiz-result {
+      position: sticky;
+      top: 140px;
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+    }
+    .result-pill {
+      display: inline-flex;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #cfe0ff;
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .selected-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0 16px;
+    }
+    .selected-chips span {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #cfe0ff;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+    .result-block {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-top: 12px;
+    }
+    .result-block strong {
+      display: block;
+      color: var(--navy-900);
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+    }
+    .result-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      padding: 0;
+      margin: 0;
+    }
+    .result-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.86rem;
+      color: var(--slate-700);
+      line-height: 1.45;
+    }
+    .result-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--blue-600);
+      font-weight: 900;
+    }
+    .result-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .result-links a {
+      background: #fff;
+      color: var(--navy-900);
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      transition: all 0.15s;
+    }
+    .result-links a:hover {
+      background: var(--blue-50);
+      color: var(--blue-600);
+      border-color: var(--blue-100);
+    }
+    .quiz-whatsapp-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin: 14px 0 6px;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      background: #25d366;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.92rem;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.22);
+      transition: all 0.2s;
+    }
+    .quiz-whatsapp-cta:hover {
+      background: #128c7e;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .quiz-whatsapp-cta svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .quiz-note {
+      font-size: 0.78rem;
+      color: var(--slate-500);
+      margin-top: 10px;
+      line-height: 1.45;
+    }
+
+    /* 20 AI Prompts Accordion */
+    .prompts-container {
+      display: grid;
+      gap: 14px;
+      max-height: 800px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+    .prompts-container::-webkit-scrollbar { width: 6px; }
+    .prompts-container::-webkit-scrollbar-thumb { background: var(--slate-300); border-radius: 999px; }
+    details.prompt-item {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    details.prompt-item[open] {
+      border-color: var(--slate-300);
+      box-shadow: var(--shadow-md);
+    }
+    details.prompt-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 16px 20px;
+      font-weight: 700;
+      color: var(--navy-900);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      user-select: none;
+    }
+    details.prompt-item summary::-webkit-details-marker { display: none; }
+    details.prompt-item .prompt-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .prompt-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: var(--blue-50);
+      color: var(--blue-600);
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+    }
+    .prompt-badge {
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--slate-100);
+      color: var(--slate-600);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    details.prompt-item .chevron {
+      transition: transform 0.2s ease;
+      color: var(--slate-500);
+      flex-shrink: 0;
+    }
+    details.prompt-item[open] .chevron { transform: rotate(180deg); color: var(--blue-600); }
+    details.prompt-item .content {
+      padding: 0 20px 20px;
+      color: var(--slate-700);
+    }
+    .prompt-box {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--slate-800);
+      margin-bottom: 12px;
+    }
+    .prompt-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--slate-700);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .copy-btn:hover {
+      border-color: var(--blue-600);
+      color: var(--blue-600);
+    }
+
+    /* Topic Tags */
+    .topics {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .topic {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--slate-700);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .topic:hover {
+      background: var(--blue-50);
+      color: var(--blue-700);
+      border-color: var(--blue-100);
+    }
+    .topic.selected {
+      background: var(--navy-900);
+      color: #fff;
+      border-color: var(--navy-900);
+    }
+
+    /* Floating Action Buttons */
+    .floating-stack {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+    }
+    .floating-action {
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 32px rgba(14, 31, 61, 0.22);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      font-weight: 900;
+      transition: all 0.2s ease;
+    }
+    .floating-action:hover {
+      transform: translateY(-3px);
+      color: #fff;
+    }
+    .floating-wa {
+      background: #25d366;
+      box-shadow: 0 14px 32px rgba(37, 211, 102, 0.35);
+    }
+    .floating-wa:hover { background: #128c7e; }
+    .floating-top { background: var(--navy-900); }
+    .floating-top:hover { background: var(--blue-600); }
+    .floating-action svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+    .up-mark { font-size: 1.4rem; line-height: 1; }
+
+    /* CTA Section */
+    .cta-box, .cta {
+      background: linear-gradient(145deg, var(--navy-950) 0%, var(--navy-800) 100%);
+      color: #fff;
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 36px;
+      align-items: center;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-box::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-box h2, .cta h2 { color: #fff; font-size: 2.1rem; }
+    .cta-box p, .cta p { color: var(--blue-100); margin-top: 12px; font-size: 1.05rem; }
+    .cta-box .btn, .cta .btn {
+      background: #fff;
+      color: var(--navy-900);
+      position: relative;
+      z-index: 1;
+      padding: 14px 28px;
+    }
+    .cta-box .btn:hover, .cta .btn:hover {
+      background: var(--blue-50);
+      color: var(--blue-700);
+    }
+
+    /* Newsletter */
+    .newsletter {
+      background: #ffffff;
+      border-top: 1px solid var(--slate-200);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .form {
+      display: flex;
+      gap: 12px;
+      max-width: 500px;
+      margin-top: 8px;
+    }
+    .form input {
+      flex: 1;
+      border: 1px solid var(--slate-200);
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      outline: none;
+      background: var(--slate-50);
+      transition: all 0.2s;
+    }
+    .form input:focus {
+      border-color: var(--blue-600);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0;
+      background: var(--navy-950);
+      color: var(--slate-300);
+      border-top: 1px solid var(--slate-700);
+      font-size: 0.92rem;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-contact a {
+      color: var(--slate-300);
+      transition: color 0.15s;
+    }
+    .footer-contact a:hover { color: #fff; }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--navy-900);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xl);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 2000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .toast svg { color: var(--emerald-600); }
+
+    
+    /* --- Feature 1 & 2 Improvements: Currency Switcher, Print Styles, Ratio Bars, Tooltips --- */
     .suite-controls {
       display: flex;
       justify-content: space-between;
@@ -499,8 +1764,15 @@
       cursor: pointer;
       transition: all 0.15s;
     }
-    .curr-btn:hover { background: var(--slate-100); color: var(--navy-900); }
-    .curr-btn.active { background: var(--navy-900); color: #fff; border-color: var(--navy-900); }
+    .curr-btn:hover {
+      background: var(--slate-100);
+      color: var(--navy-900);
+    }
+    .curr-btn.active {
+      background: var(--navy-900);
+      color: #fff;
+      border-color: var(--navy-900);
+    }
     .draft-status {
       display: inline-flex;
       align-items: center;
@@ -526,7 +1798,10 @@
       display: flex;
       margin: 8px 0;
     }
-    .ratio-seg { height: 100%; transition: width 0.3s ease; }
+    .ratio-seg {
+      height: 100%;
+      transition: width 0.3s ease;
+    }
     .ratio-seg.exp-seg { background: var(--amber-600); }
     .ratio-seg.prof-seg { background: var(--emerald-600); }
     .ratio-legend {
@@ -537,7 +1812,13 @@
       flex-wrap: wrap;
       gap: 8px;
     }
-    .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; }
+    .legend-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 4px;
+    }
     .legend-dot.exp { background: var(--amber-600); }
     .legend-dot.prof { background: var(--emerald-600); }
 
@@ -575,7 +1856,62 @@
       pointer-events: none;
     }
 
-    /* VIP Pack Banner */
+    /* Prompts Toolbar */
+    .prompts-toolbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+    .prompt-filter-btn {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--slate-600);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .prompt-filter-btn:hover {
+      background: var(--slate-100);
+      color: var(--navy-900);
+    }
+    .prompt-filter-btn.active {
+      background: var(--blue-600);
+      color: #fff;
+      border-color: var(--blue-600);
+    }
+
+    /* Print Stylesheet */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .printable-area, .printable-area * {
+        visibility: visible;
+      }
+      .printable-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        background: #fff !important;
+        color: #000 !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+      }
+      .navbar, .quick, .hero, .cta, .cta-box, .newsletter, footer, .floating-stack, .toast, .tab-nav, .suite-controls, .btn {
+        display: none !important;
+      }
+    }
+
+    
+    /* --- Premium Fillable Business Templates Upgrade --- */
     .vip-pack-banner {
       background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-800) 100%);
       color: #fff;
@@ -603,9 +1939,23 @@
       background: radial-gradient(circle, rgba(37, 99, 235, 0.4) 0%, transparent 70%);
       pointer-events: none;
     }
-    .vip-banner-info h3 { color: #fff; font-size: 1.45rem; margin-bottom: 6px; }
-    .vip-banner-info p { color: var(--blue-100); font-size: 0.95rem; margin: 0; max-width: 600px; }
-    .vip-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .vip-banner-info h3 {
+      color: #fff;
+      font-size: 1.45rem;
+      margin-bottom: 6px;
+    }
+    .vip-banner-info p {
+      color: var(--blue-100);
+      font-size: 0.95rem;
+      margin: 0;
+      max-width: 600px;
+    }
+    .vip-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
     .vip-badge {
       background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -616,7 +1966,6 @@
       font-weight: 700;
     }
 
-    /* Premium Templates Grid */
     .premium-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -691,13 +2040,18 @@
       flex-shrink: 0;
       box-shadow: 0 4px 10px rgba(37, 99, 235, 0.08);
     }
-    .premium-card h3 { font-size: 1.15rem; line-height: 1.25; color: var(--navy-900); }
+    .premium-card h3 {
+      font-size: 1.15rem;
+      line-height: 1.25;
+      color: var(--navy-900);
+    }
     .prem-desc {
       font-size: 0.88rem;
       color: var(--slate-500);
       line-height: 1.5;
       margin-bottom: 14px;
     }
+    
     .prem-bullets {
       list-style: none;
       padding: 0;
@@ -714,7 +2068,11 @@
       gap: 6px;
       line-height: 1.35;
     }
-    .prem-bullets li span { color: var(--emerald-600); font-weight: 900; flex-shrink: 0; }
+    .prem-bullets li span {
+      color: var(--emerald-600);
+      font-weight: 900;
+      flex-shrink: 0;
+    }
 
     .prem-format-bar {
       display: flex;
@@ -756,7 +2114,10 @@
       border: none;
       cursor: pointer;
     }
-    .btn-prem-download:hover { background: var(--blue-700); transform: translateY(-1px); }
+    .btn-prem-download:hover {
+      background: var(--blue-700);
+      transform: translateY(-1px);
+    }
     .btn-prem-preview {
       display: inline-flex;
       align-items: center;
@@ -777,7 +2138,7 @@
       background: var(--blue-50);
     }
 
-    /* Template Modal */
+    /* Modal for Template Breakdown */
     .template-modal {
       position: fixed;
       inset: 0;
@@ -819,7 +2180,11 @@
       transition: all 0.15s;
     }
     .modal-close-btn:hover { background: var(--slate-200); color: var(--navy-900); }
-    .modal-sections-list { display: grid; gap: 10px; margin: 16px 0 24px; }
+    .modal-sections-list {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0 24px;
+    }
     .modal-section-item {
       background: var(--slate-50);
       border: 1px solid var(--slate-200);
@@ -829,886 +2194,46 @@
     }
     .modal-section-item strong { color: var(--navy-900); display: block; margin-bottom: 2px; }
 
-    /* Library Toolbar */
-    .library-tools {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      background: #ffffff;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-lg);
-      padding: 14px 20px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-sm);
-    }
-    .filters { display: flex; gap: 8px; flex-wrap: wrap; }
-    .filter {
-      border: 1px solid var(--slate-200);
-      background: #ffffff;
-      color: var(--slate-700);
-      font-size: 0.88rem;
-      font-weight: 600;
-      border-radius: 999px;
-      padding: 7px 16px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .filter:hover { background: var(--slate-100); color: var(--navy-900); }
-    .filter.active { background: var(--navy-900); color: #ffffff; border-color: var(--navy-900); }
-    .empty {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 60px 20px;
-      background: #fff;
-      border: 1px dashed var(--slate-300);
-      border-radius: var(--radius-lg);
-      display: none;
-    }
-    .resource-note {
-      margin: 16px 0 24px;
-      background: #f0f7ff;
-      border: 1px solid #d7e8ff;
-      border-radius: var(--radius-md);
-      padding: 14px 18px;
-      font-size: 0.92rem;
-      color: var(--navy-900);
-    }
-
-    /* Prompts Toolbar */
-    .prompts-toolbar {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-      align-items: center;
-    }
-    .prompt-filter-btn {
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: 999px;
-      padding: 5px 12px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--slate-600);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .prompt-filter-btn:hover { background: var(--slate-100); color: var(--navy-900); }
-    .prompt-filter-btn.active { background: var(--blue-600); color: #fff; border-color: var(--blue-600); }
-
-    /* Two Columns Layout */
-    .two-col, .split {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .panel, .deep-card {
-      background: #ffffff;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.2s ease;
-    }
-    .deep-card:hover { border-color: #bbd0ee; box-shadow: var(--shadow-md); transform: translateY(-2px); }
-    .country-label {
-      display: inline-flex;
-      gap: 6px;
-      align-items: center;
-      background: var(--slate-100);
-      border: 1px solid var(--slate-200);
-      color: var(--navy-900);
-      border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 0.76rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-    .icon-dot {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      background: var(--blue-50);
-      color: var(--blue-600);
-      display: inline-grid;
-      place-items: center;
-      font-weight: 800;
-      font-size: 0.85rem;
-      margin-right: 8px;
-      flex-shrink: 0;
-    }
-    .pro-list {
-      list-style: none;
-      margin: 14px 0 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-    .pro-list li {
-      position: relative;
-      padding: 10px 14px 10px 38px;
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: 12px;
-      font-size: 0.9rem;
-      color: var(--slate-700);
-      line-height: 1.5;
-    }
-    .pro-list li::before {
-      content: "✓";
-      position: absolute;
-      top: 10px;
-      left: 12px;
-      width: 18px;
-      height: 18px;
-      border-radius: 6px;
-      background: var(--blue-50);
-      color: var(--blue-600);
-      display: grid;
-      place-items: center;
-      font-size: 0.72rem;
-      font-weight: 900;
-    }
-    .link-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .mini-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border: 1px solid var(--slate-200);
-      background: #fff;
-      color: var(--blue-600);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      transition: all 0.15s;
-    }
-    .mini-link:hover { background: var(--blue-50); border-color: var(--blue-100); color: var(--blue-700); }
-    .note-box {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      border-radius: var(--radius-md);
-      padding: 16px 20px;
-      color: #7c2d12;
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
-    /* Roadmap Checklist */
-    .checklist { display: grid; gap: 14px; }
-    .check-item {
-      display: flex;
-      gap: 16px;
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-md);
-      padding: 16px 18px;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-    .check-item:hover { background: #ffffff; border-color: var(--blue-600); box-shadow: var(--shadow-sm); }
-    .check-item.completed { background: var(--emerald-50); border-color: var(--emerald-600); }
-    .check-item.completed h3 { text-decoration: line-through; color: var(--slate-600); }
-    .check {
-      width: 28px;
-      height: 28px;
-      flex: 0 0 auto;
-      border-radius: 50%;
-      background: var(--blue-600);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      font-size: 0.85rem;
-      transition: all 0.2s;
-    }
-    .check-item.completed .check { background: var(--emerald-600); }
-    .check-item h3 { font-size: 1.05rem; margin-bottom: 4px; }
-    .check-item p { color: var(--slate-500); font-size: 0.9rem; }
-    .progress-bar-container {
-      margin-top: 12px;
-      background: var(--slate-200);
-      border-radius: 999px;
-      height: 10px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--emerald-600);
-      transition: width 0.3s ease;
-    }
-
-    /* Grids */
-    .card-grid, .info-grid, .tools-grid, .learning-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .tools-grid { grid-template-columns: repeat(4, 1fr); }
-    .info-card {
-      background: #ffffff;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.2s ease;
-    }
-    .info-card:hover { border-color: #bbd0ee; box-shadow: var(--shadow-md); transform: translateY(-2px); }
-    .info-card h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; }
-    .bullet-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: var(--radius-sm);
-      background: var(--blue-50);
-      color: var(--blue-600);
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-    }
-    .info-card p { color: var(--slate-500); margin-top: 10px; font-size: 0.92rem; }
-
-    /* Tabs & Worksheets */
-    .tab-nav {
-      display: flex;
-      gap: 8px;
-      border-bottom: 2px solid var(--slate-200);
-      margin-bottom: 28px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-    }
-    .tab-btn {
-      padding: 12px 18px;
-      font-weight: 700;
-      font-size: 0.92rem;
-      background: transparent;
-      border: none;
-      border-bottom: 3px solid transparent;
-      color: var(--slate-500);
-      cursor: pointer;
-      white-space: nowrap;
-      margin-bottom: -6px;
-      transition: all 0.2s;
-    }
-    .tab-btn:hover { color: var(--navy-900); }
-    .tab-btn.active { color: var(--blue-600); border-bottom-color: var(--blue-600); }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; animation: fadeIn 0.25s ease; }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-
-    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .form-group, .field-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group.full, .field-group.full { grid-column: 1 / -1; }
-    .form-group label, .field-group label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--slate-700);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .form-group input, .form-group textarea, .form-group select,
-    .field-group input, .field-group textarea, .field-group select {
-      padding: 10px 14px;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-sm);
-      font-size: 0.92rem;
-      font-family: inherit;
-      color: var(--slate-900);
-      background: var(--slate-50);
-      outline: none;
-      transition: all 0.2s;
-    }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus,
-    .field-group input:focus, .field-group textarea:focus, .field-group select:focus {
-      border-color: var(--blue-600);
-      background: #fff;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-    }
-    .form-group textarea, .field-group textarea { resize: vertical; min-height: 75px; }
-    .field-help { font-size: 0.78rem; color: var(--slate-500); }
-    .field-counter { display: flex; justify-content: flex-end; font-size: 0.74rem; color: var(--slate-400); }
-    .field-error { display: none; color: #b91c1c; font-size: 0.78rem; font-weight: 700; }
-    .field-group.is-invalid input, .field-group.is-invalid textarea {
-      border-color: #ef4444;
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
-    }
-    .field-group.is-invalid .field-error { display: block; }
-    .required-mark { color: #dc2626; font-weight: 900; }
-
-    /* Tables */
-    .calc-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.9rem; }
-    .calc-table th, .calc-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--slate-200); }
-    .calc-table th { background: var(--slate-100); color: var(--slate-700); font-weight: 700; }
-    .calc-table input[type="number"] {
-      width: 110px;
-      padding: 6px 10px;
-      border: 1px solid var(--slate-200);
-      border-radius: 6px;
-      text-align: right;
-      font-size: 0.9rem;
-      outline: none;
-      background: #fff;
-    }
-    .calc-table input[type="number"]:focus { border-color: var(--blue-600); }
-    .calc-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
-    .calc-card {
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-md);
-      padding: 18px;
-      text-align: center;
-    }
-    .calc-card span { font-size: 0.8rem; font-weight: 700; color: var(--slate-500); text-transform: uppercase; }
-    .calc-card strong {
-      display: block;
-      font-size: 1.6rem;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      margin-top: 6px;
-      color: var(--navy-900);
-    }
-    .calc-card.profit-card strong { color: var(--emerald-600); }
-
-    /* SWOT Grid */
-    .swot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 16px; }
-    .swot-box {
-      border-radius: var(--radius-md);
-      padding: 20px;
-      border: 1px solid var(--slate-200);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .swot-box.strengths { background: #ecfdf5; border-color: #a7f3d0; }
-    .swot-box.strengths h4 { color: #047857; }
-    .swot-box.weaknesses { background: #fffbeb; border-color: #fde68a; }
-    .swot-box.weaknesses h4 { color: #b45309; }
-    .swot-box.opportunities { background: #eff6ff; border-color: #bfdbfe; }
-    .swot-box.opportunities h4 { color: #1d4ed8; }
-    .swot-box.threats { background: #fff1f2; border-color: #fecdd3; }
-    .swot-box.threats h4 { color: #be123c; }
-    .swot-box textarea {
-      width: 100%;
-      min-height: 85px;
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 6px;
-      padding: 10px;
-      font-family: inherit;
-      font-size: 0.9rem;
-      background: #fff;
-      outline: none;
-      resize: vertical;
-    }
-
-    /* AI Generator */
-    .ai-generator {
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-xl);
-      padding: 32px;
-      box-shadow: var(--shadow-md);
-    }
-    .ai-generator-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-      padding-bottom: 20px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--slate-200);
-    }
-    .generator-badge {
-      white-space: nowrap;
-      background: #ecfdf5;
-      color: #047857;
-      border: 1px solid #bbf7d0;
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      font-weight: 800;
-    }
-    .generator-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; align-items: start; }
-    .generator-form {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-    }
-    .generator-output-panel {
-      background: linear-gradient(180deg, var(--navy-950), var(--navy-900));
-      border: 1px solid #233e70;
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow-lg);
-      position: sticky;
-      top: 140px;
-      color: #fff;
-    }
-    .output-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
-    .output-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    .btn-whatsapp-copy { background: #16a34a; color: #fff; }
-    .btn-whatsapp-copy:hover { background: #12843d; }
-    #generatedPrompt {
-      width: 100%;
-      min-height: 480px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.08);
-      color: #f8fbff;
-      padding: 16px;
-      font-size: 0.9rem;
-      line-height: 1.62;
-      resize: vertical;
-      outline: none;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    }
-    #generatedPrompt:focus { box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.18); }
-    .generator-status { min-height: 1.25rem; margin-top: 10px; color: #bfdbfe; font-size: 0.85rem; font-weight: 700; }
-    .generator-status.success { color: #bbf7d0; }
-    .generator-status.warn { color: #fde68a; }
-    .privacy-guard {
-      background: #f8fafc;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
-      margin-top: 14px;
-      color: var(--slate-700);
-      font-size: 0.88rem;
-    }
-
-    /* Stage Quiz */
-    .stage-quiz { background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); scroll-margin-top: 120px; }
-    .quiz-shell {
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-xl);
-      padding: 32px;
-      box-shadow: var(--shadow-md);
-    }
-    .quiz-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-      padding-bottom: 20px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--slate-200);
-    }
-    .quiz-badge {
-      white-space: nowrap;
-      background: #eff6ff;
-      color: #1d4ed8;
-      border: 1px solid #cfe0ff;
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.82rem;
-      font-weight: 800;
-    }
-    .quiz-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; align-items: start; }
-    .quiz-panel {
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      display: grid;
-      gap: 18px;
-    }
-    .quiz-field, .quiz-question {
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-md);
-      padding: 18px;
-      box-shadow: var(--shadow-sm);
-    }
-    .quiz-question.is-invalid { border-color: #f97316; box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.10); }
-    .quiz-question h3 {
-      font-size: 1.02rem;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .quiz-question h3::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--blue-600);
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
-    }
-    .quiz-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .quiz-option {
-      display: grid;
-      grid-template-columns: 24px 1fr;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 12px;
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      transition: all 0.15s ease;
-      user-select: none;
-    }
-    .quiz-option:hover { border-color: #bbd0ee; background: #f8fbff; }
-    .quiz-option.is-selected {
-      border-color: #93c5fd;
-      background: #eff6ff;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
-    }
-    .quiz-option input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; cursor: pointer; accent-color: var(--blue-600); }
-    .quiz-option strong { display: block; font-size: 0.9rem; color: var(--navy-900); line-height: 1.3; }
-    .quiz-option span span { display: block; color: var(--slate-500); font-size: 0.78rem; line-height: 1.35; margin-top: 2px; }
-    .quiz-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
-    .quiz-status {
-      font-size: 0.85rem;
-      padding: 10px 14px;
-      border-radius: var(--radius-sm);
-      background: var(--slate-100);
-      border: 1px solid var(--slate-200);
-      color: var(--slate-600);
-      font-weight: 700;
-    }
-    .quiz-status.success { background: #ecfdf5; border-color: #bbf7d0; color: #047857; }
-    .quiz-status.warn { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
-    .quiz-result {
-      position: sticky;
-      top: 140px;
-      background: #ffffff;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow-md);
-    }
-    .result-pill {
-      display: inline-flex;
-      background: #eff6ff;
-      color: #1d4ed8;
-      border: 1px solid #cfe0ff;
-      border-radius: 999px;
-      padding: 4px 12px;
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .selected-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 16px; }
-    .selected-chips span {
-      background: #eff6ff;
-      color: #1d4ed8;
-      border: 1px solid #cfe0ff;
-      border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 0.74rem;
-      font-weight: 800;
-    }
-    .result-block {
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-md);
-      padding: 14px;
-      margin-top: 12px;
-    }
-    .result-block strong { display: block; color: var(--navy-900); margin-bottom: 6px; font-size: 0.92rem; }
-    .result-list { list-style: none; display: grid; gap: 6px; padding: 0; margin: 0; }
-    .result-list li {
-      position: relative;
-      padding-left: 20px;
-      font-size: 0.86rem;
-      color: var(--slate-700);
-      line-height: 1.45;
-    }
-    .result-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--blue-600); font-weight: 900; }
-    .result-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-    .result-links a {
-      background: #fff;
-      color: var(--navy-900);
-      border: 1px solid var(--slate-200);
-      border-radius: 8px;
-      padding: 6px 12px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      transition: all 0.15s;
-    }
-    .result-links a:hover { background: var(--blue-50); color: var(--blue-600); border-color: var(--blue-100); }
-    .quiz-whatsapp-cta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      margin: 14px 0 6px;
-      padding: 12px;
-      border-radius: var(--radius-md);
-      background: #25d366;
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.92rem;
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.22);
-      transition: all 0.2s;
-    }
-    .quiz-whatsapp-cta:hover { background: #128c7e; color: #fff; transform: translateY(-2px); }
-    .quiz-whatsapp-cta svg { width: 20px; height: 20px; fill: currentColor; }
-    .quiz-note { font-size: 0.78rem; color: var(--slate-500); margin-top: 10px; line-height: 1.45; }
-
-    /* 20 AI Prompts Accordion */
-    .prompts-container {
-      display: grid;
-      gap: 14px;
-      max-height: 800px;
-      overflow-y: auto;
-      padding-right: 6px;
-    }
-    .prompts-container::-webkit-scrollbar { width: 6px; }
-    .prompts-container::-webkit-scrollbar-thumb { background: var(--slate-300); border-radius: 999px; }
-    details.prompt-item {
-      background: #ffffff;
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transition: all 0.2s ease;
-    }
-    details.prompt-item[open] { border-color: var(--slate-300); box-shadow: var(--shadow-md); }
-    details.prompt-item summary {
-      cursor: pointer;
-      list-style: none;
-      padding: 16px 20px;
-      font-weight: 700;
-      color: var(--navy-900);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1rem;
-      user-select: none;
-    }
-    details.prompt-item summary::-webkit-details-marker { display: none; }
-    details.prompt-item .prompt-title-wrap { display: flex; align-items: center; gap: 10px; }
-    .prompt-num {
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      background: var(--blue-50);
-      color: var(--blue-600);
-      font-size: 0.75rem;
-      font-weight: 800;
-      display: grid;
-      place-items: center;
-    }
-    .prompt-badge {
-      font-size: 0.72rem;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--slate-100);
-      color: var(--slate-600);
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    details.prompt-item .chevron { transition: transform 0.2s ease; color: var(--slate-500); flex-shrink: 0; }
-    details.prompt-item[open] .chevron { transform: rotate(180deg); color: var(--blue-600); }
-    details.prompt-item .content { padding: 0 20px 20px; color: var(--slate-700); }
-    .prompt-box {
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: var(--slate-800);
-      margin-bottom: 12px;
-    }
-    .prompt-actions { display: flex; gap: 8px; align-items: center; }
-    .copy-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #fff;
-      border: 1px solid var(--slate-200);
-      border-radius: 6px;
-      padding: 6px 12px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--slate-700);
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .copy-btn:hover { border-color: var(--blue-600); color: var(--blue-600); }
-
-    /* Topic Tags */
-    .topics { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
-    .topic {
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
-      border-radius: 999px;
-      padding: 7px 14px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--slate-700);
-      transition: all 0.15s ease;
-      cursor: pointer;
-    }
-    .topic:hover { background: var(--blue-50); color: var(--blue-700); border-color: var(--blue-100); }
-    .topic.selected { background: var(--navy-900); color: #fff; border-color: var(--navy-900); }
-
-    /* Floating Action Buttons */
-    .floating-stack {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-end;
-    }
-    .floating-action {
-      width: 54px;
-      height: 54px;
-      border-radius: 999px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 14px 32px rgba(14, 31, 61, 0.22);
-      border: 2px solid rgba(255, 255, 255, 0.95);
-      font-weight: 900;
-      transition: all 0.2s ease;
-    }
-    .floating-action:hover { transform: translateY(-3px); color: #fff; }
-    .floating-wa { background: #25d366; box-shadow: 0 14px 32px rgba(37, 211, 102, 0.35); }
-    .floating-wa:hover { background: #128c7e; }
-    .floating-top { background: var(--navy-900); }
-    .floating-top:hover { background: var(--blue-600); }
-    .floating-action svg { width: 24px; height: 24px; fill: currentColor; }
-    .up-mark { font-size: 1.4rem; line-height: 1; }
-
-    /* CTA Section */
-    .cta-box, .cta {
-      background: linear-gradient(145deg, var(--navy-950) 0%, var(--navy-800) 100%);
-      color: #fff;
-      border-radius: var(--radius-xl);
-      padding: 56px 48px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 36px;
-      align-items: center;
-      box-shadow: var(--shadow-xl);
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-box::after {
-      content: "";
-      position: absolute;
-      right: -80px;
-      top: -80px;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .cta-box h2, .cta h2 { color: #fff; font-size: 2.1rem; }
-    .cta-box p, .cta p { color: var(--blue-100); margin-top: 12px; font-size: 1.05rem; }
-    .cta-box .btn, .cta .btn {
-      background: #fff;
-      color: var(--navy-900);
-      position: relative;
-      z-index: 1;
-      padding: 14px 28px;
-    }
-    .cta-box .btn:hover, .cta .btn:hover { background: var(--blue-50); color: var(--blue-700); }
-
-    /* Newsletter */
-    .newsletter {
-      background: #ffffff;
-      border-top: 1px solid var(--slate-200);
-      border-bottom: 1px solid var(--slate-200);
-    }
-    .form { display: flex; gap: 12px; max-width: 500px; margin-top: 8px; }
-    .form input {
-      flex: 1;
-      border: 1px solid var(--slate-200);
-      border-radius: 999px;
-      padding: 12px 20px;
-      font-size: 0.95rem;
-      outline: none;
-      background: var(--slate-50);
-      transition: all 0.2s;
-    }
-    .form input:focus {
-      border-color: var(--blue-600);
-      background: #fff;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-
-    /* Footer */
-    footer {
-      padding: 48px 0;
-      background: var(--navy-950);
-      color: var(--slate-300);
-      border-top: 1px solid var(--slate-700);
-      font-size: 0.92rem;
-    }
-    .footer-grid { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-    .footer-contact { display: flex; flex-direction: column; gap: 8px; }
-    .footer-contact a { color: var(--slate-300); transition: color 0.15s; }
-    .footer-contact a:hover { color: #fff; }
-
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: var(--navy-900);
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-xl);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      z-index: 2000;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .toast.show { transform: translateY(0); opacity: 1; }
-    .toast svg { color: var(--emerald-600); }
-
-    /* Print Stylesheet */
-    @media print {
-      body * { visibility: hidden; }
-      .printable-area, .printable-area * { visibility: visible; }
-      .printable-area {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        margin: 0;
-        padding: 20px;
-        background: #fff !important;
-        color: #000 !important;
-        border: 1px solid #ccc !important;
-        box-shadow: none !important;
-      }
-      .navbar, .quick, .hero, .cta, .cta-box, .newsletter, footer, .floating-stack, .toast, .tab-nav, .suite-controls, .btn {
-        display: none !important;
-      }
+    @media (max-width: 1200px) {
+      .premium-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 680px) {
+      .premium-grid { grid-template-columns: 1fr; }
+      .vip-pack-banner { padding: 24px; }
+      .prem-actions { grid-template-columns: 1fr; }
     }
 
     /* Responsive */
-    @media (max-width: 1200px) {
-      .premium-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 1100px) {
+      .grid, .library-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .tools-grid { grid-template-columns: repeat(2, 1fr); }
     }
+    
+    @media (max-width: 1040px) {
+      .nav-links { display: none; }
+      .menu-toggle, .hamb { display: inline-flex; }
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 70px;
+        left: 16px;
+        right: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        background: #ffffff;
+        border: 1px solid var(--slate-200);
+        border-radius: var(--radius-lg);
+        padding: 16px;
+        box-shadow: 0 20px 40px -10px rgba(11, 26, 46, 0.18);
+        gap: 6px;
+      }
+      .nav-links.open a {
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-size: 0.95rem;
+      }
+    }
+
     @media (max-width: 960px) {
       .hero-grid, .two-col, .split, .cta-box, .cta, .swot-grid, .generator-layout, .quiz-layout { grid-template-columns: 1fr; }
       .generator-output-panel, .quiz-result { position: static; }
@@ -1732,70 +2257,55 @@
       .calc-summary { grid-template-columns: 1fr; }
       .form-grid, .generator-form { grid-template-columns: 1fr; }
     }
-    @media (max-width: 680px) {
+    @media (max-width: 640px) {
       .container, .wrap { width: min(100% - 32px, var(--max-w)); }
       .nav-actions .btn { display: none; }
       .hero { padding-top: 50px; }
       .hero-actions, .form { flex-direction: column; }
       .btn { width: 100%; }
-      .quick-links, .premium-grid, .card-grid, .info-grid, .tools-grid, .learning-grid, .prompt-framework, .quiz-options, .quiz-actions { grid-template-columns: 1fr; }
+      .quick-links, .grid, .library-grid, .card-grid, .info-grid, .tools-grid, .learning-grid, .prompt-framework, .quiz-options, .quiz-actions { grid-template-columns: 1fr; }
       .section-top, .section-head { display: block; }
       .section-top .btn, .section-head .btn { margin-top: 16px; width: auto; }
-      .library-tools { flex-direction: column; align-items: stretch; }
-      .filters { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; }
-      .filter { white-space: nowrap; }
+      .resource-toolbar, .library-tools { flex-direction: column; align-items: stretch; }
+      .filter-buttons, .filters { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; }
+      .chip, .filter { white-space: nowrap; }
       .cta-box, .cta { padding: 36px 24px; }
       .stat-grid, .trust-row { grid-template-columns: 1fr; }
       .floating-stack { right: 16px; bottom: 16px; }
       .floating-action { width: 48px; height: 48px; }
-      .vip-pack-banner { padding: 24px; }
-      .prem-actions { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to resources</a>
   
-  <!-- Navigation -->
+    <!-- Navigation -->
   <header class="navbar" id="top" aria-label="Primary navigation">
     <div class="container nav-inner">
       <a href="#top" class="brand" aria-label="Executive Growth Hub home">
         <span class="logo-mark">EGH</span>
         <span>Executive Growth Hub</span>
       </a>
+      
       <nav class="nav-links" id="navLinks" aria-label="Primary links">
         <a href="#templates">Templates</a>
+        <a href="#interactive-suite">Interactive Tools</a>
         <a href="#stage-quiz">Stage Quiz</a>
         <a href="#ai-generator">AI Generator</a>
-        <a href="#interactive-suite">8 Live Tools</a>
-        <a href="#startup">Startup Guide</a>
         <a href="#prompts">20 Prompts</a>
-        <a href="#finance">Finance & Legal</a>
-        <a href="#tools">Tech Stack</a>
+        <a href="#startup">Startup Guide</a>
+        <a href="#finance">Legal & Finance</a>
       </nav>
+
       <div class="nav-actions">
         <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
-        <a class="btn btn-small" href="https://wa.me/13238049326?text=Hello%2C%20I%20would%20like%20to%20join%20Executive%20Growth%20Hub%20for%20free." target="_blank" rel="noopener">Join Free on WhatsApp</a>
+        <a class="btn" href="https://wa.me/13238049326?text=Hello%2C%20I%20would%20like%20to%20join%20Executive%20Growth%20Hub%20for%20free." target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 32 32" style="fill:currentColor;"><path d="M16.04 3C9.49 3 4.16 8.3 4.16 14.82c0 2.2.61 4.34 1.78 6.2L4 29l8.18-1.9a11.9 11.9 0 0 0 5.86 1.53h.01c6.54 0 11.86-5.3 11.86-11.82C29.91 8.3 22.59 3 16.04 3Zm0 23.56h-.01a9.85 9.85 0 0 1-5.02-1.37l-.36-.22-4.85 1.13 1.15-4.72-.24-.38a9.7 9.7 0 0 1-1.49-5.18c0-5.38 4.4-9.76 9.82-9.76 5.42 0 9.82 4.38 9.82 9.76 0 5.38-4.4 9.74-9.82 9.74Zm5.38-7.31c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.46s1.07 2.86 1.22 3.06c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35Z"/></svg>
+          Join Free
+        </a>
       </div>
     </div>
   </header>
-
-  <!-- Sticky Quick Navigation Bar -->
-  <div class="quick" aria-label="Quick jump navigation">
-    <div class="container quick-scroll">
-      <a href="#templates">📥 Templates (8)</a>
-      <a href="#stage-quiz">🧭 Stage Quiz</a>
-      <a href="#ai-generator">⚡ AI Result Generator</a>
-      <a href="#interactive-suite">🛠️ 8 Interactive Tools</a>
-      <a href="#startup">🚀 Startup Roadmap</a>
-      <a href="#prompts">💬 20 AI Prompts</a>
-      <a href="#marketing">📣 Marketing</a>
-      <a href="#finance">⚖️ Nigeria & US Setup</a>
-      <a href="#tools">💻 Tech Stack</a>
-      <a href="#learning">📚 Learning Hub</a>
-      <a href="#join">🤝 Join Community</a>
-    </div>
-  </div>
 
   <main id="main">
     <!-- Hero Section -->
@@ -1844,42 +2354,6 @@
         </aside>
       </div>
     </section>
-
-    <!-- Quick Navigation Links -->
-    <section aria-labelledby="quickLinksTitle">
-      <div class="container">
-        <div class="section-top">
-          <div>
-            <div class="kicker">Quick Navigation</div>
-            <h2 id="quickLinksTitle">Jump to what you need</h2>
-            <p class="section-lead">Use these shortcuts to jump directly to any resource, interactive calculator, or prompt set.</p>
-          </div>
-        </div>
-        <div class="quick-links">
-          <a class="quick-card" href="#interactive-suite">
-            <div class="quick-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg></div>
-            <h3>Interactive Suite (8)</h3>
-            <p>Live budget, pricing, plan builder, content planner, SWOT matrix & goals.</p>
-          </a>
-          <a class="quick-card" href="#prompts">
-            <div class="quick-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
-            <h3>20 AI Prompts</h3>
-            <p>Ready-to-copy prompts for ChatGPT, Gemini, and Claude.</p>
-          </a>
-          <a class="quick-card" href="#templates">
-            <div class="quick-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div>
-            <h3>Fillable Templates</h3>
-            <p>Download printable PDFs and Word docs for your business.</p>
-          </a>
-          <a class="quick-card" href="#startup">
-            <div class="quick-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
-            <h3>Startup Roadmap</h3>
-            <p>Step-by-step interactive checklist to validate, prepare, and launch.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- Business Stage Quiz Section -->
     <section class="stage-quiz" id="stage-quiz" aria-labelledby="quizTitle">
       <div class="container">
@@ -2053,7 +2527,6 @@
         </div>
       </div>
     </section>
-
     <!-- Expanded 8-Worksheet Interactive Planning Suite -->
     <section id="interactive-suite" aria-labelledby="interactiveTitle" style="background: #ffffff; border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200);">
       <div class="container">
@@ -2065,6 +2538,7 @@
           </div>
         </div>
 
+        
         <!-- Interactive Suite Controls: Currency Switcher & Auto-Save -->
         <div class="suite-controls">
           <div class="currency-picker">
@@ -2163,6 +2637,7 @@
                   </tbody>
                 </table>
 
+                
                 <!-- Financial Ratio Visualizer -->
                 <div class="ratio-visualizer">
                   <div style="display:flex; justify-content:space-between; font-size:0.84rem; font-weight:700; color:var(--navy-900);">
@@ -2244,10 +2719,8 @@
               <div class="panel" style="background:var(--slate-50); border:1px dashed var(--slate-300);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
                   <span class="eyebrow" style="margin-bottom:0;">Pricing Breakdown</span>
-                  <div style="display:flex; gap:8px;">
-                    <button class="btn sm" onclick="copyPricingSummary()">Copy Pricing</button>
-                    <button class="btn sm secondary" onclick="printElement('pricingOutputDetails')">🖨️ Print / PDF</button>
-                  </div>
+                  <button class="btn sm" onclick="copyPricingSummary()">Copy Pricing</button>
+                  <button class="btn sm secondary" onclick="printElement('pricingOutputDetails')">🖨️ Print / PDF</button>
                 </div>
                 
                 <div class="calc-summary" style="margin-top:0; margin-bottom:20px; grid-template-columns: repeat(2, 1fr);">
@@ -2312,10 +2785,8 @@
               <div class="panel" style="background:var(--slate-50); border:1px dashed var(--slate-300);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
                   <span class="eyebrow" style="margin-bottom:0;">Live 1-Page Summary</span>
-                  <div style="display:flex; gap:8px;">
-                    <button class="btn sm" onclick="copyPlanSummary()">Copy Plan</button>
-                    <button class="btn sm secondary" onclick="printElement('planSummaryOutput')">🖨️ Print / PDF</button>
-                  </div>
+                  <button class="btn sm" onclick="copyPlanSummary()">Copy Plan</button>
+                  <button class="btn sm secondary" onclick="printElement('planSummaryOutput')">🖨️ Print / PDF</button>
                 </div>
                 <div id="planSummaryOutput" style="font-size:0.92rem; line-height:1.7; color:var(--slate-800);">
                   <!-- Generated live via JS -->
@@ -2370,10 +2841,8 @@
               <div class="panel" style="background:var(--slate-50); border:1px dashed var(--slate-300);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
                   <span class="eyebrow" style="margin-bottom:0;">7-Day Content Schedule</span>
-                  <div style="display:flex; gap:8px;">
-                    <button class="btn sm" onclick="copyContentSchedule()">Copy Schedule</button>
-                    <button class="btn sm secondary" onclick="printElement('contentScheduleOutput')">🖨️ Print / PDF</button>
-                  </div>
+                  <button class="btn sm" onclick="copyContentSchedule()">Copy Schedule</button>
+                  <button class="btn sm secondary" onclick="printElement('contentScheduleOutput')">🖨️ Print / PDF</button>
                 </div>
                 <div id="contentScheduleOutput" style="font-size:0.9rem; line-height:1.6; color:var(--slate-800);">
                   <!-- Generated live via JS -->
@@ -2430,10 +2899,8 @@
               <div class="panel" style="background:var(--slate-50); border:1px dashed var(--slate-300);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
                   <span class="eyebrow" style="margin-bottom:0;">Monthly Scorecard Brief</span>
-                  <div style="display:flex; gap:8px;">
-                    <button class="btn sm" onclick="copyGoalScorecard()">Copy Scorecard</button>
-                    <button class="btn sm secondary" onclick="printElement('goalScorecardOutput')">🖨️ Print / PDF</button>
-                  </div>
+                  <button class="btn sm" onclick="copyGoalScorecard()">Copy Scorecard</button>
+                  <button class="btn sm secondary" onclick="printElement('goalScorecardOutput')">🖨️ Print / PDF</button>
                 </div>
                 <div id="goalScorecardOutput" style="font-size:0.92rem; line-height:1.7; color:var(--slate-800);">
                   <!-- Generated live via JS -->
@@ -2446,15 +2913,13 @@
         <!-- TAB 6: SWOT Analysis Matrix -->
         <div id="tab-swot" class="tab-content">
           <div>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
               <div>
                 <h3>Interactive SWOT Analysis Matrix</h3>
                 <p style="font-size:0.92rem; color:var(--slate-500);">Analyze your internal advantages alongside external market opportunities and threats.</p>
               </div>
-              <div style="display:flex; gap:8px;">
-                <button class="btn sm" onclick="copySwotMatrix()">Copy SWOT</button>
-                <button class="btn sm secondary" onclick="printElement('tab-swot')">🖨️ Print / PDF</button>
-              </div>
+              <button class="btn sm" onclick="copySwotMatrix()">Copy SWOT</button>
+              <button class="btn sm secondary" onclick="printElement('tab-swot')">🖨️ Print / PDF</button>
             </div>
 
             <div class="swot-grid">
@@ -2559,10 +3024,8 @@
               <div class="panel" style="background:var(--slate-50); border:1px dashed var(--slate-300);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
                   <span class="eyebrow" style="margin-bottom:0;">Brand Architecture Card</span>
-                  <div style="display:flex; gap:8px;">
-                    <button class="btn sm" onclick="copyBrandSummary()">Copy Brand Card</button>
-                    <button class="btn sm secondary" onclick="printElement('brandSummaryOutput')">🖨️ Print / PDF</button>
-                  </div>
+                  <button class="btn sm" onclick="copyBrandSummary()">Copy Brand Card</button>
+                  <button class="btn sm secondary" onclick="printElement('brandSummaryOutput')">🖨️ Print / PDF</button>
                 </div>
                 <div id="brandSummaryOutput" style="font-size:0.92rem; line-height:1.7; color:var(--slate-800);">
                   <!-- Generated live via JS -->
@@ -2614,10 +3077,8 @@
               <div class="panel" style="background:var(--slate-50); border:1px dashed var(--slate-300);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
                   <span class="eyebrow" style="margin-bottom:0;">Persona Brief</span>
-                  <div style="display:flex; gap:8px;">
-                    <button class="btn sm" onclick="copyPersonaSummary()">Copy Persona</button>
-                    <button class="btn sm secondary" onclick="printElement('personaSummaryOutput')">🖨️ Print / PDF</button>
-                  </div>
+                  <button class="btn sm" onclick="copyPersonaSummary()">Copy Persona</button>
+                  <button class="btn sm secondary" onclick="printElement('personaSummaryOutput')">🖨️ Print / PDF</button>
                 </div>
                 <div id="personaSummaryOutput" style="font-size:0.92rem; line-height:1.7; color:var(--slate-800);">
                   <!-- Generated live via JS -->
@@ -2630,6 +3091,7 @@
       </div>
     </section>
 
+    
     <!-- Upgraded Premium Fillable Business Templates Section -->
     <section id="templates" aria-labelledby="libraryTitle">
       <div class="container">
@@ -2959,7 +3421,7 @@
           </div>
         </div>
 
-        <div>
+        
           <div class="prompts-toolbar" role="group" aria-label="Filter prompts">
             <span style="font-size:0.8rem; font-weight:700; color:var(--slate-500);">Filter:</span>
             <button class="prompt-filter-btn active" data-prompt-cat="all" onclick="filterPrompts('all', this)">All (20)</button>
@@ -2973,327 +3435,326 @@
             <button class="prompt-filter-btn" data-prompt-cat="Leadership" onclick="filterPrompts('Leadership', this)">Leadership</button>
           </div>
 
-          <div class="prompts-container" id="promptsList">
-            <!-- 1. Business Idea -->
-            <details class="prompt-item" open>
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">1</span>
-                  <span>Business Idea Prompt</span>
-                  <span class="prompt-badge">Strategy</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p1">Act as a business strategist. Help me improve this business idea: [describe your idea]. Identify the target audience, the problem it solves, possible products or services, pricing ideas, and the first 5 steps I should take.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p1')">Copy Prompt</button></div>
+        <div class="prompts-container" id="promptsList">
+          <!-- 1. Business Idea -->
+          <details class="prompt-item" open>
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">1</span>
+                <span>Business Idea Prompt</span>
+                <span class="prompt-badge">Strategy</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p1">Act as a business strategist. Help me improve this business idea: [describe your idea]. Identify the target audience, the problem it solves, possible products or services, pricing ideas, and the first 5 steps I should take.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p1')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 2. Business Plan -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">2</span>
-                  <span>Business Plan Prompt</span>
-                  <span class="prompt-badge">Planning</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p2">Create a simple business plan for a business called [business name]. The business offers [products/services] to [target audience]. Include mission, vision, target market, services, pricing, marketing strategy, operations plan, startup costs, and 12-month goals.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p2')">Copy Prompt</button></div>
+          <!-- 2. Business Plan -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">2</span>
+                <span>Business Plan Prompt</span>
+                <span class="prompt-badge">Planning</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p2">Create a simple business plan for a business called [business name]. The business offers [products/services] to [target audience]. Include mission, vision, target market, services, pricing, marketing strategy, operations plan, startup costs, and 12-month goals.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p2')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 3. Branding -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">3</span>
-                  <span>Branding Prompt</span>
-                  <span class="prompt-badge">Branding</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p3">Act as a brand strategist. Create a brand identity for [business name]. The business serves [target audience] and offers [product/service]. Suggest brand voice, colors, tagline ideas, logo direction, content style, and customer message.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p3')">Copy Prompt</button></div>
+          <!-- 3. Branding -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">3</span>
+                <span>Branding Prompt</span>
+                <span class="prompt-badge">Branding</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p3">Act as a brand strategist. Create a brand identity for [business name]. The business serves [target audience] and offers [product/service]. Suggest brand voice, colors, tagline ideas, logo direction, content style, and customer message.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p3')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 4. Marketing Content -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">4</span>
-                  <span>Marketing Content Prompt</span>
-                  <span class="prompt-badge">Marketing</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p4">Create 10 social media post ideas for [business name]. The business offers [product/service] to [target audience]. Make the posts helpful, engaging, and focused on building trust.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p4')">Copy Prompt</button></div>
+          <!-- 4. Marketing Content -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">4</span>
+                <span>Marketing Content Prompt</span>
+                <span class="prompt-badge">Marketing</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p4">Create 10 social media post ideas for [business name]. The business offers [product/service] to [target audience]. Make the posts helpful, engaging, and focused on building trust.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p4')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 5. Caption Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">5</span>
-                  <span>Caption Prompt</span>
-                  <span class="prompt-badge">Marketing</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p5">Write a social media caption for [business name] promoting [product/service]. Make it clear, warm, engaging, and include a strong call to action.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p5')">Copy Prompt</button></div>
+          <!-- 5. Caption Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">5</span>
+                <span>Caption Prompt</span>
+                <span class="prompt-badge">Marketing</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p5">Write a social media caption for [business name] promoting [product/service]. Make it clear, warm, engaging, and include a strong call to action.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p5')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 6. Customer Service Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">6</span>
-                  <span>Customer Service Prompt</span>
-                  <span class="prompt-badge">Customer Service</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p6">Write a professional customer service response to this customer message: [paste message]. Make the tone warm, respectful, clear, and solution-focused.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p6')">Copy Prompt</button></div>
+          <!-- 6. Customer Service Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">6</span>
+                <span>Customer Service Prompt</span>
+                <span class="prompt-badge">Customer Service</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p6">Write a professional customer service response to this customer message: [paste message]. Make the tone warm, respectful, clear, and solution-focused.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p6')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 7. Sales Message Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">7</span>
-                  <span>Sales Message Prompt</span>
-                  <span class="prompt-badge">Sales</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p7">Write a short sales message for [product/service]. The target customer is [audience]. Focus on the customer problem, the benefit of the offer, trust, and a clear call to action.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p7')">Copy Prompt</button></div>
+          <!-- 7. Sales Message Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">7</span>
+                <span>Sales Message Prompt</span>
+                <span class="prompt-badge">Sales</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p7">Write a short sales message for [product/service]. The target customer is [audience]. Focus on the customer problem, the benefit of the offer, trust, and a clear call to action.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p7')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 8. Website Copy Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">8</span>
-                  <span>Website Copy Prompt</span>
-                  <span class="prompt-badge">Marketing</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p8">Write homepage copy for a business called [business name]. The business helps [target audience] with [main service/product]. Include a hero headline, subheadline, about section, services section, why choose us section, testimonials section, FAQ section, and call to action.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p8')">Copy Prompt</button></div>
+          <!-- 8. Website Copy Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">8</span>
+                <span>Website Copy Prompt</span>
+                <span class="prompt-badge">Marketing</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p8">Write homepage copy for a business called [business name]. The business helps [target audience] with [main service/product]. Include a hero headline, subheadline, about section, services section, why choose us section, testimonials section, FAQ section, and call to action.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p8')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 9. Email Follow-Up Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">9</span>
-                  <span>Email Follow-Up Prompt</span>
-                  <span class="prompt-badge">Sales</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p9">Write a professional follow-up email to a potential customer who showed interest in [product/service] but has not responded yet. Keep it friendly, short, and not pushy.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p9')">Copy Prompt</button></div>
+          <!-- 9. Email Follow-Up Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">9</span>
+                <span>Email Follow-Up Prompt</span>
+                <span class="prompt-badge">Sales</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p9">Write a professional follow-up email to a potential customer who showed interest in [product/service] but has not responded yet. Keep it friendly, short, and not pushy.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p9')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 10. Business Name Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">10</span>
-                  <span>Business Name Prompt</span>
-                  <span class="prompt-badge">Branding</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p10">Suggest 20 business name ideas for a business that provides [product/service] to [target audience]. The names should be memorable, professional, easy to spell, and brandable.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p10')">Copy Prompt</button></div>
+          <!-- 10. Business Name Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">10</span>
+                <span>Business Name Prompt</span>
+                <span class="prompt-badge">Branding</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p10">Suggest 20 business name ideas for a business that provides [product/service] to [target audience]. The names should be memorable, professional, easy to spell, and brandable.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p10')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 11. SWOT Analysis Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">11</span>
-                  <span>SWOT Analysis Prompt</span>
-                  <span class="prompt-badge">Planning</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p11">Create a SWOT analysis for my business. My business is [business name], and it offers [product/service] to [target audience]. Include strengths, weaknesses, opportunities, and threats.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p11')">Copy Prompt</button></div>
+          <!-- 11. SWOT Analysis Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">11</span>
+                <span>SWOT Analysis Prompt</span>
+                <span class="prompt-badge">Planning</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p11">Create a SWOT analysis for my business. My business is [business name], and it offers [product/service] to [target audience]. Include strengths, weaknesses, opportunities, and threats.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p11')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 12. Pricing Strategy Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">12</span>
-                  <span>Pricing Strategy Prompt</span>
-                  <span class="prompt-badge">Finance</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p12">Help me create a pricing strategy for [product/service]. My target audience is [audience], my cost is approximately [cost], and my competitors charge around [price range]. Suggest 3 pricing options and explain which one is best.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p12')">Copy Prompt</button></div>
+          <!-- 12. Pricing Strategy Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">12</span>
+                <span>Pricing Strategy Prompt</span>
+                <span class="prompt-badge">Finance</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p12">Help me create a pricing strategy for [product/service]. My target audience is [audience], my cost is approximately [cost], and my competitors charge around [price range]. Suggest 3 pricing options and explain which one is best.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p12')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 13. Customer Profile Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">13</span>
-                  <span>Customer Profile Prompt</span>
-                  <span class="prompt-badge">Marketing</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p13">Create an ideal customer profile for my business. My business offers [product/service], and I want to serve [general audience]. Include demographics, pain points, buying behavior, objections, and messaging ideas.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p14')">Copy Prompt</button></div>
+          <!-- 13. Customer Profile Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">13</span>
+                <span>Customer Profile Prompt</span>
+                <span class="prompt-badge">Marketing</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p13">Create an ideal customer profile for my business. My business offers [product/service], and I want to serve [general audience]. Include demographics, pain points, buying behavior, objections, and messaging ideas.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p13')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 14. Content Calendar Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">14</span>
-                  <span>Content Calendar Prompt</span>
-                  <span class="prompt-badge">Marketing</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p14">Create a 30-day content calendar for [business name]. The business offers [product/service] to [target audience]. Include post ideas, captions, content types, and calls to action.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p14')">Copy Prompt</button></div>
+          <!-- 14. Content Calendar Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">14</span>
+                <span>Content Calendar Prompt</span>
+                <span class="prompt-badge">Marketing</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p14">Create a 30-day content calendar for [business name]. The business offers [product/service] to [target audience]. Include post ideas, captions, content types, and calls to action.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p14')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 15. Leadership Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">15</span>
-                  <span>Leadership Coach Prompt</span>
-                  <span class="prompt-badge">Leadership</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p15">Act as a leadership coach. Give me practical advice for improving my leadership as a business owner. Focus on communication, decision-making, accountability, confidence, and team culture.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p15')">Copy Prompt</button></div>
+          <!-- 15. Leadership Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">15</span>
+                <span>Leadership Coach Prompt</span>
+                <span class="prompt-badge">Leadership</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p15">Act as a leadership coach. Give me practical advice for improving my leadership as a business owner. Focus on communication, decision-making, accountability, confidence, and team culture.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p15')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 16. Operations Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">16</span>
-                  <span>Operations Plan Prompt</span>
-                  <span class="prompt-badge">Operations</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p16">Help me create a simple operations plan for my business. My business provides [product/service]. Include daily tasks, weekly tasks, customer process, payment process, delivery process, and follow-up system.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p16')">Copy Prompt</button></div>
+          <!-- 16. Operations Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">16</span>
+                <span>Operations Plan Prompt</span>
+                <span class="prompt-badge">Operations</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p16">Help me create a simple operations plan for my business. My business provides [product/service]. Include daily tasks, weekly tasks, customer process, payment process, delivery process, and follow-up system.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p16')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 17. FAQ Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">17</span>
-                  <span>Website FAQ Prompt</span>
-                  <span class="prompt-badge">Marketing</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p17">Create 10 frequently asked questions and answers for my business website. My business is [business name], and it offers [product/service] to [target audience].</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p17')">Copy Prompt</button></div>
+          <!-- 17. FAQ Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">17</span>
+                <span>Website FAQ Prompt</span>
+                <span class="prompt-badge">Marketing</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p17">Create 10 frequently asked questions and answers for my business website. My business is [business name], and it offers [product/service] to [target audience].</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p17')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 18. Offer Creation Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">18</span>
-                  <span>Offer Creation Prompt</span>
-                  <span class="prompt-badge">Sales</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p18">Help me create a strong offer for [product/service]. Include the main benefit, what is included, who it is for, why it is valuable, and a clear call to action.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p18')">Copy Prompt</button></div>
+          <!-- 18. Offer Creation Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">18</span>
+                <span>Offer Creation Prompt</span>
+                <span class="prompt-badge">Sales</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p18">Help me create a strong offer for [product/service]. Include the main benefit, what is included, who it is for, why it is valuable, and a clear call to action.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p18')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 19. Review Request Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">19</span>
-                  <span>Review Request Prompt</span>
-                  <span class="prompt-badge">Customer Service</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p19">Write a short message asking a happy customer to leave a review for my business. Make it polite, simple, and appreciative.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p19')">Copy Prompt</button></div>
+          <!-- 19. Review Request Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">19</span>
+                <span>Review Request Prompt</span>
+                <span class="prompt-badge">Customer Service</span>
               </div>
-            </details>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p19">Write a short message asking a happy customer to leave a review for my business. Make it polite, simple, and appreciative.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p19')">Copy Prompt</button></div>
+            </div>
+          </details>
 
-            <!-- 20. Bio Prompt -->
-            <details class="prompt-item">
-              <summary>
-                <div class="prompt-title-wrap">
-                  <span class="prompt-num">20</span>
-                  <span>Founder Bio Prompt</span>
-                  <span class="prompt-badge">Branding</span>
-                </div>
-                <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <div class="content">
-                <div class="prompt-box" id="p20">Write a professional business bio for [founder name], founder of [business name]. The business helps [target audience] with [product/service]. Make it trustworthy, warm, and professional.</div>
-                <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p20')">Copy Prompt</button></div>
+          <!-- 20. Bio Prompt -->
+          <details class="prompt-item">
+            <summary>
+              <div class="prompt-title-wrap">
+                <span class="prompt-num">20</span>
+                <span>Founder Bio Prompt</span>
+                <span class="prompt-badge">Branding</span>
               </div>
-            </details>
-          </div>
+              <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="content">
+              <div class="prompt-box" id="p20">Write a professional business bio for [founder name], founder of [business name]. The business helps [target audience] with [product/service]. Make it trustworthy, warm, and professional.</div>
+              <div class="prompt-actions"><button class="copy-btn" onclick="copyTextFrom('p20')">Copy Prompt</button></div>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -3740,7 +4201,6 @@
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
     <span id="toastMsg">Action completed!</span>
   </div>
-
   <script>
     // Navigation Mobile Toggle
     const menuToggle = document.getElementById('menuToggle');
@@ -3808,6 +4268,8 @@
       el.classList.toggle('selected');
     }
 
+    
+    
     // ==========================================
     // Currency Switcher Engine ($ / ₦ / £ / €)
     // ==========================================
@@ -3833,7 +4295,6 @@
 
       calcBudget();
       calcPricing();
-      showToast(`Currency switched to ${code} (${symbol})`);
     }
 
     // ==========================================
@@ -4029,6 +4490,7 @@
         inp.value = inp.defaultValue;
       });
       calcBudget();
+      calcPricing();
       showToast('Budget values reset to default');
     }
 
@@ -4037,13 +4499,17 @@
       const expenses = document.getElementById('valTotalExpenses')?.textContent || '$0';
       const profit = document.getElementById('valNetProfit')?.textContent || '$0';
 
-      const summary = `Executive Growth Hub — Business Budget Summary:\n` +
-        `- Total Startup Costs: ${startup}\n` +
-        `- Monthly Operating Expenses: ${expenses}\n` +
+      const summary = `Executive Growth Hub — Business Budget Summary:
+` +
+        `- Total Startup Costs: ${startup}
+` +
+        `- Monthly Operating Expenses: ${expenses}
+` +
         `- Projected Net Monthly Profit: ${profit}`;
       copyText(summary, 'Budget summary copied!');
     }
 
+    
     // 2. Pricing Calculator Logic
     function calcPricing() {
       const sym = currentCurrencySymbol || '$';
@@ -4084,16 +4550,21 @@
       }
     }
 
+
     function copyPricingSummary() {
       const offerName = document.getElementById('priceOfferName')?.value || 'Offer';
       const totalCost = document.getElementById('valTotalCost')?.textContent || '$0';
       const recPrice = document.getElementById('valRecPrice')?.textContent || '$0';
       const margin = document.getElementById('priceMarginPct')?.value || '50';
 
-      const text = `PRICING & UNIT MARGIN MODEL\n` +
-        `Offer: ${offerName}\n` +
-        `Delivery Cost per Unit: ${totalCost}\n` +
-        `Target Margin: ${margin}%\n` +
+      const text = `PRICING & UNIT MARGIN MODEL
+` +
+        `Offer: ${offerName}
+` +
+        `Delivery Cost per Unit: ${totalCost}
+` +
+        `Target Margin: ${margin}%
+` +
         `Recommended Price: ${recPrice}`;
       copyText(text, 'Pricing summary copied!');
     }
@@ -4131,11 +4602,18 @@
       const offer = document.getElementById('bpOffer')?.value || '';
       const price = document.getElementById('bpPrice')?.value || '';
 
-      const text = `1-PAGE BUSINESS PLAN SUMMARY\n` +
-        `Business: ${name}\nFounder: ${founder}\n\n` +
-        `Problem Solved: ${problem}\n` +
-        `Target Audience: ${audience}\n` +
-        `Core Offer: ${offer} (${price})\n` +
+      const text = `1-PAGE BUSINESS PLAN SUMMARY
+` +
+        `Business: ${name}
+Founder: ${founder}
+
+` +
+        `Problem Solved: ${problem}
+` +
+        `Target Audience: ${audience}
+` +
+        `Core Offer: ${offer} (${price})
+` +
         `Mission: ${mission}`;
       copyText(text, 'Business Plan copied!');
     }
@@ -4180,12 +4658,20 @@
       const platforms = Array.from(document.querySelectorAll('#plannerPlatformTags .topic.selected')).map(t => t.innerText).join(', ');
       const cta = document.getElementById('cpPrimaryCTA')?.value || '';
 
-      const text = `WEEKLY SOCIAL MEDIA SCHEDULE\n` +
-        `Channels: ${platforms}\n\n` +
-        `Monday (Educational): ${p1}\n` +
-        `Wednesday (Proof): ${p2}\n` +
-        `Friday (Authority): ${p3}\n` +
-        `Sunday (Offer): ${p4}\n\n` +
+      const text = `WEEKLY SOCIAL MEDIA SCHEDULE
+` +
+        `Channels: ${platforms}
+
+` +
+        `Monday (Educational): ${p1}
+` +
+        `Wednesday (Proof): ${p2}
+` +
+        `Friday (Authority): ${p3}
+` +
+        `Sunday (Offer): ${p4}
+
+` +
         `Primary CTA: ${cta}`;
       copyText(text, 'Content schedule copied!');
     }
@@ -4225,10 +4711,18 @@
       const w3 = document.getElementById('gtW3')?.value || '';
       const w4 = document.getElementById('gtW4')?.value || '';
 
-      const text = `MONTHLY SCORECARD & GOALS (${month})\n` +
-        `Theme: ${theme}\n` +
-        `Revenue Goal: ${rev}\nClients Goal: ${clients}\n\n` +
-        `Week 1: ${w1}\nWeek 2: ${w2}\nWeek 3: ${w3}\nWeek 4: ${w4}`;
+      const text = `MONTHLY SCORECARD & GOALS (${month})
+` +
+        `Theme: ${theme}
+` +
+        `Revenue Goal: ${rev}
+Clients Goal: ${clients}
+
+` +
+        `Week 1: ${w1}
+Week 2: ${w2}
+Week 3: ${w3}
+Week 4: ${w4}`;
       copyText(text, 'Goal scorecard copied!');
     }
 
@@ -4254,11 +4748,23 @@
       const o = document.getElementById('swotO')?.value || '';
       const t = document.getElementById('swotT')?.value || '';
 
-      const text = `EXECUTIVE SWOT ANALYSIS MATRIX\n\n` +
-        `[STRENGTHS]\n${s}\n\n` +
-        `[WEAKNESSES]\n${w}\n\n` +
-        `[OPPORTUNITIES]\n${o}\n\n` +
-        `[THREATS]\n${t}`;
+      const text = `EXECUTIVE SWOT ANALYSIS MATRIX
+
+` +
+        `[STRENGTHS]
+${s}
+
+` +
+        `[WEAKNESSES]
+${w}
+
+` +
+        `[OPPORTUNITIES]
+${o}
+
+` +
+        `[THREATS]
+${t}`;
       copyText(text, 'SWOT Matrix copied!');
     }
 
@@ -4292,11 +4798,16 @@
       const taglines = document.getElementById('brandTaglines')?.value || '';
       const promise = document.getElementById('brandPromise')?.value || '';
 
-      const text = `BRAND IDENTITY BRIEF\n` +
-        `Purpose: ${purpose}\n` +
-        `Personality: ${pTags}\n` +
-        `Voice: ${vTags}\n` +
-        `Tagline: ${taglines}\n` +
+      const text = `BRAND IDENTITY BRIEF
+` +
+        `Purpose: ${purpose}
+` +
+        `Personality: ${pTags}
+` +
+        `Voice: ${vTags}
+` +
+        `Tagline: ${taglines}
+` +
         `Customer Promise: ${promise}`;
       copyText(text, 'Brand Brief copied!');
     }
@@ -4327,10 +4838,14 @@
       const goals = document.getElementById('cpGoals')?.value || '';
       const channels = Array.from(document.querySelectorAll('#personaChannelTags .topic.selected')).map(t => t.innerText).join(', ');
 
-      const text = `IDEAL CUSTOMER PROFILE\n` +
-        `Demographics: ${age}, ${ind}\n` +
-        `Core Frustrations: ${prob}\n` +
-        `Goals: ${goals}\n` +
+      const text = `IDEAL CUSTOMER PROFILE
+` +
+        `Demographics: ${age}, ${ind}
+` +
+        `Core Frustrations: ${prob}
+` +
+        `Goals: ${goals}
+` +
         `Preferred Channels: ${channels}`;
       copyText(text, 'Customer Profile copied!');
     }
@@ -4373,8 +4888,8 @@
     }
 
     // 10. Filtering & Global Search Logic
-    const chips = document.querySelectorAll('.filter');
-    const cards = document.querySelectorAll('.premium-card');
+    const chips = document.querySelectorAll('.filter, .chip');
+    const cards = document.querySelectorAll('.resource-card');
     const heroSearch = document.getElementById('heroSearch');
     const resourceSearch = document.getElementById('resourceSearch');
     const emptyState = document.getElementById('emptyState');
@@ -4423,6 +4938,7 @@
       applyFilters();
     });
 
+    
     // ==========================================
     // Premium Template Modal Engine
     // ==========================================
@@ -4542,13 +5058,412 @@
       document.getElementById('modalDownloadBtn').setAttribute('href', data.pdfUrl);
       
       const openToolBtn = document.getElementById('modalOpenToolBtn');
-      if (openToolBtn)
-      
-      const openToolBtn = document.getElementById('modalOpenToolBtn');
       if (openToolBtn) {
         openToolBtn.onclick = () => {
           closeTemplateModal();
           const targetTabBtn = document.querySelector(`.tab-btn[onclick*="${data.toolTab}"]`);
-          if (targetTabBtn) targetTab
+          if (targetTabBtn) targetTabBtn.click();
+          document.getElementById('interactive-suite')?.scrollIntoView({ behavior: 'smooth' });
+        };
+      }
 
-http://googleusercontent.com/action_card_content/b05d633c-5019-4b09-9b6d-32e7b3b63aff
+      const listContainer = document.getElementById('modalSectionsList');
+      if (listContainer) {
+        listContainer.innerHTML = data.sections.map(s => `
+          <div class="modal-section-item">
+            <strong>${s.name}</strong>
+            <span style="color:var(--slate-600);">${s.detail}</span>
+          </div>
+        `).join('');
+      }
+
+      const modal = document.getElementById('templateDetailModal');
+      if (modal) {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+    }
+
+    function closeTemplateModal() {
+      const modal = document.getElementById('templateDetailModal');
+      if (modal) {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    }
+
+    document.getElementById('templateDetailModal')?.addEventListener('click', function(e) {
+      if (e.target === this) closeTemplateModal();
+    });
+
+    // 11. Business Stage Quiz Logic
+    const QUIZ_DEFAULT_HTML = '<span class="result-pill">Recommended path</span><h3>Your resource path will appear here.</h3><p>Select your answers to receive a clean resource path with recommended steps, templates, and links.</p><div class="result-block"><strong>Best first step</strong><p>Choose at least one option in each group. You can select multiple answers and uncheck any option.</p></div><p class="quiz-note">This quiz provides general business guidance only. Verify registration, tax, and compliance details through official portals.</p>';
+
+    function escapeQuizHTML(value) {
+      return String(value == null ? '' : value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    }
+
+    function sanitizeQuizText(value, max = 60) {
+      return String(value || '').replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, max);
+    }
+
+    function getCheckedValues(name) {
+      return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(i => i.value);
+    }
+
+    function getCheckedLabels(name) {
+      return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(i => {
+        const strong = i.closest('label')?.querySelector('strong');
+        return strong ? strong.textContent.trim() : i.value;
+      });
+    }
+
+    function setQuizStatus(msg, type) {
+      const s = document.getElementById('stageQuizStatus');
+      if (!s) return;
+      s.textContent = msg;
+      s.className = 'quiz-status' + (type ? ' ' + type : '');
+    }
+
+    function updateQuizProgress() {
+      const stages = getCheckedValues('businessStage');
+      const needs = getCheckedValues('businessNeed');
+      const contexts = getCheckedValues('countryContext');
+      
+      document.querySelectorAll('.quiz-option').forEach(o => {
+        const inp = o.querySelector('input[type="checkbox"]');
+        o.classList.toggle('is-selected', !!(inp && inp.checked));
+      });
+
+      const total = stages.length + needs.length + contexts.length;
+      const groups = [stages.length, needs.length, contexts.length].filter(Boolean).length;
+
+      if (groups === 3) {
+        setQuizStatus(`${total} option${total === 1 ? '' : 's'} selected. Ready to build your resource path.`, 'success');
+      } else {
+        setQuizStatus(`Complete ${groups}/3 question groups. Select at least one option in each group.`, groups ? 'warn' : '');
+      }
+      return { stages, needs, contexts, groups, total };
+    }
+
+    function stageName(v) {
+      return { idea:'Idea Stage', startup:'Startup Stage', growth:'Growth Stage', stuck:'Restart / Stuck Stage', scaling:'Scaling Stage' }[v] || v;
+    }
+    function needName(v) {
+      return { clarity:'Clarity', registration:'Registration', marketing:'Marketing', finance:'Money / Budgeting', systems:'Systems & Workflows', ai:'AI Support' }[v] || v;
+    }
+    function ctxName(v) {
+      return { nigeria:'Nigeria', us:'United States', both:'Nigeria + U.S.', general:'General' }[v] || v;
+    }
+
+    window.EGHQuizGetPath = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const r = document.getElementById('stageQuizResult');
+      const btn = document.getElementById('getResourcePathBtn');
+      if (!r) return false;
+
+      const p = updateQuizProgress();
+      if (!p.stages.length || !p.needs.length || !p.contexts.length) {
+        r.innerHTML = `<span class="result-pill">Selection needed</span><h3>Complete all 3 questions</h3><p>Please choose at least one business stage, one priority challenge, and one country context.</p><div class="result-block"><strong>Status</strong><p>${p.groups}/3 questions completed.</p></div>`;
+        return false;
+      }
+
+      if (btn) { btn.disabled = true; btn.textContent = 'Building Path...'; }
+      setQuizStatus('Building your resource path...', 'success');
+
+      const name = sanitizeQuizText(document.getElementById('visitorName')?.value || '', 60);
+      const stageNames = p.stages.map(stageName).join(', ');
+      const needNames = p.needs.map(needName).join(', ');
+      const ctxNames = p.contexts.map(ctxName).join(', ');
+
+      const templates = [];
+      if (p.stages.includes('idea') || p.needs.includes('clarity')) templates.push('Customer Profile Worksheet', 'Business Plan Template', 'AI Business Result Generator');
+      if (p.stages.includes('startup') || p.needs.includes('registration')) templates.push('Startup Checklist', 'Business Plan Template', 'Basic Business Budget Sheet');
+      if (p.stages.includes('growth') || p.needs.includes('marketing')) templates.push('Monthly Goal Tracker', 'Social Media Content Planner', 'Customer Profile Worksheet');
+      if (p.stages.includes('stuck') || p.needs.includes('systems')) templates.push('Monthly Goal Tracker', 'Business Plan Template', 'Pricing & Margin Calculator');
+      if (p.stages.includes('scaling')) templates.push('Monthly Goal Tracker', 'SWOT Analysis Matrix', 'Brand Identity Worksheet');
+      if (p.needs.includes('ai')) templates.push('AI Business Result Generator', '20 AI Prompts Guide');
+      const uniqueTemplates = [...new Set(templates)];
+
+      const order = [];
+      if (p.needs.includes('clarity') || p.stages.includes('idea')) order.push('Clarify your customer avatar, problem, offer, and expected transformation.');
+      if (p.needs.includes('registration') || p.contexts.includes('nigeria') || p.contexts.includes('us') || p.contexts.includes('both')) order.push('Review registration, tax ID (TIN/EIN), and formal compliance requirements.');
+      if (p.needs.includes('finance')) order.push('Set up unit economics and budget tracking so income, expenses, and profit margins are transparent.');
+      if (p.needs.includes('marketing')) order.push('Deploy a structured 4-pillar content plan with clear conversion calls to action.');
+      if (p.needs.includes('systems') || p.stages.includes('scaling')) order.push('Document repeatable workflows for customer onboarding, delivery, payments, and reviews.');
+      if (p.needs.includes('ai')) order.push('Use the AI Business Result Generator to create custom strategic plans and content frameworks.');
+      const uniqueOrder = [...new Set(order)];
+      if (uniqueOrder.length < 3) uniqueOrder.push('Complete the primary recommended template this week.', 'Connect with the Executive Growth Hub community for support.');
+
+      const context = [];
+      if (p.contexts.includes('nigeria') || p.contexts.includes('both')) context.push('Nigeria: Verify CAC registration, FIRS TaxPro Max, TIN readiness, SMEDAN, and NAFDAC/SON if regulated.');
+      if (p.contexts.includes('us') || p.contexts.includes('both')) context.push('U.S.: Verify SBA guidance, State registration, IRS EIN application, local business licenses, and tax records.');
+      if (p.contexts.includes('general')) context.push('General: Focus on customer clarity, pricing margins, organized bookkeeping, and operational workflows.');
+
+      const links = [
+        '<a href="#templates">Fillable Templates</a>',
+        '<a href="#ai-generator">AI Result Generator</a>',
+        '<a href="#interactive-suite">8 Interactive Tools</a>',
+        '<a href="#finance">Finance & Legal Readiness</a>'
+      ];
+      if (p.contexts.includes('nigeria') || p.contexts.includes('both')) {
+        links.push('<a href="https://services.cac.gov.ng/" target="_blank" rel="noopener">CAC Portal</a>');
+        links.push('<a href="https://taxpromax.firs.gov.ng/" target="_blank" rel="noopener">FIRS TaxPro Max</a>');
+      }
+      if (p.contexts.includes('us') || p.contexts.includes('both')) {
+        links.push('<a href="https://www.sba.gov/business-guide/10-steps-start-your-business" target="_blank" rel="noopener">SBA Business Guide</a>');
+        links.push('<a href="https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online" target="_blank" rel="noopener">IRS EIN Portal</a>');
+      }
+
+      const chips = getCheckedLabels('businessStage').concat(getCheckedLabels('businessNeed'), getCheckedLabels('countryContext')).slice(0, 12);
+      const plainText = [
+        'Executive Growth Hub Business Stage Diagnostic Result',
+        name ? `Prepared for: ${name}` : '',
+        `Stage(s): ${stageNames}`,
+        `Current Challenge(s): ${needNames}`,
+        `Context: ${ctxNames}`,
+        '',
+        'Recommended Order:',
+        ...uniqueOrder.map((x, i) => `Step ${i+1}: ${x}`),
+        '',
+        'Recommended Templates:',
+        ...uniqueTemplates.map(x => `- ${x}`)
+      ].filter(Boolean).join('\n');
+
+      const waMsg = encodeURIComponent(`Hello, I completed the Executive Growth Hub Business Stage Quiz. ${name ? 'My name is ' + name + '. ' : ''}Stage: ${stageNames}. Challenge: ${needNames}. Context: ${ctxNames}. Please help me choose the best next steps.`);
+
+      r.innerHTML = `
+        <span class="result-pill">${escapeQuizHTML(stageNames)} Resource Path</span>
+        ${name ? `<p style="margin:.5rem 0 0; color:var(--blue-700); font-weight:800;">Prepared for ${escapeQuizHTML(name)}</p>` : ''}
+        <h3 style="margin-top:6px;">Your Recommended Strategy</h3>
+        <div class="selected-chips">${chips.map(c => `<span>${escapeQuizHTML(c)}</span>`).join('')}</div>
+        <div class="result-block">
+          <strong>Recommended Order</strong>
+          <ol class="result-list">${uniqueOrder.map((x, i) => `<li><strong>Step ${i+1}:</strong> ${escapeQuizHTML(x)}</li>`).join('')}</ol>
+        </div>
+        <div class="result-block">
+          <strong>Recommended Templates</strong>
+          <ul class="result-list">${uniqueTemplates.map(x => `<li>${escapeQuizHTML(x)}</li>`).join('')}</ul>
+        </div>
+        <div class="result-block">
+          <strong>Jurisdiction Guidance</strong>
+          <ul class="result-list">${context.map(x => `<li>${escapeQuizHTML(x)}</li>`).join('')}</ul>
+        </div>
+        <div class="result-block">
+          <strong>Direct Links</strong>
+          <div class="result-links">${links.join('')}</div>
+        </div>
+        <div style="margin-top:16px; display:grid; gap:10px;">
+          <button class="btn sm secondary" onclick="copyText(decodeURIComponent('${encodeURIComponent(plainText)}'), 'Resource path copied!')">Copy My Path</button>
+          <a class="quiz-whatsapp-cta" href="https://wa.me/13238049326?text=${waMsg}" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16.04 3C9.49 3 4.16 8.3 4.16 14.82c0 2.2.61 4.34 1.78 6.2L4 29l8.18-1.9a11.9 11.9 0 0 0 5.86 1.53h.01c6.54 0 11.86-5.3 11.86-11.82C29.91 8.3 22.59 3 16.04 3Zm0 23.56h-.01a9.85 9.85 0 0 1-5.02-1.37l-.36-.22-4.85 1.13 1.15-4.72-.24-.38a9.7 9.7 0 0 1-1.49-5.18c0-5.38 4.4-9.76 9.82-9.76 5.42 0 9.82 4.38 9.82 9.76 0 5.38-4.4 9.74-9.82 9.74Zm5.38-7.31c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.46s1.07 2.86 1.22 3.06c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.75-.71 2-1.4.25-.69.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35Z"/></svg>
+            Ask for Help with this Stage on WhatsApp
+          </a>
+        </div>
+      `;
+
+      if (btn) {
+        setTimeout(() => { btn.disabled = false; btn.textContent = 'Update Resource Path'; }, 250);
+      }
+      setQuizStatus('Resource path generated successfully.', 'success');
+      return false;
+    };
+
+    window.EGHQuizReset = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const form = document.getElementById('stageQuizForm');
+      const result = document.getElementById('stageQuizResult');
+      const btn = document.getElementById('getResourcePathBtn');
+      if (form) form.reset();
+      if (result) result.innerHTML = QUIZ_DEFAULT_HTML;
+      if (btn) { btn.disabled = false; btn.textContent = 'Get My Resource Path'; }
+      updateQuizProgress();
+      setQuizStatus('Quiz reset. Select at least one option in each question group.');
+      return false;
+    };
+
+    document.querySelectorAll('#stageQuizForm input[type="checkbox"]').forEach(i => {
+      i.addEventListener('change', updateQuizProgress);
+    });
+
+    // 12. AI Business Result Generator Logic
+    const templateInstructions = {
+      businessPlan: { title: 'Business Plan and Launch Roadmap', focus: 'clarity, structure, offer, audience, startup capital, and launch actions', sections: ['Executive summary', 'Target customer avatar', 'Core offer & pricing strategy', 'Financial readiness & break-even', '90-day execution milestones'] },
+      businessIdea: { title: 'Business Idea Validation', focus: 'validating demand, identifying paying customers, and shaping the strongest offer', sections: ['Idea clarity', 'Customer pain point', 'Offer differentiation', 'Validation steps', 'First 30 days'] },
+      branding: { title: 'Branding and Positioning', focus: 'brand identity, message, customer promise, tone of voice, visual direction', sections: ['Brand positioning', 'Customer promise', 'Tone of voice guidelines', 'Trust builders', 'Brand assets to build'] },
+      marketing: { title: 'Marketing Content Plan', focus: 'visibility, 4 content pillars, social media cadence, customer education, calls to action', sections: ['Content strategy', 'Audience messaging', 'Post concepts', 'Weekly rhythm', 'Lead conversion actions'] },
+      customerService: { title: 'Customer Service & Response System', focus: 'clear replies, follow-ups, trust, service recovery, WhatsApp communication', sections: ['Communication standards', 'FAQ scripts', 'Follow-up system', 'Trust recovery language', 'Customer retention'] },
+      sales: { title: 'Sales Message and Offer Builder', focus: 'offer clarity, buyer motivation, proof, urgency, simple call to action', sections: ['Offer framing', 'Customer pain point', 'Sales copy', 'Proof & guarantee', 'Next sales steps'] },
+      websiteCopy: { title: 'Website & Landing Page Copy', focus: 'homepage structure, service copy, trust sections, FAQs, calls to action', sections: ['Hero headline & subhead', 'About section', 'Services overview', 'Testimonial & proof block', 'Conversion CTA'] },
+      operations: { title: 'Operations and Workflow Plan', focus: 'customer intake, payments, delivery, quality checks, follow-up, task tracking', sections: ['Customer intake workflow', 'Daily/weekly SOPs', 'Quality control checklist', 'Tech tools to use', 'Weekly review rhythm'] }
+    };
+
+    function buildContextAdvice(context) {
+      let guidance = '';
+      const links = [];
+      if (context === 'nigeria') {
+        guidance = 'Incorporate Nigeria business requirements: CAC registration, FIRS TaxPro Max TIN verification, SMEDAN profile, dedicated business banking, and NAFDAC/SON compliance if dealing with regulated goods.';
+        links.push('CAC Portal: https://services.cac.gov.ng/', 'FIRS TaxPro Max: https://taxpromax.firs.gov.ng/', 'SMEDAN: https://smedan.gov.ng/register-now/');
+      } else if (context === 'unitedStates') {
+        guidance = 'Incorporate U.S. setup steps: select business entity, register with Secretary of State, obtain IRS Employer Identification Number (EIN), verify municipal/county permits, and maintain clean tax books.';
+        links.push('SBA 10 Steps: https://www.sba.gov/business-guide/10-steps-start-your-business', 'IRS EIN: https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online');
+      } else if (context === 'both') {
+        guidance = 'Address cross-border operations between Nigeria and the U.S. Keep domestic and international filings distinct: CAC/FIRS in Nigeria, State/IRS in the U.S.';
+        links.push('CAC Portal: https://services.cac.gov.ng/', 'IRS EIN Portal: https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online');
+      } else {
+        guidance = 'Focus on universal business fundamentals: offer clarity, audience validation, pricing margins, break-even math, and standard operating procedures.';
+      }
+      return { guidance, links };
+    }
+
+    window.EGHGeneratePrompt = function(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const output = document.getElementById('generatedPrompt');
+      const copyBtn = document.getElementById('copyPrompt');
+      const waBtn = document.getElementById('copyWhatsAppPrompt');
+      const status = document.getElementById('generatorStatus');
+
+      const name = sanitizeQuizText(document.getElementById('businessName')?.value || '', 80);
+      const industry = sanitizeQuizText(document.getElementById('industry')?.value || '', 120);
+      const offer = sanitizeQuizText(document.getElementById('offer')?.value || '', 700);
+      const audience = sanitizeQuizText(document.getElementById('audience')?.value || '', 700);
+      const goal = sanitizeQuizText(document.getElementById('goal')?.value || '', 500);
+      const details = sanitizeQuizText(document.getElementById('details')?.value || '', 900);
+      const type = document.getElementById('promptTemplate')?.value || 'businessPlan';
+      const context = document.getElementById('businessContext')?.value || 'general';
+      const tone = document.getElementById('tone')?.value || 'professional, clear, and practical';
+      const format = document.getElementById('outputFormat')?.value || 'organized sections with headings, bullets, and action steps';
+
+      if (!name || !industry || !offer || !audience || !goal) {
+        if (status) {
+          status.textContent = 'Please complete all required fields (Name, Industry, Offer, Audience, Goal).';
+          status.className = 'generator-status warn';
+        }
+        return false;
+      }
+
+      const inst = templateInstructions[type] || templateInstructions.businessPlan;
+      const ctx = buildContextAdvice(context);
+
+      const generated = `EXECUTIVE GROWTH HUB — AI STRATEGIC BRIEF & PROMPT
+
+` +
+        `Result Type: ${inst.title}
+` +
+        `Business: ${name} (${industry})
+` +
+        `Tone: ${tone}
+` +
+        `Format: ${format}
+
+` +
+        `1. Strategic Context & Read
+` +
+        `${name} is offering ${offer}. The primary priority is to position this offer to resonate with ${audience} by demonstrating clear value, building trust, and driving decisive action.
+
+` +
+        `2. Target Audience & Positioning
+` +
+        `Audience: ${audience}
+` +
+        `- Highlight the core problem solved and direct transformation.
+` +
+        `- Address objections with proof, testimonials, case studies, or transparent pricing.
+` +
+        `- Direct leads to a friction-free conversion channel (e.g., WhatsApp, consultation booking, website).
+
+` +
+        `3. Goal Execution Blueprint
+` +
+        `Goal: ${goal}
+` +
+        `- Focus: ${inst.focus}
+` +
+        `- Framework Requirements:
+` +
+        inst.sections.map((s, i) => `  ${i+1}. ${s}`).join('\n') + `
+
+` +
+        `4. Jurisdiction Guidance
+` +
+        `${ctx.guidance}
+
+` +
+        (details ? `5. Key Constraints & Parameters
+${details}
+
+` : '') +
+        `6. Recommended Next Actions
+` +
+        `1. Open the Interactive Suite or download the corresponding fillable template.
+` +
+        `2. Copy this prompt into ChatGPT, Gemini, or Claude to generate the expanded document.
+` +
+        `3. Message Executive Growth Hub on WhatsApp (+1 323 804 9326) for feedback.`;
+
+      if (output) output.value = generated;
+      if (copyBtn) copyBtn.disabled = false;
+      if (waBtn) waBtn.disabled = false;
+      if (status) {
+        status.textContent = 'Result generated successfully! Review, copy, or share on WhatsApp.';
+        status.className = 'generator-status success';
+      }
+      return false;
+    };
+
+    document.getElementById('copyPrompt')?.addEventListener('click', function() {
+      const text = document.getElementById('generatedPrompt')?.value || '';
+      if (text) copyText(text, 'Generated strategy copied to clipboard!');
+    });
+
+    document.getElementById('copyWhatsAppPrompt')?.addEventListener('click', function() {
+      const text = document.getElementById('generatedPrompt')?.value || '';
+      const name = document.getElementById('businessName')?.value || 'my business';
+      const msg = `Hello Executive Growth Hub, here is my generated strategy for ${name}:
+
+${text}
+
+Please review and guide me on my next steps.`;
+      copyText(msg, 'WhatsApp-formatted brief copied to clipboard!');
+    });
+
+    document.getElementById('clearGenerator')?.addEventListener('click', function() {
+      document.getElementById('promptGeneratorForm')?.reset();
+      const output = document.getElementById('generatedPrompt');
+      if (output) output.value = 'Fill in the required fields and click “Generate Business Result.”';
+      document.getElementById('copyPrompt').disabled = true;
+      document.getElementById('copyWhatsAppPrompt').disabled = true;
+      const status = document.getElementById('generatorStatus');
+      if (status) {
+        status.textContent = 'Required fields are marked with an asterisk.';
+        status.className = 'generator-status';
+      }
+    });
+
+    // Character counter updates
+    ['businessName', 'industry', 'offer', 'audience', 'goal', 'details'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', function() {
+          const countEl = this.closest('.field-group')?.querySelector('.field-counter');
+          if (countEl) countEl.textContent = `${this.value.length}/${this.getAttribute('maxlength')}`;
+        });
+      }
+    });
+
+    // Initializations on load
+    loadWorksheetDrafts();
+    setCurrency(currentCurrencySymbol, currentCurrencyCode);
+    calcBudget();
+    calcPricing();
+    updatePlanPreview();
+    updateContentPlannerPreview();
+    updateGoalTrackerPreview();
+    updateSwotOutput();
+    updateBrandPreview();
+    updatePersonaPreview();
+    updateRoadmapProgress();
+    updateQuizProgress();
+  </script>
+</body>
+</html>

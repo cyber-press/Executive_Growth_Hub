@@ -62,3 +62,62 @@ An all-in-one, zero-dependency executive business planning suite, interactive fi
 ---
 
 ## 📁 Repository Structure
+
+```
+Executive_Growth_Hub/
+├── index.html          # Complete, standalone single-page application (HTML5, CSS3, JS)
+├── README.md           # Repository documentation and overview
+└── LICENSE             # MIT License
+```
+
+---
+
+## 🚀 Getting Started
+
+### Local Development / Quick Preview
+Because the entire application is built with standard vanilla web technologies (HTML5, CSS3, and ES6 JavaScript), no build tools or package managers are required:
+
+1. Clone or download the repository:
+   ```bash
+   git clone https://github.com/cyber-press/Executive_Growth_Hub.git
+   cd Executive_Growth_Hub
+   ```
+2. Open `index.html` directly in any modern browser:
+   * **macOS**: `open index.html`
+   * **Windows**: `start index.html`
+   * **Linux**: `xdg-open index.html`
+
+### Deploying to GitHub Pages
+1. Go to your repository settings on GitHub: `https://github.com/cyber-press/Executive_Growth_Hub/settings/pages`.
+2. Under **Build and deployment** &rarr; **Branch**, select `main` (or `master`) branch and `/ (root)` folder.
+3. Click **Save**. Your site will be live at `https://cyber-press.github.io/Executive_Growth_Hub/`.
+
+---
+
+## 🎨 Design System & Technologies
+
+* **Typography**: Google Fonts — [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) (Headings) & [Inter](https://fonts.google.com/specimen/Inter) (Body / UI).
+* **Color Palette**:
+  * Navy / Obsidian: `#081424`, `#0B1A2E`, `#122844`
+  * Blue / Cobalt: `#2563EB`, `#1D4ED8`, `#EFF6FF`
+  * Emerald: `#059669`, `#ECFDF5`
+  * Amber / Rose: `#D97706`, `#E11D48`
+  * Slate Neutrals: `#F8FAFC`, `#F1F5F9`, `#E2E8F0`, `#64748B`, `#0F172A`
+* **Icons**: Inline SVG iconography (crisp, scalable, and zero external font dependencies).
+* **Storage**: Browser `localStorage` API for state persistence.
+* **Printing**: Custom `@media print` style definitions for executive document exports.
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+## 🤝 Community & Support
+
+* **Organization**: Executive Growth Hub
+* **WhatsApp Community**: [+1 323 804 9326](https://wa.me/13238049326)
+* **Email**: [press.amadu@gmail.com](mailto:press.amadu@gmail.com)
+* **Location**: San Antonio, Texas
