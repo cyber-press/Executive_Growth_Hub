@@ -14,3 +14,11 @@ This release preserves the approved HUD interface and replaces the prompt genera
 - Explicit anti-fabrication guardrails and labeled assumptions
 
 The app remains static and local-first.
+
+
+## Prompt Engine v2.1
+
+- Multi-offer detection blocks acquisition/content missions when several primary offers are bundled into one field.
+- Buyer-context validation distinguishes demographic descriptions from acquisition-ready audience context.
+- Output contracts now synchronize with the selected presentation format, including 30-day timelines, tables, checklists, and copy-ready output.
+- Generated command header upgraded to `EGH AI EXECUTION COMMAND v2.1`.

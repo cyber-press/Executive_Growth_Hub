@@ -7957,7 +7957,7 @@ ${t}`;
 
 
     // ==========================================
-    // EGH AI PROMPT ENGINE v2.0
+    // EGH AI PROMPT ENGINE v2.1
     // Mission-specific validation, semantic readiness, and output contracts.
     // ==========================================
     window.EGHPromptEngineV2 = (function(){
@@ -8133,7 +8133,45 @@ ${t}`;
         if(/^(?:x|d|a|q|z){4,}$/i.test(s.replace(/\s/g,'')))return true;
         return false;
       }
-      function fieldScore(id,v){
+      function detectMultiOffer(v){
+        const s=trim(v).replace(/\s+/g,' ');
+        if(!s)return {isMulti:false,count:0,segments:[],reason:''};
+        const parts=[...new Set(s.split(/[\n;,|\/]+/).map(x=>x.trim()).filter(x=>words(x).length&&x.length>=3))];
+        const catalog=[
+          ['digital products',/\bdigital products?\b/i],['templates',/\btemplates?\b/i],['website development',/\b(?:website|web)\s*(?:development|dev|design)\b/i],
+          ['ebooks',/\be-?books?\b/i],['workbooks',/\bworkbooks?\b/i],['courses',/\bcourses?\b/i],['coaching',/\bcoaching\b/i],
+          ['consulting',/\bconsult(?:ing|ancy)\b/i],['automation',/\bautomations?\b/i],['graphic design',/\bgraphic design\b/i],
+          ['apps/software',/\b(?:apps?|software|saas)\b/i],['training',/\btraining\b/i],['membership',/\bmemberships?\b/i]
+        ];
+        const matched=[...new Set(catalog.filter(([,rx])=>rx.test(s)).map(([name])=>name))];
+        const isMulti=parts.length>=3 || matched.length>=3 || (parts.length>=2 && matched.length>=2);
+        const segments=(parts.length>=2?parts:matched).slice(0,5);
+        return {isMulti,count:Math.max(parts.length,matched.length),segments,reason:isMulti?`Multiple offers detected${segments.length?`: ${segments.join('; ')}`:''}. Choose one primary offer for this mission.`:''};
+      }
+      function buyerContextSignals(v){
+        const s=trim(v), sl=lower(s), wc=words(s).length;
+        if(!s)return {score:0,label:'Missing',reason:'No audience information supplied.',identity:false,role:false,need:false,location:false,situation:false};
+        if(isJunk(s))return {score:5,label:'Invalid',reason:'The audience looks like placeholder or test text.',identity:false,role:false,need:false,location:false,situation:false};
+        const demographic=/\b(women|woman|ladies|lady|girls|girl|men|man|boys|boy|mothers?|fathers?|parents?|adults?|youth|teens?|aged?|age\s*\d|twenties|thirties|forties|fifties|\d{2}\s*(?:-|to)\s*\d{2})\b/i.test(s);
+        const role=/\b(founders?|entrepreneurs?|business owners?|small business owners?|professionals?|students?|creators?|coaches?|consultants?|freelancers?|retailers?|vendors?|caterers?|designers?|nonprofits?|organizations?|teams?|managers?|employees?|job seekers?)\b/i.test(s);
+        const need=/\b(need|needs|want|wants|looking for|seeking|struggle|struggles|problem|problems|pain|challenge|challenges|trying to|help with|save time|grow|increase|improve|sell|market|organize|automate|launch|convert|book|find customers?|generate leads?)\b/i.test(s);
+        const location=/\b(nigeria|nigerian|africa|african|lagos|abuja|port harcourt|enugu|ghana|kenya|south africa|united states|u\.s\.|usa|texas|san antonio|uk|united kingdom|canada|local|diaspora)\b/i.test(s);
+        const situation=/\b(when|before|after|during|buy|buying|purchase|purchasing|book|booking|hire|hiring|instagram|whatsapp|tiktok|facebook|linkedin|online|e-?commerce|store|shop|business)\b/i.test(s);
+        const identity=demographic||role||(wc>=5&&!broadAudience.has(sl));
+        const contextSignals=[identity,need,location,situation].filter(Boolean).length;
+        let score=15+(identity?25:0)+(role?10:0)+(need?30:0)+(location?10:0)+(situation?10:0);
+        if(broadAudience.has(sl))score=Math.min(score,40);
+        if(contextSignals<2)score=Math.min(score,55);
+        score=clamp(score);
+        let label=score>=90?'Strong':score>=75?'Good':score>=60?'Basic':score>=40?'Broad':'Weak';
+        let reason='Audience includes enough buyer context for targeted execution.';
+        if(score<60){
+          const gaps=[]; if(!identity)gaps.push('who the buyer is'); if(!need)gaps.push('their problem or desired outcome'); if(!location&&!situation)gaps.push('their market, buying situation, or channel context');
+          reason=`Audience describes demographics but not enough buying context. Add ${gaps.slice(0,2).join(' and ') || 'the customer problem and buying situation'}.`;
+        } else if(score<75) reason='Audience is usable, but adding the customer problem, desired outcome, location, or buying situation would improve targeting.';
+        return {score,label,reason,identity,role,need,location,situation,contextSignals};
+      }
+      function fieldScore(id,v,type,fields){
         const s=trim(v), wc=words(s).length, l=s.length, sl=lower(s);
         if(!s)return {score:0,label:'Missing',reason:'No information supplied.'};
         if(isJunk(s))return {score:5,label:'Invalid',reason:'The value looks like placeholder or test text.'};
@@ -8143,17 +8181,23 @@ ${t}`;
           return {score:55,label:'Weak',reason:'Describe the business type or industry more clearly.'};
         }
         if(id==='offer'){
-          if(l>=35&&wc>=5)return {score:100,label:'Strong',reason:'Offer includes enough substance for mission-specific work.'};
-          if(l>=20&&wc>=3)return {score:80,label:'Good',reason:'Offer is usable but could include the customer outcome or what is included.'};
-          if(l>=10&&wc>=2)return {score:60,label:'Basic',reason:'Offer is minimally usable; add what you sell and the result it creates.'};
-          return {score:25,label:'Weak',reason:'Explain what you actually sell, deliver, or want to improve.'};
+          const focus=detectMultiOffer(s);
+          const focusCritical=['sales','marketing','businessIdea'].includes(type);
+          if(focus.isMulti&&focusCritical)return {score:type==='businessIdea'?55:45,label:'Needs focus',reason:focus.reason,focus};
+          if(l>=35&&wc>=5)return {score:100,label:'Strong',reason:'Offer includes enough substance for mission-specific work.',focus};
+          if(l>=20&&wc>=3)return {score:80,label:'Good',reason:'Offer is usable but could include the customer outcome or what is included.',focus};
+          if(l>=10&&wc>=2)return {score:60,label:'Basic',reason:'Offer is minimally usable; add what you sell and the result it creates.',focus};
+          return {score:25,label:'Weak',reason:'Explain what you actually sell, deliver, or want to improve.',focus};
         }
         if(id==='audience'){
-          if(broadAudience.has(sl))return {score:45,label:'Broad',reason:'Audience is too broad for targeted execution. Add location, customer type, problem, buying situation, or other useful context.'};
-          if(l>=30&&wc>=5)return {score:100,label:'Strong',reason:'Audience context is specific enough for tailored recommendations.'};
-          if(l>=18&&wc>=3)return {score:82,label:'Good',reason:'Audience is usable; more buying/problem context could improve targeting.'};
-          if(l>=10&&wc>=2)return {score:62,label:'Basic',reason:'Audience is minimally defined; narrow it further for better relevance.'};
-          return {score:35,label:'Weak',reason:'Define who this is for and what makes them relevant to the offer.'};
+          const buyer=buyerContextSignals(s);
+          const strictBuyer=['sales','marketing','businessIdea'].includes(type);
+          if(strictBuyer)return buyer;
+          if(broadAudience.has(sl))return {score:45,label:'Broad',reason:'Audience is too broad for targeted execution. Add location, customer type, problem, buying situation, or other useful context.',...buyer};
+          if(l>=30&&wc>=5)return {score:100,label:'Strong',reason:'Audience context is specific enough for tailored recommendations.',...buyer};
+          if(l>=18&&wc>=3)return {score:82,label:'Good',reason:'Audience is usable; more buying/problem context could improve targeting.',...buyer};
+          if(l>=10&&wc>=2)return {score:62,label:'Basic',reason:'Audience is minimally defined; narrow it further for better relevance.',...buyer};
+          return {score:35,label:'Weak',reason:'Define who this is for and what makes them relevant to the offer.',...buyer};
         }
         if(id==='goal'){
           if(l>=55&&wc>=8)return {score:100,label:'Strong',reason:'Objective is concrete and detailed.'};
@@ -8174,9 +8218,40 @@ ${t}`;
         if(strongest.type!==type&&strongest.score>=2&&strongest.score>=selectedHits+1)return {aligned:false,confidence:'medium',other:strongest.type,reason:`The objective reads more like ${specs[strongest.type]?.mission||strongest.type} than ${selected.mission}.`};
         return {aligned:true,confidence:selectedHits?'high':'neutral',other:null,reason:selectedHits?'Objective language matches the selected mission.':'No strong mission conflict detected.'};
       }
+      function formatKey(format){
+        const f=lower(format);
+        if(f.includes('30-day'))return '30day';
+        if(f.includes('table'))return 'table';
+        if(f.includes('checklist'))return 'checklist';
+        if(f.includes('copy')||f.includes('pasted directly'))return 'copy';
+        return 'sections';
+      }
+      function presentationContract(format,type){
+        const key=formatKey(format);
+        if(key==='30day')return 'Present the execution layer as a 30-day action plan divided into Week 1, Week 2, Week 3, and Week 4. Show the objective, actions, review point, and adjustment rule for each week.';
+        if(key==='table')return 'Present execution-heavy information in clear tables with labeled columns. Keep strategic explanation outside the tables only where necessary.';
+        if(key==='checklist')return 'Present the execution layer as a prioritized checklist with short explanations, completion criteria, and review points.';
+        if(key==='copy')return 'Prioritize copy-ready scripts, messages, hooks, CTAs, and text assets that can be pasted directly into the relevant channel. Keep commentary concise.';
+        return 'Use organized sections with descriptive headings, concise bullets, and explicit next actions.';
+      }
+      function synchronizedContract(type,spec,format){
+        const key=formatKey(format); const contract=[...spec.contract];
+        if(key==='30day'){
+          if(type==='sales') contract[contract.length-1]='End with a measurable 30-day customer-acquisition test broken into Week 1 (message and offer setup), Week 2 (outreach and follow-up), Week 3 (optimization and proof), and Week 4 (scale, revise, or stop decision). Include activity, response, conversion, and decision metrics.';
+          else if(type==='businessIdea') contract[contract.length-1]='End with a 30-day validation sprint broken into four weekly learning cycles with explicit Pivot / Iterate / Proceed criteria.';
+          else if(type==='operations') contract[contract.length-1]='End with operating KPIs, a weekly review rhythm, and a 30-day implementation sequence divided into four weekly rollout stages.';
+          else if(type==='customerService') contract.push('Add a 30-day rollout plan for implementing, testing, and improving the response system across four weeks.');
+          else if(type==='branding') contract.push('Add a 30-day implementation plan covering website, social profiles, sales assets, proof collection, and review milestones.');
+          else if(type==='websiteCopy') contract.push('Add a 30-day publishing, testing, and optimization plan for the page, CTA, proof, and conversion path.');
+          else if(type==='businessPlan') contract.push('Keep the 90-day roadmap, but add a detailed 30-day launch/execution plan for the first month with weekly actions and review points.');
+        }
+        if(type==='marketing'&&key==='copy') contract[2]='Create a complete 30-day calendar. For EACH day include: Day, Week, Recommended Channel, Pillar, Format, copy-ready Hook, copy-ready Caption/Message, CTA, Intended Customer Action, and KPI.';
+        if(type==='sales'&&key==='copy') contract[2]='Create a primary copy-ready sales message with: hook, problem, value proposition, proof strategy, offer, and one clear CTA. Keep it ready to paste into the recommended primary channel.';
+        return {contract,presentation:presentationContract(format,type),formatKey:key};
+      }
       function evaluate(fields,type){
         type=type||typeFromUI(); const spec=specs[type]||specs.sales; fields=fields||currentFields();
-        const scores={}; ['businessName','industry','offer','audience','goal','details'].forEach(id=>scores[id]=fieldScore(id,fields[id]));
+        const scores={}; ['businessName','industry','offer','audience','goal','details'].forEach(id=>scores[id]=fieldScore(id,fields[id],type,fields));
         const alignment=goalAlignment(fields.goal,type);
         if(!alignment.aligned){scores.goal={...scores.goal,score:Math.min(scores.goal.score,35),label:'Mismatch',reason:alignment.reason}}
         const required=['businessName','industry','offer','audience','goal'];
@@ -8195,7 +8270,8 @@ ${t}`;
         if(blockers.length) recommendation=blockers[0].reason;
         else if(!alignment.aligned) recommendation=alignment.reason;
         else if(!fields.details) recommendation='Core context is ready. Add only constraints that materially change the answer, such as platform, budget, deadline, exclusions, or capacity.';
-        return {type,spec,fields,scores,alignment,overall,passingCount:passing.length,blockers,ready,metrics,recommendation};
+        const presentation=synchronizedContract(type,spec,fields.format);
+        return {version:'2.1',type,spec,fields,scores,alignment,overall,passingCount:passing.length,blockers,ready,metrics,recommendation,offerFocus:scores.offer.focus||detectMultiOffer(fields.offer),buyerContext:buyerContextSignals(fields.audience),presentation};
       }
       function contextText(context){
         if(context==='nigeria')return 'Business context: Nigeria. Adapt channel, currency, operating-environment, and customer-behavior recommendations where relevant. Do not invent regulatory requirements; flag any compliance point for verification with an official source.';
@@ -8205,9 +8281,10 @@ ${t}`;
       }
       function buildPrompt(fields,type,evaluation){
         type=type||typeFromUI(); const spec=specs[type]||specs.sales; evaluation=evaluation||evaluate(fields,type); fields=fields||currentFields();
-        const contract=spec.contract.map((x,i)=>`${i+1}. ${x}`).join('\n');
+        const sync=evaluation.presentation||synchronizedContract(type,spec,fields.format);
+        const contract=sync.contract.map((x,i)=>`${i+1}. ${x}`).join('\n');
         const constraints=fields.details?fields.details:'No additional constraints supplied.';
-        return `EGH AI EXECUTION COMMAND v2.0\n\nMISSION\n${spec.mission}: ${spec.title}\n\nROLE\n${spec.role}\n\nBUSINESS CONTEXT\n- Business: ${fields.businessName}\n- Industry / business type: ${fields.industry}\n- Offer / service / process: ${fields.offer}\n- Target audience: ${fields.audience}\n- Primary objective: ${fields.goal}\n- Preferred tone: ${fields.tone}\n- User-selected presentation format: ${fields.format}\n\nOPERATING CONTEXT\n${contextText(fields.context)}\n\nADDITIONAL CONSTRAINTS\n${constraints}\n\nMISSION RULES\n- Base the response on the supplied business, offer, audience, and objective. Do not silently substitute a different mission.\n- Do not invent testimonials, customer results, statistics, prices, credentials, policies, budgets, legal status, market research, or other factual claims that were not supplied.\n- When optional information is missing, make the smallest reasonable assumption, label it clearly as an assumption or recommendation, and continue producing the deliverable.\n- If a missing fact would make the result unsafe or materially misleading, identify that gap instead of fabricating an answer.\n- Prefer concrete actions, examples, scripts, tables, checklists, and measurable review points over generic advice.\n- Tailor recommendations to this specific business and audience; avoid generic motivational filler.\n- ${spec.optional}\n\nOUTPUT CONTRACT\n${contract}\n\nQUALITY STANDARD\n- Make every section execution-ready and internally consistent.\n- Ensure the final output directly serves the stated primary objective.\n- Distinguish known inputs from recommendations and assumptions.\n- Where a KPI is recommended but no baseline/target was supplied, label the KPI as a recommended measure rather than inventing a target value.\n- Do not repeat this prompt back to the user. Produce the requested deliverable.\n\nFINAL INSTRUCTION\nProceed now. Start with a short "Assumptions & Gaps" block only if needed, then deliver the full ${spec.title} using the output contract above.`;
+        return `EGH AI EXECUTION COMMAND v2.1\n\nMISSION\n${spec.mission}: ${spec.title}\n\nROLE\n${spec.role}\n\nBUSINESS CONTEXT\n- Business: ${fields.businessName}\n- Industry / business type: ${fields.industry}\n- Offer / service / process: ${fields.offer}\n- Target audience: ${fields.audience}\n- Primary objective: ${fields.goal}\n- Preferred tone: ${fields.tone}\n- User-selected presentation format: ${fields.format}\n\nOPERATING CONTEXT\n${contextText(fields.context)}\n\nADDITIONAL CONSTRAINTS\n${constraints}\n\nMISSION RULES\n- Base the response on the supplied business, offer, audience, and objective. Do not silently substitute a different mission.\n- Focus on one primary offer for acquisition/conversion work unless the prompt explicitly asks for a portfolio strategy.\n- Do not invent testimonials, customer results, statistics, prices, credentials, policies, budgets, legal status, market research, or other factual claims that were not supplied.\n- When optional information is missing, make the smallest reasonable assumption, label it clearly as an assumption or recommendation, and continue producing the deliverable.\n- If a missing fact would make the result unsafe or materially misleading, identify that gap instead of fabricating an answer.\n- Prefer concrete actions, examples, scripts, tables, checklists, and measurable review points over generic advice.\n- Tailor recommendations to this specific business and buyer context; avoid generic motivational filler.\n- ${spec.optional}\n\nOUTPUT CONTRACT\n${contract}\n\nPRESENTATION CONTRACT\n${sync.presentation}\n\nQUALITY STANDARD\n- Make every section execution-ready and internally consistent.\n- Ensure the final output directly serves the stated primary objective.\n- Distinguish known inputs from recommendations and assumptions.\n- Where a KPI is recommended but no baseline/target was supplied, label the KPI as a recommended measure rather than inventing a target value.\n- Honor the selected presentation format throughout the deliverable; do not revert to a conflicting duration or structure.\n- Do not repeat this prompt back to the user. Produce the requested deliverable.\n\nFINAL INSTRUCTION\nProceed now. Start with a short "Assumptions & Gaps" block only if needed, then deliver the full ${spec.title} using the synchronized output and presentation contracts above.`;
       }
       function evaluateCurrent(){return evaluate(currentFields(),typeFromUI())}
       return {specs,legacyDefaults,currentFields,evaluate,evaluateCurrent,buildPrompt,typeFromUI};
