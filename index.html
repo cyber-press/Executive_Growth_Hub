@@ -3991,7 +3991,7 @@ body.egh-v21 #ai-generator,body.egh-v21 #finance{padding:26px 0 48px!important;b
 
 
 <style id="egh26-ai-hud-css">
-/* EGH v2.7 — AI War Room command environment */
+/* EGH v2.8 — AI War Room command environment */
 body.egh-ai-active{background:#030914!important}
 body.egh-ai-active .ux-workspace-banner{background:rgba(5,13,27,.92)!important;border-bottom:1px solid rgba(74,222,255,.14)!important;backdrop-filter:blur(20px)!important;box-shadow:0 10px 40px rgba(0,0,0,.18)!important}
 body.egh-ai-active .ux-workspace-title button{background:rgba(255,255,255,.035)!important;border-color:rgba(126,161,214,.16)!important;color:#93a7c8!important}
@@ -4045,6 +4045,95 @@ body.egh-ai-active .ux-workspace-tools button.primary{background:linear-gradient
 @media(prefers-reduced-motion:reduce){.egh26-ring.r1,.egh26-ring.r2{animation:none!important}}
 </style>
 
+
+<style id="egh28-hud-lock-css">
+/* EGH v2.8.1 REFERENCE MATCH */
+body.egh-ai-active{--e28-cyan:#61e7ff;--e28-green:#6fffd2;--e28-violet:#755cff;--e28-line:rgba(97,231,255,.16);--e28-panel:#08182d;--e28-panel2:#0b1e38}
+body.egh-ai-active .egh23-ai-workspace{grid-template-columns:minmax(0,1.08fr) minmax(610px,.92fr)!important;gap:18px!important;align-items:start!important}
+body.egh-ai-active .egh25-command-console{position:sticky!important;top:70px!important;height:calc(100vh - 86px)!important;min-height:760px!important;max-height:1040px!important;padding:20px!important;display:flex!important;flex-direction:column!important;overflow:hidden!important;border-color:rgba(97,231,255,.22)!important;box-shadow:0 0 0 1px rgba(97,231,255,.025),0 24px 70px rgba(0,0,0,.42)!important}
+body.egh-ai-active .egh25-command-console>.egh23-output-head,body.egh-ai-active .egh25-command-console>.egh25-telemetry,body.egh-ai-active .egh25-command-console>.egh26-console-tabs,body.egh-ai-active .egh25-command-console>.generator-status,body.egh-ai-active .egh25-command-console>.egh25-output-actions,body.egh-ai-active .egh25-command-console>.egh28-intelligence-panel{flex:0 0 auto!important}
+body.egh-ai-active .egh25-command-console>.egh26-console-panel{flex:1 1 auto!important;min-height:220px!important;overflow:hidden!important}
+body.egh-ai-active .egh25-command-console>.egh26-console-panel.is-active{display:flex!important}
+body.egh-ai-active .egh25-command-console .egh25-console-window{height:100%!important;min-height:0!important}
+body.egh-ai-active .egh25-command-console #generatedPrompt{height:100%!important;min-height:0!important;resize:none!important}
+body.egh-ai-active .egh26-context-panel,body.egh-ai-active .egh26-quality-panel{overflow:auto!important}
+
+/* Functional multi-signal intelligence core */
+.egh28-core-shell{width:270px!important;height:270px!important}
+.egh28-signal-orbit{position:absolute;inset:0;z-index:6;pointer-events:none}
+.egh28-orbit-signal{position:absolute;display:flex;align-items:center;gap:4px;color:#4d6b89;font:800 .48rem Inter;letter-spacing:.08em;transition:.25s ease;text-shadow:0 0 12px transparent}
+.egh28-orbit-signal i{width:8px;height:8px;border-radius:50%;background:#233b55;border:1px solid #41617d;box-shadow:0 0 0 4px rgba(74,111,145,.06);transition:.25s ease}
+.egh28-orbit-signal.is-live{color:var(--e28-cyan);text-shadow:0 0 12px rgba(97,231,255,.5)}.egh28-orbit-signal.is-live i{background:var(--e28-green);border-color:#b4ffe8;box-shadow:0 0 8px var(--e28-green),0 0 0 5px rgba(111,255,210,.09)}
+.egh28-orbit-signal.s1{left:8px;top:78px}.egh28-orbit-signal.s2{right:8px;top:78px}.egh28-orbit-signal.s3{right:16px;bottom:54px}.egh28-orbit-signal.s4{left:16px;bottom:54px}.egh28-orbit-signal.s5{left:50%;top:9px;transform:translateX(-50%)}
+.egh28-core-shell .egh26-core-readout em{display:block;margin-top:5px;color:#66819a;font:800 .48rem Inter;letter-spacing:.1em;font-style:normal}.egh28-core-shell .egh26-core-readout strong{font-size:2.45rem!important}.egh28-core-shell .egh26-core-readout span{font-size:.62rem!important}
+.egh28-core-shell.is-compiling .egh26-ring.r3{box-shadow:0 0 42px rgba(97,231,255,.42);border-color:rgba(97,231,255,.85)!important}.egh28-core-shell.is-compiling .egh26-core-readout{animation:e28Pulse .55s ease-in-out infinite alternate}@keyframes e28Pulse{to{filter:brightness(1.4);transform:scale(1.025)}}
+
+/* Denser event stream */
+body.egh-ai-active .egh26-hud-pane:last-child{overflow:hidden!important}.egh26-log{max-height:250px!important;overflow:auto!important;display:grid!important;gap:3px!important;padding-right:5px!important;scrollbar-width:thin;scrollbar-color:#21425d transparent}.egh26-log-row{grid-template-columns:48px 1fr!important;gap:8px!important;min-height:20px!important;padding:3px 0!important;border-bottom:1px solid rgba(97,231,255,.035)}.egh26-log-row time{font-size:.6rem!important;color:#31536f!important;font-family:ui-monospace,SFMono-Regular,Menlo,monospace!important}.egh26-log-row span{font-size:.66rem!important;line-height:1.45!important;color:#7390ab!important;font-family:ui-monospace,SFMono-Regular,Menlo,monospace!important}.egh26-log-row span.ok{color:#70eac9!important}.egh26-log-row span.warn{color:#ffc96b!important}
+
+/* Expanded Prompt Intelligence */
+.egh28-intelligence-panel{margin-top:12px;padding:14px;border:1px solid rgba(97,231,255,.12);border-radius:14px;background:linear-gradient(145deg,rgba(4,16,31,.78),rgba(10,27,50,.8));display:grid;gap:12px;overflow:auto;max-height:310px;scrollbar-width:thin;scrollbar-color:#21425d transparent}
+.egh28-intel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:9px;border-bottom:1px solid rgba(97,231,255,.1)}.egh28-intel-head>div{display:grid;gap:2px}.egh28-intel-head small{font:800 .55rem Inter;color:#476986;letter-spacing:.13em}.egh28-intel-head strong{font:800 .95rem 'Plus Jakarta Sans';color:#dcecff}.egh28-intel-head>span{font:850 .58rem Inter;letter-spacing:.08em;color:#69edcf;background:rgba(54,211,153,.08);border:1px solid rgba(54,211,153,.15);padding:5px 8px;border-radius:999px;text-transform:uppercase}
+.egh28-intel-score-row{display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:center}.egh28-intel-score{border-right:1px solid rgba(97,231,255,.1)}.egh28-intel-score strong{display:block;font:850 1.55rem 'Plus Jakarta Sans';color:#fff}.egh28-intel-score span{display:block;font:800 .5rem Inter;letter-spacing:.1em;color:#55738f}.egh28-intel-coverage>div:first-child{display:flex;justify-content:space-between;gap:10px}.egh28-intel-coverage span{font-size:.67rem;color:#7e99b2}.egh28-intel-coverage strong{font-size:.69rem;color:#b9d9ef}.egh28-mini-track{height:5px;background:#102943;border-radius:999px;margin-top:7px;overflow:hidden}.egh28-mini-track i{display:block;width:0;height:100%;background:linear-gradient(90deg,#6a62ff,#5de6ff,#6fffd2);border-radius:999px;transition:.25s ease}
+.egh28-signal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.egh28-signal-grid span{font-size:.65rem;color:#607c97}.egh28-signal-grid span.is-live{color:#73e9d0;text-shadow:0 0 12px rgba(111,255,210,.15)}
+.egh28-profile{display:grid;gap:7px}.egh28-profile-row{display:grid;grid-template-columns:76px 1fr 54px;align-items:center;gap:8px}.egh28-profile-row>span{font-size:.61rem;color:#7792ab}.egh28-profile-row>div{height:4px;background:#102943;border-radius:999px;overflow:hidden}.egh28-profile-row>div i{display:block;width:0;height:100%;background:linear-gradient(90deg,#5868ff,#60ddff);border-radius:999px;transition:.3s ease}.egh28-profile-row>strong{font-size:.57rem;color:#8aa6bf;text-align:right;text-transform:uppercase;letter-spacing:.04em}.egh28-recommendation{padding:9px 10px;border-left:2px solid #5ce3ff;background:rgba(92,227,255,.035);border-radius:0 8px 8px 0}.egh28-recommendation small{display:block;font:800 .5rem Inter;color:#4c7694;letter-spacing:.12em}.egh28-recommendation p{margin:4px 0 0!important;font-size:.66rem!important;line-height:1.48!important;color:#8eaac0!important}
+
+/* Mission archive */
+body.egh-ai-active .egh23-ai-history{padding:20px!important}.egh28-archive-actions{display:flex;align-items:center;gap:12px}.egh28-archive-actions>span{font:850 .58rem Inter;letter-spacing:.1em;color:#55cde9;background:rgba(85,205,233,.06);border:1px solid rgba(85,205,233,.13);border-radius:999px;padding:6px 9px}.egh23-history-list{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}.egh28-archive-item{display:grid;grid-template-columns:145px minmax(0,1fr) 150px 86px;gap:16px;align-items:center;min-height:86px;padding:13px 14px;border:1px solid rgba(97,231,255,.09);background:linear-gradient(90deg,rgba(14,35,61,.72),rgba(9,26,47,.5));border-radius:12px;transition:.2s ease}.egh28-archive-item:hover{border-color:rgba(97,231,255,.24);background:linear-gradient(90deg,rgba(17,42,72,.84),rgba(10,30,55,.62));transform:translateX(2px)}.egh28-archive-code{display:grid;gap:4px;border-right:1px solid rgba(97,231,255,.09);padding-right:12px}.egh28-archive-code b{font:850 .72rem ui-monospace,SFMono-Regular,Menlo,monospace;color:#61e7ff;letter-spacing:.08em}.egh28-archive-code span{font:800 .49rem Inter;color:#536f89;letter-spacing:.11em}.egh28-archive-main{min-width:0}.egh28-archive-main>strong{display:block;font-size:.81rem!important;color:#d8e7f6!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.egh28-archive-main>small{display:block;font-size:.66rem!important;color:#718aa2!important;margin-top:2px}.egh28-archive-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}.egh28-archive-meta span{font-size:.55rem;color:#496984}.egh28-archive-quality>div{height:5px;background:#102b47;border-radius:999px;overflow:hidden}.egh28-archive-quality>div i{display:block;height:100%;background:linear-gradient(90deg,#605fff,#58dfff,#6fffd2);border-radius:999px}.egh28-archive-quality>span{display:block;text-align:right;margin-top:5px;font-size:.55rem;color:#55758e}.egh28-archive-item>button{border:1px solid rgba(112,123,255,.18);background:rgba(91,100,255,.1);color:#99a4ff;border-radius:8px;min-height:34px;font:850 .58rem Inter;letter-spacing:.06em;cursor:pointer}.egh28-archive-item>button:hover{background:#5661f6;color:#fff;border-color:#6f79ff}
+
+/* Autofill should never break the HUD palette */
+body.egh-ai-active .egh23-ai-form input:-webkit-autofill,body.egh-ai-active .egh23-ai-form input:-webkit-autofill:hover,body.egh-ai-active .egh23-ai-form input:-webkit-autofill:focus{-webkit-text-fill-color:#e7f2ff!important;-webkit-box-shadow:0 0 0 1000px #071426 inset!important;box-shadow:0 0 0 1000px #071426 inset!important;caret-color:#e7f2ff!important;transition:background-color 9999s ease-out 0s!important}
+
+@media(max-width:1500px){body.egh-ai-active .egh23-ai-workspace{grid-template-columns:minmax(0,1fr) minmax(520px,.88fr)!important}.egh28-core-shell{width:240px!important;height:240px!important}}
+@media(max-width:1320px){body.egh-ai-active .egh25-command-console{position:static!important;height:auto!important;max-height:none!important;min-height:760px!important}.egh28-intelligence-panel{max-height:none!important}}
+@media(max-width:900px){.egh28-archive-item{grid-template-columns:100px 1fr 80px}.egh28-archive-quality{display:none}}
+@media(max-width:760px){.egh28-archive-item{grid-template-columns:1fr auto;gap:9px}.egh28-archive-code{border:0;padding:0;grid-column:1}.egh28-archive-main{grid-column:1/-1}.egh28-archive-item>button{grid-column:2;grid-row:1}.egh28-intel-score-row{grid-template-columns:90px 1fr}.egh28-signal-grid{grid-template-columns:1fr}.egh28-core-shell{width:220px!important;height:220px!important}}
+@media(prefers-reduced-motion:reduce){.egh28-core-shell.is-compiling .egh26-core-readout{animation:none!important}.egh28-archive-item:hover{transform:none}}
+</style>
+
+
+<style id="egh281-reference-match-css">
+/* EGH v2.8.1 — desktop implementation matched to approved reference */
+@media (min-width:1321px){
+  body.egh-ai-active{--egh-sidebar:176px!important;padding-left:176px!important}
+  body.egh-ai-active .egh-sidebar{width:176px!important;padding:0 10px 12px!important;overflow:hidden!important}
+  body.egh-ai-active .egh-side-brand{min-height:62px!important;padding:0 7px!important;gap:8px!important}
+  body.egh-ai-active .egh-side-logo{width:34px!important;height:34px!important;font-size:.68rem!important;border-radius:9px!important}
+  body.egh-ai-active .egh-side-brand strong{font-size:.77rem!important;line-height:1.05!important}
+  body.egh-ai-active .egh-side-brand span{font-size:.55rem!important;margin-top:2px!important}
+  body.egh-ai-active .egh-side-nav{padding:10px 0 6px!important;gap:1px!important}
+  body.egh-ai-active .egh-side-link{padding:8px 8px!important;font-size:.72rem!important;border-radius:8px!important;gap:9px!important}
+  body.egh-ai-active .egh-side-link svg{width:15px!important;height:15px!important}
+  body.egh-ai-active .egh-nav-group{font-size:.52rem!important;margin:10px 7px 4px!important}
+  body.egh-ai-active .egh-side-footer{display:none!important}
+  body.egh-ai-active .egh-ref-side-promo{display:block!important}
+  body.egh-ai-active .ux-workspace-banner{height:50px!important;padding:0 14px!important}
+  body.egh-ai-active .ux-workspace-title button{width:30px!important;height:30px!important;border-radius:8px!important;background:#071525!important;border-color:#16415e!important;color:#75dfff!important}
+  body.egh-ai-active .ux-workspace-copy small{font-size:.54rem!important;color:#4f7996!important}
+  body.egh-ai-active .ux-workspace-copy strong{font-size:.82rem!important;color:#eef8ff!important}
+  body.egh-ai-active .ux-workspace-tools button{padding:6px 10px!important;font-size:.62rem!important;min-height:32px!important;background:#061426!important;border-color:#163852!important;color:#a9c6dc!important}
+  body.egh-ai-active .ux-workspace-tools button.primary{background:#143e72!important;color:#fff!important;border-color:#235c9e!important}
+  body.egh-ai-active #main>#ai-generator>.container{max-width:none!important;width:calc(100% - 24px)!important;padding:12px 0 18px!important}
+  body.egh-ai-active #main>#ai-generator{padding-bottom:18px!important}
+}
+body.egh-ai-active .egh-ref-side-promo{display:none;margin-top:auto;position:relative;min-height:175px;padding:12px 10px 8px;border:1px solid rgba(37,188,255,.16);border-radius:12px;background:linear-gradient(165deg,rgba(8,28,52,.98),rgba(5,19,37,.98));overflow:hidden}
+.egh-ref-side-promo strong{position:relative;z-index:2;display:block;color:#58dfff;font:800 .95rem/1.15 'Plus Jakarta Sans';letter-spacing:-.03em}.egh-ref-side-promo>span{position:relative;z-index:2;display:block;color:#6f8ba7;font-size:.57rem;line-height:1.45;margin-top:8px;max-width:110px}.egh-ref-side-promo svg{position:absolute;left:8px;right:8px;bottom:29px;width:calc(100% - 16px);height:54px;opacity:.75}.egh-ref-side-globe{position:absolute;right:-38px;bottom:20px;width:120px;height:150px;background:url('assets/hud_globe_side.png') center/cover no-repeat;opacity:.46;filter:saturate(1.25) contrast(1.05)}.egh-ref-side-status{position:absolute;left:10px;right:10px;bottom:7px;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;color:#6986a0}.egh-ref-side-status b{display:flex;align-items:center;gap:5px;color:#4de8ae;font-weight:750}.egh-ref-side-status i{width:7px;height:7px;border-radius:50%;background:#20e98d;box-shadow:0 0 10px #20e98d}
+body.egh-ai-active .egh25-command-hero{position:relative!important;grid-template-columns:minmax(0,1fr) 300px!important;min-height:126px!important;padding:14px 16px!important;margin-bottom:8px!important;border-radius:9px!important;overflow:hidden!important;background:linear-gradient(100deg,#06162b 0%,#071b32 66%,#061528 100%)!important}
+body.egh-ai-active .egh25-command-hero:before{content:"";position:absolute;left:38%;top:-18px;width:410px;height:175px;background:url('assets/hud_globe_top.png') center/cover no-repeat;opacity:.84;filter:saturate(1.3) contrast(1.08);pointer-events:none}
+body.egh-ai-active .egh25-command-hero:after{display:none!important}.egh-ref-hero-globe{display:none}.egh-ref-hero-quote{position:absolute;right:325px;top:30px;z-index:2;margin:0;color:#83b8e4;font:italic .62rem/1.55 Inter;text-align:left;max-width:165px;text-shadow:0 0 12px rgba(54,181,255,.3)}.egh-ref-hero-quote span{display:block;margin-top:5px;font-size:.52rem;color:#4b7999;font-style:normal}
+body.egh-ai-active .egh25-command-hero h2{font-size:1.75rem!important;margin-bottom:3px!important;letter-spacing:-.04em!important}.egh25-command-hero p{font-size:.69rem!important;max-width:520px!important;line-height:1.42!important}.egh25-command-kicker{font-size:.52rem!important;margin-bottom:5px!important}.egh25-system-trust{margin-top:7px!important;gap:5px!important}.egh25-system-trust span{font-size:.5rem!important;padding:4px 7px!important}.egh25-command-controls{min-width:0!important;gap:7px!important}.egh25-engine-status{border-radius:8px!important}.egh25-engine-status>div{padding:7px 9px!important}.egh25-engine-status small{font-size:.45rem!important}.egh25-engine-status strong{font-size:.66rem!important;margin-top:2px!important}.egh25-command-controls .egh23-btn{min-height:32px!important;padding:0 10px!important;font-size:.6rem!important;border-radius:7px!important}
+body.egh-ai-active .egh23-ai-context{min-height:54px!important;padding:7px 10px!important;margin-bottom:7px!important;border-radius:8px!important}.egh23-context-heading{gap:8px!important;padding-right:10px!important}.egh23-context-icon{width:30px!important;height:30px!important;border-radius:7px!important}.egh23-context-heading strong{font-size:.7rem!important}.egh23-context-heading small{font-size:.52rem!important}.egh23-context-grid{gap:6px!important}.egh23-context-item{min-height:40px!important;padding:6px 9px!important;border-radius:7px!important}.egh23-context-item span{font-size:.45rem!important}.egh23-context-item strong{font-size:.65rem!important;margin-top:2px!important}
+body.egh-ai-active .egh26-hud{grid-template-columns:.95fr 1.03fr 1.15fr!important;gap:7px!important;margin:7px 0!important}.egh26-hud-pane,.egh26-core{border-radius:8px!important;min-height:190px!important}.egh26-hud-pane{padding:10px!important}.egh26-hud-head{margin-bottom:6px!important}.egh26-hud-head span{font-size:.56rem!important}.egh26-hud-head b{font-size:.45rem!important}.egh26-diagnostics{grid-template-columns:repeat(4,1fr)!important;gap:5px!important}.egh26-diagnostic{min-height:58px!important;padding:7px 8px!important;border-radius:7px!important}.egh26-diagnostic small{font-size:.42rem!important}.egh26-diagnostic strong{font-size:.66rem!important;margin-top:4px!important}.egh-ref-disabled{color:#ff6a79!important}.egh26-core{padding:0!important;display:grid!important;place-items:center!important;background:radial-gradient(circle at center,rgba(11,149,205,.22),rgba(3,18,34,.96) 68%)!important}.egh26-core-shell{width:184px!important;height:184px!important}.egh28-core-shell .egh26-core-readout strong{font-size:2rem!important}.egh28-core-shell .egh26-core-readout span{font-size:.52rem!important}.egh28-core-shell .egh26-core-readout em{font-size:.42rem!important}.egh28-orbit-signal{font-size:.44rem!important;padding:3px 6px;border:1px solid rgba(41,214,255,.16);background:#072038;border-radius:999px}.egh28-orbit-signal i{width:7px!important;height:7px!important}.egh28-orbit-signal.s1{left:-10px!important;top:55px!important}.egh28-orbit-signal.s2{right:-10px!important;top:55px!important}.egh28-orbit-signal.s3{right:1px!important;bottom:31px!important}.egh28-orbit-signal.s4{left:1px!important;bottom:31px!important}.egh28-orbit-signal.s5{top:-1px!important}.egh26-log{max-height:164px!important;gap:0!important}.egh26-log-row{grid-template-columns:48px 12px 1fr!important;gap:4px!important;min-height:16px!important;padding:1px 0!important;border:0!important}.egh26-log-row:before{content:"";grid-column:2;width:6px;height:6px;border-radius:50%;background:#35e9a5;box-shadow:0 0 8px rgba(53,233,165,.55);margin-top:4px}.egh26-log-row time{grid-column:1;font-size:.47rem!important}.egh26-log-row span{grid-column:3;font-size:.55rem!important;line-height:1.25!important}
+body.egh-ai-active .egh23-ai-task-head{margin:7px 0 5px!important}.egh23-ai-task-head h3{font-size:.82rem!important}.egh23-step{width:26px!important;height:26px!important;min-width:26px!important;font-size:.55rem!important;border-radius:6px!important}.egh23-ai-task-head .egh23-muted{font-size:.52rem!important}.egh23-ai-modes{gap:6px!important;margin-bottom:7px!important}.egh23-ai-section .egh23-ai-mode{min-height:84px!important;padding:9px!important;border-radius:8px!important}.egh23-ai-section .egh23-mode-icon{width:28px!important;height:28px!important;border-radius:7px!important;font-size:.7rem!important;margin-bottom:6px!important}.egh23-ai-mode strong{font-size:.67rem!important}.egh23-ai-mode small{font-size:.49rem!important;line-height:1.25!important}.egh25-mode-code{font-size:.42rem!important;top:6px!important;right:7px!important}.egh26-mission-status{font-size:.4rem!important;left:9px!important;bottom:5px!important}
+body.egh-ai-active .egh23-ai-workspace{grid-template-columns:1.04fr .96fr!important;gap:7px!important;margin-top:0!important}.egh23-ai-config-card{padding:10px 12px!important;border-radius:8px!important}.egh23-card-head{margin-bottom:4px!important}.egh23-card-head h3{font-size:.82rem!important}.egh23-card-head p{font-size:.52rem!important}.egh25-readiness-ring{width:58px!important;height:58px!important}.egh25-readiness-ring strong{font-size:.88rem!important}.egh25-readiness-ring span{font-size:.38rem!important}.egh25-strength-track{height:4px!important;margin:4px 0 7px!important}.egh25-signal-matrix{gap:4px!important;margin-bottom:5px!important}.egh25-signal-matrix span{padding:5px!important;font-size:.52rem!important;border-radius:6px!important}
+body.egh-ai-active .egh23-ai-form{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px 8px!important}.egh26-form-label{display:none!important}.egh23-ai-form .field-group{gap:3px!important}.egh23-ai-form label{font-size:.54rem!important}.egh23-ai-form input,.egh23-ai-form select,.egh23-ai-form textarea{font-size:.64rem!important;min-height:32px!important;padding:6px 8px!important;border-radius:6px!important}.egh23-ai-form textarea{min-height:48px!important;line-height:1.32!important}.egh23-ai-form .field-group:has(#promptTemplate){grid-column:1}.egh23-ai-form .field-group:has(#jurisdiction){grid-column:2}.egh23-ai-form .field-group:has(#audience){grid-column:3;grid-row:1}.egh23-ai-form .field-group:has(#businessName){grid-column:1}.egh23-ai-form .field-group:has(#industry){grid-column:2}.egh23-ai-form .field-group:has(#goal){grid-column:3}.egh23-ai-form .field-group:has(#offer){grid-column:1/3}.egh23-ai-form .field-group:has(#tone){grid-column:1}.egh23-ai-form .field-group:has(#outputFormat){grid-column:2}.egh23-ai-form .egh23-advanced{grid-column:1/4!important;border-radius:6px!important}.egh23-advanced summary{padding:6px 8px!important;font-size:.54rem!important}.egh23-advanced summary span{font-size:.46rem!important}.egh23-ai-form .egh23-privacy-note{grid-column:1/3!important;min-height:34px!important;padding:6px 8px!important;border-radius:6px!important}.egh23-privacy-note>span{font-size:.65rem!important}.egh23-privacy-note strong{font-size:.56rem!important}.egh23-privacy-note p{font-size:.45rem!important;line-height:1.3!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.egh23-ai-form .egh23-generator-actions{grid-column:3!important;align-self:stretch!important}.egh25-generate-wrap{height:100%!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:6px!important}.egh25-shortcut{font-size:.44rem!important}.egh23-ai-section #generatePromptBtn{min-height:38px!important;font-size:.62rem!important;padding:0 12px!important;border-radius:7px!important}
+body.egh-ai-active .egh25-command-console{position:relative!important;top:auto!important;height:auto!important;min-height:0!important;max-height:none!important;padding:10px!important;border-radius:8px!important}.egh25-command-console .egh23-output-head{margin-bottom:5px!important}.egh25-command-console .egh23-output-head h3{font-size:.8rem!important}.egh25-command-console .egh23-output-head p{font-size:.48rem!important}.egh25-console-badges span{font-size:.42rem!important;padding:4px 7px!important}.egh25-telemetry{margin:5px 0!important;gap:5px!important}.egh25-telemetry>div{min-height:42px!important;padding:6px 8px!important;border-radius:6px!important}.egh25-telemetry span{font-size:.42rem!important}.egh25-telemetry strong{font-size:.62rem!important}.egh26-console-tabs{margin:5px 0!important;padding-bottom:4px!important}.egh26-console-tabs button{font-size:.45rem!important;padding:4px 7px!important}.egh26-console-panel.is-active{display:block!important;flex:none!important}.egh25-console-window{height:134px!important;min-height:134px!important}.egh25-console-window #generatedPrompt{height:100px!important;min-height:100px!important;font-size:.57rem!important;line-height:1.4!important;padding:7px!important}.egh25-console-bar{height:24px!important;padding:0 7px!important}.egh25-console-bar span{width:5px!important;height:5px!important}.egh25-console-bar b{font-size:.4rem!important}.generator-status{display:none!important}.egh25-output-actions{gap:5px!important;margin-top:5px!important}.egh25-output-actions button{min-height:30px!important;font-size:.5rem!important;border-radius:6px!important}.egh28-intelligence-panel{max-height:none!important;margin-top:6px!important;padding:7px 8px!important;border-radius:7px!important;display:grid!important;grid-template-columns:98px 105px 1fr 1fr!important;gap:7px!important;align-items:center!important;overflow:hidden!important}.egh28-intel-head{grid-column:1/-1!important;padding-bottom:5px!important;margin-bottom:0!important}.egh28-intel-head small{display:none!important}.egh28-intel-head strong{font-size:.68rem!important}.egh28-intel-head>span{font-size:.42rem!important;padding:3px 6px!important}.egh28-intel-score-row{grid-column:1/3!important;grid-template-columns:70px 1fr!important;gap:8px!important}.egh28-intel-score strong{font-size:1rem!important}.egh28-intel-score span{font-size:.4rem!important}.egh28-intel-coverage span,.egh28-intel-coverage strong{font-size:.46rem!important}.egh28-mini-track{height:4px!important;margin-top:4px!important}.egh28-signal-grid{grid-column:3!important;grid-template-columns:1fr 1fr!important;gap:3px!important}.egh28-signal-grid span{font-size:.43rem!important}.egh28-profile{grid-column:4!important;gap:3px!important}.egh28-profile-row{grid-template-columns:42px 1fr 28px!important;gap:4px!important}.egh28-profile-row>span{font-size:.42rem!important}.egh28-profile-row>strong{font-size:.38rem!important}.egh28-profile-row>div{height:3px!important}.egh28-recommendation{grid-column:1/-1!important;padding:5px 7px!important;border-radius:0 5px 5px 0!important}.egh28-recommendation small{font-size:.39rem!important}.egh28-recommendation p{font-size:.43rem!important;margin-top:2px!important}
+body.egh-ai-active .egh23-ai-history{margin-top:6px!important;padding:6px 8px!important;border-radius:8px!important}.egh23-ai-history .egh23-section-head{margin:0 0 5px!important}.egh23-ai-history h3{font-size:.7rem!important}.egh23-ai-history p{font-size:.46rem!important}.egh-ref-archive-toolbar{display:flex!important;gap:5px!important;align-items:center!important}.egh-ref-archive-toolbar>span{display:none!important}.egh-ref-archive-toolbar input,.egh-ref-archive-toolbar select{height:24px;border:1px solid rgba(97,231,255,.12);background:#061629;color:#9ab8d0;border-radius:5px;padding:0 7px;font:600 .46rem Inter}.egh-ref-archive-toolbar input{width:145px}.egh-ref-archive-toolbar select{width:74px}.egh-ref-archive-toolbar button{font-size:.44rem!important;padding:3px 5px!important}.egh23-history-list{gap:2px!important}.egh28-archive-item{min-height:26px!important;padding:3px 5px!important;border-radius:4px!important;grid-template-columns:54px 110px 1.3fr 1fr 68px 58px!important;gap:6px!important;background:rgba(5,20,35,.72)!important}.egh28-archive-code{border:0!important;padding:0!important;display:block!important}.egh28-archive-code b{font-size:.42rem!important}.egh28-archive-code span{font-size:.38rem!important}.egh28-archive-main{display:contents!important}.egh28-archive-main>strong{font-size:.45rem!important;white-space:nowrap!important}.egh28-archive-main>small{font-size:.42rem!important;margin:0!important}.egh28-archive-meta{display:contents!important}.egh28-archive-meta span{font-size:.39rem!important}.egh28-archive-meta span:nth-child(n+2){display:none!important}.egh28-archive-quality>div{height:3px!important}.egh28-archive-quality>span{font-size:.38rem!important;margin-top:1px!important}.egh28-archive-item>button{min-height:20px!important;font-size:.4rem!important;border-radius:4px!important}
+@media (min-width:1321px) and (max-height:850px){body.egh-ai-active .egh25-command-hero{min-height:112px!important}.egh26-hud-pane,.egh26-core{min-height:172px!important}.egh26-core-shell{width:170px!important;height:170px!important}.egh23-ai-section .egh23-ai-mode{min-height:76px!important}.egh23-ai-form textarea{min-height:42px!important}.egh25-console-window{height:118px!important;min-height:118px!important}.egh25-console-window #generatedPrompt{height:84px!important;min-height:84px!important}}
+@media (max-width:1320px){.egh-ref-hero-quote{display:none!important}}
+</style>
+
+
 </head>
 <body class="egh-v21">
 
@@ -4070,6 +4159,14 @@ body.egh-ai-active .ux-workspace-tools button.primary{background:linear-gradient
       <button class="egh-side-link" data-view="startup" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l4 8-4 12-4-12 4-8z"/><path d="M8 10H3l3 5M16 10h5l-3 5"/></svg><span>Startup Guide</span></button>
       <button class="egh-side-link" data-view="finance" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10M19 21V10M4 10h16L12 3 4 10z"/></svg><span>Legal & Finance</span></button>
     </nav>
+
+    <div class="egh-ref-side-promo" aria-hidden="true">
+      <div class="egh-ref-side-globe"></div>
+      <strong>Build faster.<br>Grow smarter.</strong>
+      <span>AI-powered business intelligence for founders and operators.</span>
+      <svg viewBox="0 0 150 58" preserveAspectRatio="none"><polyline points="0,48 24,32 48,39 72,20 96,29 120,8 150,17" fill="none" stroke="url(#refLine)" stroke-width="2"/><defs><linearGradient id="refLine"><stop stop-color="#17dfff"/><stop offset="1" stop-color="#5967ff"/></linearGradient></defs></svg>
+      <div class="egh-ref-side-status"><span>v2.8.1</span><b><i></i>System Online</b></div>
+    </div>
     <div class="egh-side-footer"><a href="legal.html#privacy">Privacy & Legal</a><a href="https://wa.me/13238049326" target="_blank" rel="noopener">Community Support</a></div>
   </aside>
 
@@ -4428,6 +4525,7 @@ body.egh-ai-active .ux-workspace-tools button.primary{background:linear-gradient
               <span>Context-aware</span><span>0 external AI calls</span><span>Private local drafting</span><span>Export-ready</span>
             </div>
           </div>
+<div class="egh-ref-hero-globe" aria-hidden="true"></div><blockquote class="egh-ref-hero-quote">“Turn your business knowledge into<br>real momentum.”<span>— Executive Growth Hub</span></blockquote>
           <div class="egh25-command-controls">
             <div class="egh25-engine-status" aria-label="Prompt engine status">
               <div><small>PROMPT ENGINE</small><strong><i></i>Ready</strong></div>
@@ -4463,13 +4561,27 @@ body.egh-ai-active .ux-workspace-tools button.primary{background:linear-gradient
               <div class="egh26-diagnostic"><small>Voice channel</small><strong>Not connected</strong></div>
               <div class="egh26-diagnostic"><small>Command chars</small><strong id="hudChars">0</strong></div>
               <div class="egh26-diagnostic"><small>Session</small><strong id="hudElapsed">00:00</strong></div>
+              <div class="egh26-diagnostic"><small>Engine</small><strong>Local v1.0</strong></div>
+              <div class="egh26-diagnostic"><small>External AI</small><strong class="egh-ref-disabled">Disabled</strong></div>
             </div>
           </div>
           <div class="egh26-core">
-            <div class="egh26-core-shell" id="hudCore" style="--hud-score:0">
+            <div class="egh26-core-shell egh28-core-shell" id="hudCore" style="--hud-score:0">
               <span class="egh26-ring r1"></span><span class="egh26-ring r2"></span><span class="egh26-ring r3"></span><span class="egh26-ring r4"></span>
-              <div class="egh26-core-readout"><small>INTELLIGENCE CORE</small><strong id="hudScore">0%</strong><span id="hudCoreState">Standby</span></div>
-              <div class="egh26-core-label">EGH // LOCAL // HUD CORE</div>
+              <span class="egh283-core-grid" aria-hidden="true"></span>
+              <span class="egh283-core-sweep" aria-hidden="true"></span>
+              <span class="egh283-crosshair axis-x" aria-hidden="true"></span>
+              <span class="egh283-crosshair axis-y" aria-hidden="true"></span>
+              <span class="egh283-core-pulse" aria-hidden="true"></span>
+              <div class="egh28-signal-orbit" aria-label="Core context signals">
+                <span class="egh28-orbit-signal s1" data-core-signal="businessName"><i></i><b>Business</b></span>
+                <span class="egh28-orbit-signal s2" data-core-signal="industry"><i></i><b>Industry</b></span>
+                <span class="egh28-orbit-signal s3" data-core-signal="offer"><i></i><b>Offer</b></span>
+                <span class="egh28-orbit-signal s4" data-core-signal="audience"><i></i><b>Audience</b></span>
+                <span class="egh28-orbit-signal s5" data-core-signal="goal"><i></i><b>Objective</b></span>
+              </div>
+              <div class="egh26-core-readout"><small>INTELLIGENCE CORE</small><strong id="hudScore">0%</strong><span id="hudCoreState">Standby</span><em id="hudCoreSignalReadout">0 / 5 SIGNALS</em></div>
+              <div class="egh26-core-label">EGH // LOCAL // MULTI-SIGNAL CORE</div>
             </div>
           </div>
           <div class="egh26-hud-pane">
@@ -4645,16 +4757,40 @@ body.egh-ai-active .ux-workspace-tools button.primary{background:linear-gradient
               <button class="egh23-btn egh23-btn-outline-dark" id="copyWhatsAppPrompt" type="button" disabled>WhatsApp copy</button>
               <button class="egh23-btn egh23-btn-outline-dark" id="downloadPromptBtn" type="button" disabled>Export .txt</button>
             </div>
-            <div class="egh23-quality-card egh25-intelligence-card">
-              <div class="egh25-quality-head"><strong>Prompt intelligence</strong><span id="aiQualityLabel">Needs context</span></div>
-              <div class="egh23-quality-grid"><span id="aiDiagObjective">○ Clear objective</span><span id="aiDiagAudience">○ Defined audience</span><span id="aiDiagOffer">○ Specific offer</span><span id="aiDiagConstraints">○ Useful constraints</span></div>
-            </div>
+            <section class="egh28-intelligence-panel" aria-labelledby="promptIntelligenceTitle">
+              <div class="egh28-intel-head">
+                <div><small>INTELLIGENCE LAYER</small><strong id="promptIntelligenceTitle">Prompt Intelligence</strong></div>
+                <span id="aiQualityLabel">Needs context</span>
+              </div>
+              <div class="egh28-intel-score-row">
+                <div class="egh28-intel-score"><strong id="aiIntelScore">0%</strong><span>MISSION QUALITY</span></div>
+                <div class="egh28-intel-coverage">
+                  <div><span>Context coverage</span><strong id="aiIntelCoverage">0 / 5</strong></div>
+                  <div class="egh28-mini-track"><i id="aiIntelCoverageBar"></i></div>
+                </div>
+              </div>
+              <div class="egh28-signal-grid" aria-label="Prompt context coverage">
+                <span id="aiDiagBusiness">○ Business identity</span>
+                <span id="aiDiagIndustry">○ Industry context</span>
+                <span id="aiDiagOffer">○ Specific offer</span>
+                <span id="aiDiagAudience">○ Defined audience</span>
+                <span id="aiDiagObjective">○ Clear objective</span>
+                <span id="aiDiagConstraints">○ Useful constraints</span>
+              </div>
+              <div class="egh28-profile">
+                <div class="egh28-profile-row"><span>Clarity</span><div><i id="aiMetricClarity"></i></div><strong id="aiMetricClarityLabel">Low</strong></div>
+                <div class="egh28-profile-row"><span>Specificity</span><div><i id="aiMetricSpecificity"></i></div><strong id="aiMetricSpecificityLabel">Low</strong></div>
+                <div class="egh28-profile-row"><span>Context</span><div><i id="aiMetricContext"></i></div><strong id="aiMetricContextLabel">Low</strong></div>
+                <div class="egh28-profile-row"><span>Actionability</span><div><i id="aiMetricActionability"></i></div><strong id="aiMetricActionabilityLabel">Low</strong></div>
+              </div>
+              <div class="egh28-recommendation"><small>SYSTEM RECOMMENDATION</small><p id="aiIntelRecommendation">Complete the five core signals to build an execution-ready command.</p></div>
+            </section>
           </aside>
         </div>
 
         <section class="egh23-ai-history" aria-labelledby="aiHistoryTitle">
-          <div class="egh23-section-head"><div><span class="egh23-step">04</span><div><h3 id="aiHistoryTitle">Mission history</h3><p>Recent compiled commands saved only in this browser.</p></div></div><button class="egh23-text-btn" id="clearAIHistory" type="button">Clear history</button></div>
-          <div class="egh23-history-list" id="aiPromptHistory"><div class="egh23-history-empty">Generate a prompt and it will appear here for quick reuse.</div></div>
+          <div class="egh23-section-head"><div><span class="egh23-step">04</span><div><h3 id="aiHistoryTitle">Mission Archive</h3><p>Compiled commands, context quality, and recovery points stored only in this browser.</p></div></div><div class="egh28-archive-actions egh-ref-archive-toolbar"><span id="aiArchiveCount">00 SAVED</span><input id="eghArchiveSearch" type="search" placeholder="Search missions..." aria-label="Search mission archive"><select id="eghArchiveType" aria-label="Filter archive by type"><option value="all">All types</option><option value="sales">Acquisition</option><option value="marketing">Marketing</option><option value="businessIdea">Validation</option><option value="businessPlan">Strategy</option><option value="customerService">Service</option><option value="operations">Operations</option></select><select id="eghArchiveTime" aria-label="Filter archive by time"><option value="all">All time</option><option value="today">Today</option><option value="week">7 days</option></select><button class="egh23-text-btn" id="clearAIHistory" type="button">Clear history</button></div></div>
+          <div class="egh23-history-list" id="aiPromptHistory"><div class="egh23-history-empty">Compile a command and it will appear here as a recoverable mission.</div></div>
         </section>
       </div>
     </section>
@@ -7819,6 +7955,264 @@ ${t}`;
       operations: { title: 'Operations and Workflow Plan', focus: 'customer intake, payments, delivery, quality checks, follow-up, task tracking', sections: ['Customer intake workflow', 'Daily/weekly SOPs', 'Quality control checklist', 'Tech tools to use', 'Weekly review rhythm'] }
     };
 
+
+    // ==========================================
+    // EGH AI PROMPT ENGINE v2.0
+    // Mission-specific validation, semantic readiness, and output contracts.
+    // ==========================================
+    window.EGHPromptEngineV2 = (function(){
+      const trim=v=>String(v??'').trim();
+      const words=v=>trim(v).split(/\s+/).filter(Boolean);
+      const lower=v=>trim(v).toLowerCase();
+      const clamp=n=>Math.max(0,Math.min(100,Math.round(n)));
+      const junkExact=new Set(['test','testing','asdf','qwerty','xxxxx','xxxx','ddddd','ddd','n/a','na','none','unknown','tbd','placeholder','sample']);
+      const broadAudience=new Set(['everyone','all','all people','general public','customers','people','businesses','small businesses','business owners','entrepreneurs','black communities','black community','women','men','adults']);
+      const legacyDefaults={
+        sales:'Create a clear customer acquisition offer, sales message, and follow-up sequence for warm prospects.',
+        marketing:'Create a practical content and campaign plan that attracts the right customers and drives inquiries.',
+        businessIdea:'Stress-test this offer, identify the strongest customer problem, key assumptions, risks, and the fastest validation steps.',
+        businessPlan:'Turn the business idea into a focused plan with priorities, milestones, risks, and immediate next actions.',
+        customerService:'Create a customer reply and follow-up system that is helpful, consistent, and appropriate for WhatsApp or direct messages.',
+        operations:'Create a simple repeatable workflow or SOP for this process, including steps, owner, quality checks, and handoff points.'
+      };
+      const specs={
+        sales:{
+          title:'Customer Acquisition & Sales Conversion System',
+          role:'Act as a senior direct-response sales strategist and small-business conversion advisor.',
+          mission:'Get Customers',
+          defaultGoal:legacyDefaults.sales,
+          keywords:['sales','sell','offer','prospect','lead','conversion','customer','follow-up','follow up','outreach','message','close'],
+          contract:[
+            'Diagnose the offer in one concise paragraph: customer problem, promised outcome, and strongest reason to act.',
+            'Define the most relevant buyer motivations, objections, and trust requirements for the supplied audience.',
+            'Create a primary sales message with: hook, problem, value proposition, proof strategy, offer, and one clear CTA.',
+            'Provide 3 message variations for different contexts (for example WhatsApp, DM, email, or landing page) without inventing facts.',
+            'Create a 5-touch follow-up sequence with timing, purpose, message, and stop condition.',
+            'Provide an objection-handling matrix with objection, likely cause, response, and evidence needed.',
+            'End with a measurable 14-day sales test: activity target, response KPI, conversion KPI, and decision rule.'
+          ],
+          optional:'If price, proof, channel, or conversion target is missing, state a labeled assumption or recommend what to supply; do not fabricate testimonials, guarantees, or results.'
+        },
+        marketing:{
+          title:'30-Day Customer Acquisition Content Plan',
+          role:'Act as a senior content strategist and customer-acquisition marketer.',
+          mission:'Create Content',
+          defaultGoal:legacyDefaults.marketing,
+          keywords:['content','campaign','marketing','visibility','social','post','posts','reel','video','inquiries','leads','audience','engagement'],
+          contract:[
+            'Begin with a one-paragraph campaign thesis connecting the offer, audience problem, desired outcome, and conversion action.',
+            'Define 4 content pillars: Education, Proof, Authority, and Direct Offer. Adapt names only when the supplied business clearly requires it.',
+            'Create a complete 30-day calendar. For EACH day include: Day, Week, Recommended Channel, Pillar, Format, Hook, Core Message, CTA, Intended Customer Action, and KPI.',
+            'Give each week a distinct objective and explain what should change based on results from the prior week.',
+            'Include a lead-conversion workflow showing what happens after someone comments, clicks, replies, or sends a DM.',
+            'Provide a weekly review scorecard: content published, reach, engagement, inquiries, qualified leads, sales/conversions, best topic, and next adjustment.',
+            'End with 5 experiments to improve performance during the 30 days.'
+          ],
+          optional:'If channels, posting capacity, budget, price, or campaign target are missing, recommend sensible options and label them as recommendations rather than known facts.'
+        },
+        businessIdea:{
+          title:'Offer Validation & Evidence Plan',
+          role:'Act as a lean validation strategist focused on evidence, customer problems, and fast learning.',
+          mission:'Validate an Offer',
+          defaultGoal:legacyDefaults.businessIdea,
+          keywords:['validate','validation','stress-test','stress test','assumption','assumptions','risk','risks','evidence','test','demand','hypothesis','problem'],
+          contract:[
+            'State the offer hypothesis, customer problem hypothesis, and expected customer outcome.',
+            'List the 5 riskiest assumptions in priority order and explain why each could invalidate the offer.',
+            'Separate what is known from what is assumed based only on the supplied context.',
+            'Design the fastest validation test for each major assumption, including method, sample, evidence to collect, and pass/fail threshold.',
+            'Provide a short customer interview or outreach script that avoids leading questions.',
+            'Create an evidence scoreboard with assumption, evidence required, current confidence, next test, and decision rule.',
+            'End with a 14-day validation sprint and explicit Pivot / Iterate / Proceed criteria.'
+          ],
+          optional:'Do not treat enthusiasm, likes, or vague interest as validated demand. Prefer behavioral evidence such as replies, deposits, bookings, trials, or purchases when appropriate.'
+        },
+        businessPlan:{
+          title:'Focused Business Plan & 90-Day Execution Roadmap',
+          role:'Act as a pragmatic small-business strategist and execution planner.',
+          mission:'Build a Plan',
+          defaultGoal:legacyDefaults.businessPlan,
+          keywords:['plan','roadmap','milestone','strategy','priorities','priority','90-day','90 day','launch','execution','business plan'],
+          contract:[
+            'Create a concise executive summary covering customer, problem, offer, revenue logic, and current objective.',
+            'Define the target customer and buying situation without inventing demographic facts not supplied.',
+            'Describe the offer, delivery model, differentiation, and key assumptions.',
+            'Create a go-to-market plan covering acquisition channels, conversion path, and retention/follow-up.',
+            'Create a financial-readiness section listing the numbers that must be known; calculate only when actual inputs are supplied.',
+            'Build a 90-day roadmap broken into Days 1-30, 31-60, and 61-90 with milestones, owners/roles, dependencies, and success measures.',
+            'End with the top 5 risks and the next 3 actions to execute this week.'
+          ],
+          optional:'Do not invent market size, revenue projections, costs, margins, legal status, or funding assumptions. Identify missing numbers explicitly.'
+        },
+        customerService:{
+          title:'Customer Service & WhatsApp Response System',
+          role:'Act as a customer-experience operations strategist specializing in clear, human, repeatable service communication.',
+          mission:'Customer Replies',
+          defaultGoal:legacyDefaults.customerService,
+          keywords:['customer service','reply','replies','support','whatsapp','follow-up','follow up','complaint','service recovery','faq','response'],
+          contract:[
+            'Define the service standard: tone, response expectations, escalation principles, and what the business should never promise.',
+            'Create reusable response templates for first inquiry, price/request-for-info, unavailable item/service, delay, complaint, payment confirmation, follow-up, and post-purchase check-in.',
+            'Create a simple FAQ response library based only on supplied facts; use placeholders for unknown policies or prices.',
+            'Create a follow-up cadence with timing, message purpose, and stop rules so the business does not spam customers.',
+            'Create a service-recovery flow for mistakes, delays, or dissatisfied customers.',
+            'Define escalation triggers showing when the issue must move from script to owner/manager review.',
+            'End with 5 customer-service metrics and a weekly review checklist.'
+          ],
+          optional:'Do not invent refund policies, delivery promises, guarantees, prices, or legal obligations. Use clearly marked placeholders when such policies were not supplied.'
+        },
+        operations:{
+          title:'Operations, Workflow & SOP System',
+          role:'Act as an operations architect who converts recurring business work into clear, auditable workflows.',
+          mission:'Build a System',
+          defaultGoal:legacyDefaults.operations,
+          keywords:['workflow','sop','process','system','operations','handoff','quality','procedure','steps','owner','tracking','automation'],
+          contract:[
+            'Define the process objective, trigger, start condition, end condition, and customer/business outcome.',
+            'Map the workflow step-by-step. For each step include owner/role, input, action, tool/system, output, and handoff.',
+            'Identify bottlenecks, failure modes, duplicate work, and decisions that currently depend on memory or manual follow-up.',
+            'Create a standard operating procedure with numbered steps, decision points, exception handling, and quality checks.',
+            'Create a responsibility matrix for roles involved; use role labels rather than inventing employee names.',
+            'Recommend automation opportunities only where the process is clear enough to automate safely.',
+            'End with operating KPIs, a weekly review rhythm, and an implementation sequence for the next 14 days.'
+          ],
+          optional:'If the current process steps, volume, tools, or failure points are missing, identify them as discovery gaps and proceed with a clearly labeled baseline workflow rather than pretending they are known.'
+        },
+        branding:{
+          title:'Brand Positioning & Messaging System',
+          role:'Act as a senior brand strategist focused on positioning, message clarity, trust, and practical implementation.',
+          mission:'Brand Positioning',
+          defaultGoal:'Clarify the brand position, customer promise, messaging pillars, tone, and trust signals so the business is easier to understand and choose.',
+          keywords:['brand','branding','positioning','message','messaging','tone','identity','promise','voice'],
+          contract:[
+            'Define the positioning statement: who the business serves, what it helps them achieve, category/context, and why it is different.',
+            'Create a customer promise and value proposition grounded only in supplied facts.',
+            'Create 3-5 messaging pillars with proof or evidence requirements for each.',
+            'Define tone-of-voice rules: sound like, avoid sounding like, preferred vocabulary, and example phrases.',
+            'Create tagline/headline directions without making unsupported superiority claims.',
+            'Define trust builders and the evidence/assets the business should collect.',
+            'End with a practical brand implementation checklist for website, social profiles, sales materials, and customer communication.'
+          ],
+          optional:'Do not invent awards, testimonials, certifications, market leadership, or customer outcomes.'
+        },
+        websiteCopy:{
+          title:'Conversion-Focused Website & Landing Page Copy',
+          role:'Act as a conversion copywriter and information architect for a small-business website or landing page.',
+          mission:'Website Copy',
+          defaultGoal:'Create clear website or landing-page copy that explains the offer, builds trust, and guides the target customer to one primary action.',
+          keywords:['website','landing page','homepage','copy','headline','conversion','cta','call to action','web'],
+          contract:[
+            'Create a hero section with headline, supporting statement, and primary CTA.',
+            'Create a problem/need section using the audience context without exaggeration or fear tactics.',
+            'Create an offer section explaining what is included, who it is for, and the practical outcome.',
+            'Create trust/proof placeholders only where real proof was not supplied; never invent testimonials or statistics.',
+            'Create an About/Why Us section tied to relevance and credibility.',
+            'Create FAQs that reduce genuine buying friction without inventing policies.',
+            'Create a final CTA section and a recommended page hierarchy.'
+          ],
+          optional:'If price, proof, guarantees, delivery details, or contact method are missing, use labeled placeholders rather than fabricating them.'
+        }
+      };
+      function typeFromUI(){return document.getElementById('promptTemplate')?.value||'sales'}
+      function currentFields(){
+        return {
+          businessName:trim(document.getElementById('businessName')?.value),
+          industry:trim(document.getElementById('industry')?.value),
+          offer:trim(document.getElementById('offer')?.value),
+          audience:trim(document.getElementById('audience')?.value),
+          goal:trim(document.getElementById('goal')?.value),
+          details:trim(document.getElementById('details')?.value),
+          tone:trim(document.getElementById('tone')?.value)||'professional, clear, and practical',
+          format:trim(document.getElementById('outputFormat')?.value)||'organized sections with headings, bullets, and action steps',
+          context:document.getElementById('businessContext')?.value||'general'
+        }
+      }
+      function isJunk(v){
+        const s=lower(v); if(!s)return true; if(junkExact.has(s))return true;
+        if(/^(.)\1{3,}$/.test(s.replace(/\s/g,'')))return true;
+        if(/^(?:x|d|a|q|z){4,}$/i.test(s.replace(/\s/g,'')))return true;
+        return false;
+      }
+      function fieldScore(id,v){
+        const s=trim(v), wc=words(s).length, l=s.length, sl=lower(s);
+        if(!s)return {score:0,label:'Missing',reason:'No information supplied.'};
+        if(isJunk(s))return {score:5,label:'Invalid',reason:'The value looks like placeholder or test text.'};
+        if(id==='businessName') return l>=3?{score:100,label:'Strong',reason:'Business identity is usable.'}:{score:55,label:'Weak',reason:'Use a recognizable business or working name.'};
+        if(id==='industry'){
+          if(l>=8||wc>=2)return {score:95,label:'Strong',reason:'Industry context is specific enough to guide the response.'};
+          return {score:55,label:'Weak',reason:'Describe the business type or industry more clearly.'};
+        }
+        if(id==='offer'){
+          if(l>=35&&wc>=5)return {score:100,label:'Strong',reason:'Offer includes enough substance for mission-specific work.'};
+          if(l>=20&&wc>=3)return {score:80,label:'Good',reason:'Offer is usable but could include the customer outcome or what is included.'};
+          if(l>=10&&wc>=2)return {score:60,label:'Basic',reason:'Offer is minimally usable; add what you sell and the result it creates.'};
+          return {score:25,label:'Weak',reason:'Explain what you actually sell, deliver, or want to improve.'};
+        }
+        if(id==='audience'){
+          if(broadAudience.has(sl))return {score:45,label:'Broad',reason:'Audience is too broad for targeted execution. Add location, customer type, problem, buying situation, or other useful context.'};
+          if(l>=30&&wc>=5)return {score:100,label:'Strong',reason:'Audience context is specific enough for tailored recommendations.'};
+          if(l>=18&&wc>=3)return {score:82,label:'Good',reason:'Audience is usable; more buying/problem context could improve targeting.'};
+          if(l>=10&&wc>=2)return {score:62,label:'Basic',reason:'Audience is minimally defined; narrow it further for better relevance.'};
+          return {score:35,label:'Weak',reason:'Define who this is for and what makes them relevant to the offer.'};
+        }
+        if(id==='goal'){
+          if(l>=55&&wc>=8)return {score:100,label:'Strong',reason:'Objective is concrete and detailed.'};
+          if(l>=35&&wc>=6)return {score:85,label:'Good',reason:'Objective is clear enough to execute.'};
+          if(l>=22&&wc>=4)return {score:70,label:'Basic',reason:'Objective is usable but could specify the outcome or success condition.'};
+          return {score:40,label:'Weak',reason:'State the outcome you want the AI to produce or help achieve.'};
+        }
+        if(id==='details') return l>=18?{score:100,label:'Provided',reason:'Useful optional constraints supplied.'}:{score:0,label:'Optional',reason:'No material constraints supplied.'};
+        return {score:50,label:'Basic',reason:'Context supplied.'};
+      }
+      function keywordScore(text,arr){const s=lower(text);return arr.reduce((n,k)=>n+(s.includes(k)?1:0),0)}
+      function goalAlignment(goal,type){
+        const selected=specs[type]||specs.sales; const selectedHits=keywordScore(goal,selected.keywords);
+        let strongest={type,score:selectedHits};
+        Object.entries(specs).forEach(([k,s])=>{const sc=keywordScore(goal,s.keywords);if(sc>strongest.score)strongest={type:k,score:sc}});
+        const exactOther=Object.entries(legacyDefaults).find(([k,v])=>k!==type&&lower(v)===lower(goal));
+        if(exactOther)return {aligned:false,confidence:'high',other:exactOther[0],reason:`The objective is the default for ${specs[exactOther[0]]?.mission||exactOther[0]}, not ${selected.mission}.`};
+        if(strongest.type!==type&&strongest.score>=2&&strongest.score>=selectedHits+1)return {aligned:false,confidence:'medium',other:strongest.type,reason:`The objective reads more like ${specs[strongest.type]?.mission||strongest.type} than ${selected.mission}.`};
+        return {aligned:true,confidence:selectedHits?'high':'neutral',other:null,reason:selectedHits?'Objective language matches the selected mission.':'No strong mission conflict detected.'};
+      }
+      function evaluate(fields,type){
+        type=type||typeFromUI(); const spec=specs[type]||specs.sales; fields=fields||currentFields();
+        const scores={}; ['businessName','industry','offer','audience','goal','details'].forEach(id=>scores[id]=fieldScore(id,fields[id]));
+        const alignment=goalAlignment(fields.goal,type);
+        if(!alignment.aligned){scores.goal={...scores.goal,score:Math.min(scores.goal.score,35),label:'Mismatch',reason:alignment.reason}}
+        const required=['businessName','industry','offer','audience','goal'];
+        const weights={businessName:.10,industry:.10,offer:.25,audience:.20,goal:.35};
+        const overall=clamp(required.reduce((sum,id)=>sum+scores[id].score*weights[id],0));
+        const passing=required.filter(id=>scores[id].score>=60);
+        const blockers=required.filter(id=>scores[id].score<60).map(id=>({id,...scores[id]}));
+        const ready=blockers.length===0&&overall>=75&&alignment.aligned;
+        const metrics={
+          clarity:clamp(scores.goal.score*.65+scores.businessName.score*.15+scores.industry.score*.20),
+          specificity:clamp(scores.offer.score*.45+scores.audience.score*.40+scores.details.score*.15),
+          context:clamp(required.reduce((s,id)=>s+scores[id].score,0)/required.length),
+          actionability:clamp(scores.goal.score*.50+scores.offer.score*.25+scores.audience.score*.15+(scores.details.score||50)*.10)
+        };
+        let recommendation='Core context is strong enough to compile an execution-ready command.';
+        if(blockers.length) recommendation=blockers[0].reason;
+        else if(!alignment.aligned) recommendation=alignment.reason;
+        else if(!fields.details) recommendation='Core context is ready. Add only constraints that materially change the answer, such as platform, budget, deadline, exclusions, or capacity.';
+        return {type,spec,fields,scores,alignment,overall,passingCount:passing.length,blockers,ready,metrics,recommendation};
+      }
+      function contextText(context){
+        if(context==='nigeria')return 'Business context: Nigeria. Adapt channel, currency, operating-environment, and customer-behavior recommendations where relevant. Do not invent regulatory requirements; flag any compliance point for verification with an official source.';
+        if(context==='unitedStates')return 'Business context: United States. Adapt channel, operating-environment, and customer-behavior recommendations where relevant. Do not invent state/local legal requirements; flag any compliance point for verification with an official source.';
+        if(context==='both')return 'Business context: Nigeria + United States cross-border. Keep market, currency, operating, and compliance assumptions separated by jurisdiction. Do not merge legal or tax requirements.';
+        return 'No specific jurisdiction constraint was supplied. Avoid jurisdiction-specific legal, tax, or regulatory claims unless the user later provides a location.';
+      }
+      function buildPrompt(fields,type,evaluation){
+        type=type||typeFromUI(); const spec=specs[type]||specs.sales; evaluation=evaluation||evaluate(fields,type); fields=fields||currentFields();
+        const contract=spec.contract.map((x,i)=>`${i+1}. ${x}`).join('\n');
+        const constraints=fields.details?fields.details:'No additional constraints supplied.';
+        return `EGH AI EXECUTION COMMAND v2.0\n\nMISSION\n${spec.mission}: ${spec.title}\n\nROLE\n${spec.role}\n\nBUSINESS CONTEXT\n- Business: ${fields.businessName}\n- Industry / business type: ${fields.industry}\n- Offer / service / process: ${fields.offer}\n- Target audience: ${fields.audience}\n- Primary objective: ${fields.goal}\n- Preferred tone: ${fields.tone}\n- User-selected presentation format: ${fields.format}\n\nOPERATING CONTEXT\n${contextText(fields.context)}\n\nADDITIONAL CONSTRAINTS\n${constraints}\n\nMISSION RULES\n- Base the response on the supplied business, offer, audience, and objective. Do not silently substitute a different mission.\n- Do not invent testimonials, customer results, statistics, prices, credentials, policies, budgets, legal status, market research, or other factual claims that were not supplied.\n- When optional information is missing, make the smallest reasonable assumption, label it clearly as an assumption or recommendation, and continue producing the deliverable.\n- If a missing fact would make the result unsafe or materially misleading, identify that gap instead of fabricating an answer.\n- Prefer concrete actions, examples, scripts, tables, checklists, and measurable review points over generic advice.\n- Tailor recommendations to this specific business and audience; avoid generic motivational filler.\n- ${spec.optional}\n\nOUTPUT CONTRACT\n${contract}\n\nQUALITY STANDARD\n- Make every section execution-ready and internally consistent.\n- Ensure the final output directly serves the stated primary objective.\n- Distinguish known inputs from recommendations and assumptions.\n- Where a KPI is recommended but no baseline/target was supplied, label the KPI as a recommended measure rather than inventing a target value.\n- Do not repeat this prompt back to the user. Produce the requested deliverable.\n\nFINAL INSTRUCTION\nProceed now. Start with a short "Assumptions & Gaps" block only if needed, then deliver the full ${spec.title} using the output contract above.`;
+      }
+      function evaluateCurrent(){return evaluate(currentFields(),typeFromUI())}
+      return {specs,legacyDefaults,currentFields,evaluate,evaluateCurrent,buildPrompt,typeFromUI};
+    })();
+
     function buildContextAdvice(context) {
       let guidance = '';
       const links = [];
@@ -7842,135 +8236,37 @@ ${t}`;
         if (e.preventDefault) e.preventDefault();
         if (e.stopPropagation) e.stopPropagation();
       }
-
-      const output = document.getElementById('generatedPrompt');
-      const copyBtn = document.getElementById('copyPrompt');
-      const waBtn = document.getElementById('copyWhatsAppPrompt');
-      const status = document.getElementById('generatorStatus');
-
-      const nameEl = document.getElementById('businessName');
-      const industryEl = document.getElementById('industry');
-      const offerEl = document.getElementById('offer');
-      const audienceEl = document.getElementById('audience');
-      const goalEl = document.getElementById('goal');
-      const detailsEl = document.getElementById('details');
-
-      const name = (nameEl?.value || '').trim();
-      const industry = (industryEl?.value || '').trim();
-      const offer = (offerEl?.value || '').trim();
-      const audience = (audienceEl?.value || '').trim();
-      const goal = (goalEl?.value || '').trim();
-      const details = (detailsEl?.value || '').trim();
-
-      const type = document.getElementById('promptTemplate')?.value || 'businessPlan';
-      const context = document.getElementById('businessContext')?.value || 'general';
-      const tone = document.getElementById('tone')?.value || 'professional, clear, and practical';
-      const format = document.getElementById('outputFormat')?.value || 'organized sections with headings, bullets, and action steps';
-
-      // Clear previous validation styling
-      [nameEl, industryEl, offerEl, audienceEl, goalEl].forEach(el => {
-        if (el) (el.closest ? el.closest('.field-group') : el.parentElement)?.classList.remove('is-invalid');
+      const engine=window.EGHPromptEngineV2;
+      const output=document.getElementById('generatedPrompt');
+      const copyBtn=document.getElementById('copyPrompt');
+      const waBtn=document.getElementById('copyWhatsAppPrompt');
+      const status=document.getElementById('generatorStatus');
+      const evaluation=engine.evaluateCurrent();
+      const required=['businessName','industry','offer','audience','goal'];
+      required.forEach(id=>{
+        const el=document.getElementById(id);const wrap=el?.closest?.('.field-group')||el?.parentElement;
+        if(wrap)wrap.classList.toggle('is-invalid',evaluation.scores[id].score<60);
       });
-
-      // Validation
-      let hasError = false;
-      if (!name) { (nameEl?.closest ? nameEl.closest('.field-group') : nameEl?.parentElement)?.classList.add('is-invalid'); hasError = true; }
-      if (!industry) { (industryEl?.closest ? industryEl.closest('.field-group') : industryEl?.parentElement)?.classList.add('is-invalid'); hasError = true; }
-      if (!offer) { (offerEl?.closest ? offerEl.closest('.field-group') : offerEl?.parentElement)?.classList.add('is-invalid'); hasError = true; }
-      if (!audience) { (audienceEl?.closest ? audienceEl.closest('.field-group') : audienceEl?.parentElement)?.classList.add('is-invalid'); hasError = true; }
-      if (!goal) { (goalEl?.closest ? goalEl.closest('.field-group') : goalEl?.parentElement)?.classList.add('is-invalid'); hasError = true; }
-
-      if (hasError) {
-        if (status) {
-          status.textContent = '⚠️ Please fill in all required fields marked with an asterisk (*).';
-          status.className = 'generator-status warn';
+      if(!evaluation.ready){
+        const lines=evaluation.blockers.map(b=>`- ${b.id==='businessName'?'Business':b.id==='industry'?'Industry':b.id==='offer'?'Offer':b.id==='audience'?'Audience':'Objective'}: ${b.reason}`);
+        if(!evaluation.alignment.aligned&&!lines.some(x=>x.includes('Objective:')))lines.push(`- Objective: ${evaluation.alignment.reason}`);
+        if(output){
+          output.value=`MISSION NOT READY — ${evaluation.overall}% CONTEXT QUALITY\n\nSelected mission: ${evaluation.spec.mission}\n\nFix these signals before compiling:\n${lines.join('\n')}\n\nRecommendation:\n${evaluation.recommendation}`;
+          output.style.borderColor='#f59e0b';
         }
-        showToast('Please fill in the required fields to generate strategy');
+        if(copyBtn)copyBtn.disabled=true;if(waBtn)waBtn.disabled=true;
+        if(status){status.textContent=`⚠️ Mission not ready (${evaluation.overall}%). Improve the highlighted context signals.`;status.className='generator-status warn'}
+        if(window.showToast)showToast('Mission needs stronger context before compilation');
+        document.dispatchEvent(new CustomEvent('egh:prompt-quality-blocked',{detail:evaluation}));
         return false;
       }
-
-      const inst = templateInstructions[type] || templateInstructions.businessPlan;
-      const ctx = buildContextAdvice(context);
-
-      const generated = `EXECUTIVE GROWTH HUB — AI STRATEGIC BRIEF & PROMPT
-
-` +
-        `Result Type: ${inst.title}
-` +
-        `Business: ${name} (${industry})
-` +
-        `Tone: ${tone}
-` +
-        `Format: ${format}
-
-` +
-        `1. Strategic Context & Objective
-` +
-        `${name} is providing ${offer}. The primary mission is to position this offer to resonate strongly with ${audience} by demonstrating tangible value, establishing trust, and driving decisive action.
-
-` +
-        `2. Target Audience & Positioning Strategy
-` +
-        `Target Audience: ${audience}
-` +
-        `- Highlight the core problem solved and direct transformation delivered.
-` +
-        `- Address common buying hesitations with proof, testimonials, case studies, or transparent pricing models.
-` +
-        `- Direct prospects toward a friction-free conversion channel (e.g., WhatsApp Business, consultation booking, landing page).
-
-` +
-        `3. Goal Execution Framework
-` +
-        `Primary Goal: ${goal}
-` +
-        `- Strategic Focus: ${inst.focus}
-` +
-        `- Required Document Sections:
-` +
-        inst.sections.map((s, i) => `  ${i+1}. ${s}`).join('\n') + `
-
-` +
-        `4. Jurisdiction Guidance (${context.toUpperCase()})
-` +
-        `${ctx.guidance}
-
-` +
-        (details ? `5. Parameters, Constraints & Operational Context
-${details}
-
-` : '') +
-        `6. Recommended Next Steps
-` +
-        `1. Copy this prompt into ChatGPT, Gemini, or Claude to generate your full document.
-` +
-        `2. Open the Executive Growth Hub Interactive Suite to calculate pricing margins and cash flows.
-` +
-        `3. Connect with Executive Growth Hub on WhatsApp (+1 323 804 9326) for community support.`;
-
-      if (output) {
-        output.value = generated;
-        output.style.borderColor = 'var(--emerald-600)';
-      }
-      if (copyBtn) copyBtn.disabled = false;
-      if (waBtn) waBtn.disabled = false;
-      if (status) {
-        status.textContent = '✓ Strategy generated successfully! Review below, copy, or share on WhatsApp.';
-        status.className = 'generator-status success';
-      }
-
-      showToast('Business result generated successfully!');
-
-      // On mobile viewports, smoothly scroll to result panel so user sees output immediately
-      if (window.innerWidth <= 960) {
-        const outputPanel = document.querySelector('.generator-output-panel');
-        if (outputPanel) {
-          setTimeout(() => {
-            outputPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 100);
-        }
-      }
-
+      const generated=engine.buildPrompt(evaluation.fields,evaluation.type,evaluation);
+      if(output){output.value=generated;output.style.borderColor='var(--emerald-600)'}
+      if(copyBtn)copyBtn.disabled=false;if(waBtn)waBtn.disabled=false;
+      if(status){status.textContent=`✓ AI command compiled. Mission quality ${evaluation.overall}%. Review, copy, or export.`;status.className='generator-status success'}
+      if(window.showToast)showToast('Execution-ready AI command compiled');
+      document.dispatchEvent(new CustomEvent('egh:prompt-compiled',{detail:{evaluation,text:generated}}));
+      if(window.innerWidth<=960){const panel=document.querySelector('.generator-output-panel');if(panel)setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'start'}),100)}
       return false;
     };
 
@@ -8899,7 +9195,7 @@ body.egh-v21 .resource-card{
     set('aiCtxMemory',touched.length?`${touched.length} workspace${touched.length===1?'':'s'} available`:'Not imported');
   }
   function setSelect(id,value){const el=document.getElementById(id);if(el&&[...el.options].some(o=>o.value===value))el.value=value}
-  function applyPreset(mode){const p=taskPresets[mode];if(!p)return;document.querySelectorAll('.egh23-ai-mode').forEach(b=>b.classList.toggle('is-active',b.dataset.aiMode===mode));setSelect('promptTemplate',p.template);setSelect('outputFormat',p.format);const goal=document.getElementById('goal');if(goal && !goal.value.trim())goal.value=p.goal;updateStrength()}
+  function applyPreset(mode){const p=taskPresets[mode];if(!p)return;document.querySelectorAll('.egh23-ai-mode').forEach(b=>b.classList.toggle('is-active',b.dataset.aiMode===mode));setSelect('promptTemplate',p.template);setSelect('outputFormat',p.format);const goal=document.getElementById('goal');const defaults=Object.values(taskPresets).map(x=>x.goal);if(goal&&(!goal.value.trim()||defaults.includes(goal.value.trim()))){goal.value=p.goal;goal.dispatchEvent(new Event('input',{bubbles:true}))}updateStrength()}
   document.querySelectorAll('.egh23-ai-mode').forEach(btn=>btn.addEventListener('click',()=>applyPreset(btn.dataset.aiMode)));
 
   document.getElementById('useEGHContextBtn')?.addEventListener('click',()=>{
@@ -8924,13 +9220,13 @@ body.egh-v21 .resource-card{
   });
 
   function updateStrength(){
-    const ids=['businessName','industry','offer','audience','goal'];const filled=ids.filter(id=>document.getElementById(id)?.value.trim().length>2).length;const pct=Math.round(filled/ids.length*100);const bar=document.getElementById('aiPromptStrengthBar'),lab=document.getElementById('aiPromptStrengthLabel');if(bar)bar.style.width=pct+'%';if(lab)lab.textContent=pct+'%';
+    const ev=window.EGHPromptEngineV2?.evaluateCurrent?.();const pct=ev?ev.overall:0;const bar=document.getElementById('aiPromptStrengthBar'),lab=document.getElementById('aiPromptStrengthLabel');if(bar)bar.style.width=pct+'%';if(lab)lab.textContent=pct+'%';
   }
   ['businessName','industry','offer','audience','goal','details'].forEach(id=>document.getElementById(id)?.addEventListener('input',updateStrength));
 
   const histKey='egh_ai_prompt_history_v1';
   function history(){return safeJSON(histKey,[])}
-  function saveHistory(){const output=document.getElementById('generatedPrompt')?.value||'';if(!output||output.startsWith('Complete the core fields')||output.startsWith('Fill in'))return;const name=document.getElementById('businessName')?.value.trim()||'Business';const type=document.getElementById('promptTemplate')?.selectedOptions?.[0]?.textContent||'AI prompt';let items=history();if(items[0]?.text===output)return;items.unshift({id:Date.now(),name,type,text:output,time:new Date().toISOString()});localStorage.setItem(histKey,JSON.stringify(items.slice(0,6)));renderHistory()}
+  function saveHistory(){const output=document.getElementById('generatedPrompt')?.value||'';if(!output||output.startsWith('Complete the core fields')||output.startsWith('Fill in')||output.startsWith('Awaiting')||output.startsWith('MISSION NOT READY'))return;const name=document.getElementById('businessName')?.value.trim()||'Business';const type=document.getElementById('promptTemplate')?.selectedOptions?.[0]?.textContent||'AI prompt';const mode=document.querySelector('.egh23-ai-mode.is-active')?.dataset.aiMode||'sales';const ev=window.EGHPromptEngineV2?.evaluateCurrent?.();const signals=ev?.passingCount??0;const score=ev?.overall??0;let items=history();if(items[0]?.text===output)return;items.unshift({id:Date.now(),name,type,mode,text:output,chars:output.length,signals,score,time:new Date().toISOString()});localStorage.setItem(histKey,JSON.stringify(items.slice(0,8)));renderHistory()}
   function renderHistory(){const wrap=document.getElementById('aiPromptHistory');if(!wrap)return;const items=history();if(!items.length){wrap.innerHTML='<div class="egh23-history-empty">Generate a prompt and it will appear here for quick reuse.</div>';return}wrap.innerHTML=items.slice(0,3).map((x,i)=>`<div class="egh23-history-item"><div><strong>${escapeHTML(x.type)}</strong><small>${escapeHTML(x.name)} · ${new Date(x.time).toLocaleDateString()}</small></div><button type="button" data-ai-restore="${i}">Restore</button></div>`).join('');wrap.querySelectorAll('[data-ai-restore]').forEach(b=>b.addEventListener('click',()=>{const x=history()[Number(b.dataset.aiRestore)];if(x&&document.getElementById('generatedPrompt')){document.getElementById('generatedPrompt').value=x.text;document.getElementById('copyPrompt').disabled=false;document.getElementById('copyWhatsAppPrompt').disabled=false;if(window.showToast)showToast('Saved prompt restored')}}))}
   function escapeHTML(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
   document.getElementById('generatePromptBtn')?.addEventListener('click',()=>setTimeout(saveHistory,40));
@@ -8954,7 +9250,7 @@ body.egh-v21 .resource-card{
 
 <style id="egh27-ai-war-room-css">
 /* ================================================================
-   EGH v2.7 AI WAR ROOM
+   EGH v2.8 AI WAR ROOM
    Full-bleed dark command environment, stronger desktop telemetry,
    immersive geometry, and viewport-height command console.
    ================================================================ */
@@ -9109,15 +9405,15 @@ body.egh-ai-active .egh23-ai-history .egh23-section-head{margin:0 0 12px!importa
   const missionNames={sales:'Get Customers',marketing:'Create Content',businessIdea:'Validate an Offer',businessPlan:'Build a Plan',customerService:'Customer Replies',operations:'Build a System'};
   function activeMission(){return document.querySelector('.egh23-ai-mode.is-active')?.dataset.aiMode||'sales'}
   function refreshCommandUI(){
-    const count=core.filter(filled).length,pct=Math.round(count/core.length*100);
+    const ev=window.EGHPromptEngineV2?.evaluateCurrent?.();const count=ev?.passingCount??core.filter(filled).length,pct=ev?.overall??Math.round(count/core.length*100);
     const ring=$('aiReadinessRing'); if(ring)ring.style.setProperty('--score',pct);
     document.querySelectorAll('#aiSignalMatrix [data-signal]').forEach(el=>el.classList.toggle('is-live',filled(el.dataset.signal)));
     const teleSignals=$('aiTelemetrySignals');if(teleSignals)teleSignals.textContent=`${count} / ${core.length}`;
     const teleMode=$('aiTelemetryMode');if(teleMode)teleMode.textContent=missionNames[activeMission()]||'AI Mission';
     const out=$('generatedPrompt'),chars=$('aiTelemetryChars');if(chars)chars.textContent=String((out?.value||'').length);
-    const state=$('aiConsoleState');const ready=count===core.length && !!(out?.value||'').trim() && !out.value.startsWith('Awaiting') && !out.value.startsWith('Complete') && !out.value.startsWith('Fill in');
-    if(state){state.textContent=ready?'READY TO EXPORT':(count===core.length?'READY TO COMPILE':'AWAITING INPUT');state.classList.toggle('is-ready',ready||count===core.length)}
-    const quality=$('aiQualityLabel');if(quality){quality.textContent=pct===100?'Context locked':pct>=60?'Building context':'Needs context';quality.classList.toggle('is-ready',pct===100)}
+    const state=$('aiConsoleState');const ready=!!ev?.ready && !!(out?.value||'').trim() && !out.value.startsWith('Awaiting') && !out.value.startsWith('Complete') && !out.value.startsWith('Fill in') && !out.value.startsWith('MISSION NOT READY');
+    if(state){state.textContent=ready?'READY TO EXPORT':(ev?.ready?'READY TO COMPILE':'CONTEXT QUALITY');state.classList.toggle('is-ready',ready||!!ev?.ready)}
+    const quality=$('aiQualityLabel');if(quality){quality.textContent=ev?.ready?'Mission ready':pct>=60?'Improve signals':'Needs context';quality.classList.toggle('is-ready',!!ev?.ready)}
     const setDiag=(id,on)=>{const el=$(id);if(el){el.classList.toggle('is-live',on);el.textContent=(on?'✓ ':'○ ')+el.textContent.replace(/^[✓○]\s*/, '')}}
     setDiag('aiDiagObjective',filled('goal'));setDiag('aiDiagAudience',filled('audience'));setDiag('aiDiagOffer',filled('offer'));setDiag('aiDiagConstraints',filled('details'));
   }
@@ -9148,7 +9444,7 @@ body.egh-ai-active .egh23-ai-history .egh23-section-head{margin:0 0 12px!importa
   function timestamp(){const s=Math.floor((Date.now()-started)/1000);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
   function addLog(msg,type=''){
     const prev=log[0]; if(prev?.msg===msg)return;
-    log.unshift({time:timestamp(),msg,type}); while(log.length>5)log.pop();
+    log.unshift({time:timestamp(),msg,type}); while(log.length>12)log.pop();
     const el=$('hudEventLog'); if(el)el.innerHTML=log.map(x=>`<div class="egh26-log-row"><time>${x.time}</time><span class="${x.type}">${x.msg}</span></div>`).join('');
   }
   function setBodyAI(){
@@ -9156,10 +9452,10 @@ body.egh-ai-active .egh23-ai-history .egh23-section-head{margin:0 0 12px!importa
   }
   const sec=$('ai-generator'); if(sec)new MutationObserver(setBodyAI).observe(sec,{attributes:true,attributeFilter:['class']});setBodyAI();
   function syncHUD(){
-    const count=core.filter(filled).length,pct=Math.round(count/core.length*100),mission=missionNames[activeMission()]||'AI Mission';
+    const ev=window.EGHPromptEngineV2?.evaluateCurrent?.();const count=ev?.passingCount??core.filter(filled).length,pct=ev?.overall??Math.round(count/core.length*100),mission=missionNames[activeMission()]||'AI Mission';
     const coreEl=$('hudCore');if(coreEl)coreEl.style.setProperty('--hud-score',pct);
     if($('hudScore'))$('hudScore').textContent=pct+'%';
-    if($('hudCoreState'))$('hudCoreState').textContent=pct===100?'Mission ready':pct>=60?'Acquiring context':'Standby';
+    if($('hudCoreState'))$('hudCoreState').textContent=ev?.ready?'Mission ready':pct>=60?'Improve signals':'Standby';
     if($('hudMission'))$('hudMission').textContent=mission;
     if($('hudSignals')){$('hudSignals').textContent=count+' / '+core.length;$('hudSignals').classList.toggle('live',count===core.length)}
     if($('hudChars'))$('hudChars').textContent=String(($('generatedPrompt')?.value||'').length);
@@ -9168,20 +9464,567 @@ body.egh-ai-active .egh23-ai-history .egh23-section-head{margin:0 0 12px!importa
     const map={hudContextBusiness:'businessName',hudContextIndustry:'industry',hudContextOffer:'offer',hudContextAudience:'audience',hudContextGoal:'goal'};
     Object.entries(map).forEach(([out,id])=>{if($(out))$(out).textContent=val(id)||'Not defined'});
     if($('hudContextJurisdiction'))$('hudContextJurisdiction').textContent=$('businessContext')?.selectedOptions?.[0]?.textContent||'General';
-    document.querySelectorAll('[data-quality]').forEach(row=>{const id=row.dataset.quality,on=filled(id);row.classList.toggle('is-live',on);const st=row.querySelector('span');if(st)st.textContent=on?'Locked':(id==='details'?'Optional':'Missing')});
+    document.querySelectorAll('[data-quality]').forEach(row=>{const id=row.dataset.quality;const q=ev?.scores?.[id];const on=id==='details'?!!val(id):(q?.score??0)>=60;row.classList.toggle('is-live',on);const st=row.querySelector('span');if(st)st.textContent=id==='details'?(val(id)?'Provided':'Optional'):(q?.label||'Missing')});
   }
   setInterval(()=>{if($('hudElapsed'))$('hudElapsed').textContent=elapsed()},1000);
   core.concat(['details','businessContext']).forEach(id=>$(id)?.addEventListener(id==='businessContext'?'change':'input',()=>{syncHUD()}));
   document.querySelectorAll('.egh23-ai-mode').forEach(btn=>btn.addEventListener('click',()=>{setTimeout(()=>{syncHUD();addLog('Mission switched: '+(missionNames[activeMission()]||'AI Mission'),'ok')},0)}));
   $('useEGHContextBtn')?.addEventListener('click',()=>setTimeout(()=>{syncHUD();addLog('EGH business context imported','ok')},80));
   $('clearGenerator')?.addEventListener('click',()=>setTimeout(()=>{syncHUD();addLog('Mission parameters reset','warn')},60));
-  $('generatePromptBtn')?.addEventListener('click',()=>setTimeout(()=>{syncHUD();const count=core.filter(filled).length;addLog(count===core.length?'AI command compiled':'Compile attempted with incomplete context',count===core.length?'ok':'warn')},100));
+  $('generatePromptBtn')?.addEventListener('click',()=>setTimeout(()=>{syncHUD();const ev=window.EGHPromptEngineV2?.evaluateCurrent?.();addLog(ev?.ready?'AI command compiled':'Compile blocked by context quality gate',ev?.ready?'ok':'warn')},100));
   document.querySelectorAll('[data-console-tab]').forEach(btn=>btn.addEventListener('click',()=>{
     const tab=btn.dataset.consoleTab;document.querySelectorAll('[data-console-tab]').forEach(b=>b.classList.toggle('is-active',b===btn));document.querySelectorAll('[data-console-panel]').forEach(p=>p.classList.toggle('is-active',p.dataset.consolePanel===tab));addLog('Console view: '+tab,'');
   }));
   const out=$('generatedPrompt'); if(out){out.addEventListener('input',syncHUD);new MutationObserver(syncHUD).observe(out,{attributes:true,childList:true,subtree:true})}
-  addLog('Command environment initialized','ok');addLog('Awaiting mission parameters','');addLog('External AI connection not active','');addLog('Voice channel not connected','');
+  addLog('Command environment initialized','ok');addLog('Local prompt engine online','ok');addLog('Context bus ready','ok');addLog('Mission router online','ok');addLog('Local archive accessible','ok');addLog('Awaiting mission parameters','');addLog('External AI connection not active','');addLog('Voice channel not connected','');
   syncHUD();
+})();
+</script>
+
+
+<script id="egh28-hud-lock-js">
+(function(){
+  const core=['businessName','industry','offer','audience','goal'];
+  const $=id=>document.getElementById(id);
+  const value=id=>($(id)?.value||'').trim();
+  const live=id=>value(id).length>2;
+  const pct=(n)=>Math.max(0,Math.min(100,Math.round(n)));
+  const label=n=>n>=85?'Strong':n>=65?'Good':n>=40?'Building':'Low';
+  function updateCoreAndIntelligence(){
+    const ev=window.EGHPromptEngineV2?.evaluateCurrent?.();if(!ev)return;
+    const coverage=ev.overall, details=value('details');
+    document.querySelectorAll('[data-core-signal]').forEach(el=>{const q=ev.scores?.[el.dataset.coreSignal];el.classList.toggle('is-live',(q?.score??0)>=60)});
+    if($('hudCoreSignalReadout'))$('hudCoreSignalReadout').textContent=`${ev.passingCount} / 5 SIGNALS`;
+    const map={aiDiagBusiness:'businessName',aiDiagIndustry:'industry',aiDiagOffer:'offer',aiDiagAudience:'audience',aiDiagObjective:'goal',aiDiagConstraints:'details'};
+    Object.entries(map).forEach(([out,id])=>{const el=$(out);if(!el)return;const q=ev.scores?.[id];const on=id==='details'?!!details:(q?.score??0)>=60;el.classList.toggle('is-live',on);const base=el.textContent.replace(/^[✓○]\s*/, '');el.textContent=(on?'✓ ':'○ ')+base});
+    if($('aiIntelCoverage'))$('aiIntelCoverage').textContent=`${ev.passingCount} / 5`;
+    if($('aiIntelCoverageBar'))$('aiIntelCoverageBar').style.width=coverage+'%';
+    const metrics={Clarity:ev.metrics.clarity,Specificity:ev.metrics.specificity,Context:ev.metrics.context,Actionability:ev.metrics.actionability};
+    Object.entries(metrics).forEach(([name,score])=>{const bar=$('aiMetric'+name),lab=$('aiMetric'+name+'Label');if(bar)bar.style.width=score+'%';if(lab)lab.textContent=label(score)});
+    if($('aiIntelScore'))$('aiIntelScore').textContent=coverage+'%';
+    if($('aiIntelRecommendation'))$('aiIntelRecommendation').textContent=ev.recommendation;
+  }
+  core.concat(['details']).forEach(id=>$(id)?.addEventListener('input',updateCoreAndIntelligence));
+  $('businessContext')?.addEventListener('change',updateCoreAndIntelligence);
+  document.querySelectorAll('.egh23-ai-mode').forEach(btn=>btn.addEventListener('click',()=>setTimeout(updateCoreAndIntelligence,0)));
+  $('useEGHContextBtn')?.addEventListener('click',()=>setTimeout(updateCoreAndIntelligence,100));
+  $('clearGenerator')?.addEventListener('click',()=>setTimeout(updateCoreAndIntelligence,100));
+  $('generatePromptBtn')?.addEventListener('click',()=>{
+    const coreEl=$('hudCore');coreEl?.classList.add('is-compiling');
+    const state=$('aiConsoleState');if(state){state.textContent='COMPILING';state.classList.add('is-ready')}
+    setTimeout(()=>{coreEl?.classList.remove('is-compiling');updateCoreAndIntelligence()},780);
+  });
+  const archiveKey='egh_ai_prompt_history_v1';
+  let archiveRendering=false;
+  function escapeHTML28(v){return String(v??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]))}
+  function archiveItems(){try{return JSON.parse(localStorage.getItem(archiveKey)||'[]')}catch{return []}}
+  function renderArchive28(){
+    const wrap=$('aiPromptHistory');if(!wrap||archiveRendering)return;archiveRendering=true;
+    const items=archiveItems();const count=$('aiArchiveCount');if(count)count.textContent=String(items.length).padStart(2,'0')+' SAVED';
+    if(!items.length){wrap.innerHTML='<div class="egh23-history-empty">Compile a command and it will appear here as a recoverable mission.</div>';archiveRendering=false;return}
+    const missionMap={sales:'ACQUISITION',marketing:'VISIBILITY',businessIdea:'VALIDATION',businessPlan:'STRATEGY',customerService:'SERVICE',operations:'OPERATIONS'};
+    wrap.innerHTML=items.slice(0,6).map((x,i)=>{const d=new Date(x.time);const code='M-'+String(x.id||0).slice(-5).padStart(5,'0');const chars=x.chars||String(x.text||'').length;const hasScore=Number.isFinite(x.score);const score=hasScore?x.score:null;const signals=Number.isFinite(x.signals)?x.signals:null;const mission=missionMap[x.mode]||'MISSION';return `<article class="egh28-archive-item"><div class="egh28-archive-code"><b>${code}</b><span>${escapeHTML28(mission)}</span></div><div class="egh28-archive-main"><strong>${escapeHTML28(x.type||'AI prompt')}</strong><small>${escapeHTML28(x.name||'Business')}</small><div class="egh28-archive-meta"><span>${isNaN(d)?'Saved locally':d.toLocaleDateString()}</span><span>${Number(chars).toLocaleString()} chars</span><span>${signals===null?'legacy save':signals+'/5 signals'}</span></div></div><div class="egh28-archive-quality"><div><i style="width:${score===null?0:score}%"></i></div><span>${score===null?'legacy context':score+'% context'}</span></div><button type="button" data-archive-restore="${i}">RESTORE</button></article>`}).join('');
+    wrap.querySelectorAll('[data-archive-restore]').forEach(b=>b.addEventListener('click',()=>{const x=archiveItems()[Number(b.dataset.archiveRestore)];if(!x)return;const out=$('generatedPrompt');if(out){out.value=x.text||'';out.dispatchEvent(new Event('input',{bubbles:true}))}$('copyPrompt')&&($('copyPrompt').disabled=false);$('copyWhatsAppPrompt')&&($('copyWhatsAppPrompt').disabled=false);$('downloadPromptBtn')&&($('downloadPromptBtn').disabled=false);if(window.showToast)showToast('Mission restored')}));
+    archiveRendering=false;
+  }
+  const archiveWrap=$('aiPromptHistory');if(archiveWrap)new MutationObserver(()=>setTimeout(renderArchive28,0)).observe(archiveWrap,{childList:true,subtree:false});
+  $('clearAIHistory')?.addEventListener('click',()=>setTimeout(renderArchive28,20));
+  $('generatePromptBtn')?.addEventListener('click',()=>setTimeout(renderArchive28,140));
+  renderArchive28();
+  updateCoreAndIntelligence();
+})();
+</script>
+
+
+<script id="egh281-reference-match-js">
+(function(){
+ const $=s=>document.querySelector(s);
+ const $$=s=>Array.from(document.querySelectorAll(s));
+ function enhanceWorkspaceBar(){
+   if(!document.body.classList.contains('egh-ai-active')) return;
+   const bar=$('.ux-workspace-banner'); if(!bar||bar.querySelector('.egh-ref-top-meta')) return;
+   const tools=bar.querySelector('.ux-workspace-tools'); if(!tools) return;
+   const meta=document.createElement('div');meta.className='egh-ref-top-meta';
+   meta.innerHTML='<span class="egh-ref-top-search">⌕&nbsp; Search EGH…</span><span class="egh-ref-top-user">EGH</span><span class="egh-ref-top-time" id="eghRefTopTime"></span>';
+   tools.prepend(meta);
+   const tick=()=>{const d=new Date();const el=document.getElementById('eghRefTopTime');if(el)el.textContent=d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})};tick();setInterval(tick,60000);
+ }
+ const obs=new MutationObserver(()=>enhanceWorkspaceBar());obs.observe(document.body,{attributes:true,attributeFilter:['class'],subtree:false});
+ document.addEventListener('click',()=>setTimeout(enhanceWorkspaceBar,30));setTimeout(enhanceWorkspaceBar,100);
+ function filterArchive(){
+   const q=(document.getElementById('eghArchiveSearch')?.value||'').toLowerCase();
+   const type=document.getElementById('eghArchiveType')?.value||'all';
+   $$('#aiPromptHistory .egh28-archive-item').forEach(row=>{
+     const txt=row.textContent.toLowerCase();
+     const mission=(row.querySelector('.egh28-archive-code span')?.textContent||'').toLowerCase();
+     const map={sales:'acquisition',marketing:'marketing',businessIdea:'validation',businessPlan:'strategy',customerService:'service',operations:'operations'};
+     const okQ=!q||txt.includes(q); const okT=type==='all'||mission.includes(map[type]||type.toLowerCase());
+     row.style.display=okQ&&okT?'':'none';
+   });
+ }
+ ['eghArchiveSearch','eghArchiveType','eghArchiveTime'].forEach(id=>document.getElementById(id)?.addEventListener('input',filterArchive));
+})();
+</script>
+<style id="egh281-topmeta-css">
+body.egh-ai-active .egh-ref-top-meta{display:flex;align-items:center;gap:6px;margin-right:2px}.egh-ref-top-search{height:30px;min-width:130px;display:flex;align-items:center;padding:0 8px;border:1px solid #173a54;border-radius:7px;color:#668eac;background:#051528;font-size:.54rem}.egh-ref-top-user{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#5a5cff,#4838d9);color:#fff;font-size:.48rem;font-weight:800}.egh-ref-top-time{font:700 .52rem ui-monospace,SFMono-Regular,monospace;color:#8ba9c0;min-width:44px}.ux-workspace-tools{align-items:center!important}
+</style>
+
+<style id="egh281-reference-match-css-late">
+/* EGH v2.8.1 — desktop implementation matched to approved reference */
+@media (min-width:1321px){
+  body.egh-ai-active{--egh-sidebar:176px!important;padding-left:176px!important}
+  body.egh-ai-active .egh-sidebar{width:176px!important;padding:0 10px 12px!important;overflow:hidden!important}
+  body.egh-ai-active .egh-side-brand{min-height:62px!important;padding:0 7px!important;gap:8px!important}
+  body.egh-ai-active .egh-side-logo{width:34px!important;height:34px!important;font-size:.68rem!important;border-radius:9px!important}
+  body.egh-ai-active .egh-side-brand strong{font-size:.77rem!important;line-height:1.05!important}
+  body.egh-ai-active .egh-side-brand span{font-size:.55rem!important;margin-top:2px!important}
+  body.egh-ai-active .egh-side-nav{padding:10px 0 6px!important;gap:1px!important}
+  body.egh-ai-active .egh-side-link{padding:8px 8px!important;font-size:.72rem!important;border-radius:8px!important;gap:9px!important}
+  body.egh-ai-active .egh-side-link svg{width:15px!important;height:15px!important}
+  body.egh-ai-active .egh-nav-group{font-size:.52rem!important;margin:10px 7px 4px!important}
+  body.egh-ai-active .egh-side-footer{display:none!important}
+  body.egh-ai-active .egh-ref-side-promo{display:block!important}
+  body.egh-ai-active .ux-workspace-banner{height:50px!important;padding:0 14px!important}
+  body.egh-ai-active .ux-workspace-title button{width:30px!important;height:30px!important;border-radius:8px!important;background:#071525!important;border-color:#16415e!important;color:#75dfff!important}
+  body.egh-ai-active .ux-workspace-copy small{font-size:.54rem!important;color:#4f7996!important}
+  body.egh-ai-active .ux-workspace-copy strong{font-size:.82rem!important;color:#eef8ff!important}
+  body.egh-ai-active .ux-workspace-tools button{padding:6px 10px!important;font-size:.62rem!important;min-height:32px!important;background:#061426!important;border-color:#163852!important;color:#a9c6dc!important}
+  body.egh-ai-active .ux-workspace-tools button.primary{background:#143e72!important;color:#fff!important;border-color:#235c9e!important}
+  body.egh-ai-active #main>#ai-generator>.container{max-width:none!important;width:calc(100% - 24px)!important;padding:12px 0 18px!important}
+  body.egh-ai-active #main>#ai-generator{padding-bottom:18px!important}
+}
+body.egh-ai-active .egh-ref-side-promo{display:none;margin-top:auto;position:relative;min-height:175px;padding:12px 10px 8px;border:1px solid rgba(37,188,255,.16);border-radius:12px;background:linear-gradient(165deg,rgba(8,28,52,.98),rgba(5,19,37,.98));overflow:hidden}
+.egh-ref-side-promo strong{position:relative;z-index:2;display:block;color:#58dfff;font:800 .95rem/1.15 'Plus Jakarta Sans';letter-spacing:-.03em}.egh-ref-side-promo>span{position:relative;z-index:2;display:block;color:#6f8ba7;font-size:.57rem;line-height:1.45;margin-top:8px;max-width:110px}.egh-ref-side-promo svg{position:absolute;left:8px;right:8px;bottom:29px;width:calc(100% - 16px);height:54px;opacity:.75}.egh-ref-side-globe{position:absolute;right:-38px;bottom:20px;width:120px;height:150px;background:url('assets/hud_globe_side.png') center/cover no-repeat;opacity:.46;filter:saturate(1.25) contrast(1.05)}.egh-ref-side-status{position:absolute;left:10px;right:10px;bottom:7px;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;color:#6986a0}.egh-ref-side-status b{display:flex;align-items:center;gap:5px;color:#4de8ae;font-weight:750}.egh-ref-side-status i{width:7px;height:7px;border-radius:50%;background:#20e98d;box-shadow:0 0 10px #20e98d}
+body.egh-ai-active .egh25-command-hero{position:relative!important;grid-template-columns:minmax(0,1fr) 300px!important;min-height:126px!important;padding:14px 16px!important;margin-bottom:8px!important;border-radius:9px!important;overflow:hidden!important;background:linear-gradient(100deg,#06162b 0%,#071b32 66%,#061528 100%)!important}
+body.egh-ai-active .egh25-command-hero:before{content:"";position:absolute;left:38%;top:-18px;width:410px;height:175px;background:url('assets/hud_globe_top.png') center/cover no-repeat;opacity:.84;filter:saturate(1.3) contrast(1.08);pointer-events:none}
+body.egh-ai-active .egh25-command-hero:after{display:none!important}.egh-ref-hero-globe{display:none}.egh-ref-hero-quote{position:absolute;right:325px;top:30px;z-index:2;margin:0;color:#83b8e4;font:italic .62rem/1.55 Inter;text-align:left;max-width:165px;text-shadow:0 0 12px rgba(54,181,255,.3)}.egh-ref-hero-quote span{display:block;margin-top:5px;font-size:.52rem;color:#4b7999;font-style:normal}
+body.egh-ai-active .egh25-command-hero h2{font-size:1.75rem!important;margin-bottom:3px!important;letter-spacing:-.04em!important}.egh25-command-hero p{font-size:.69rem!important;max-width:520px!important;line-height:1.42!important}.egh25-command-kicker{font-size:.52rem!important;margin-bottom:5px!important}.egh25-system-trust{margin-top:7px!important;gap:5px!important}.egh25-system-trust span{font-size:.5rem!important;padding:4px 7px!important}.egh25-command-controls{min-width:0!important;gap:7px!important}.egh25-engine-status{border-radius:8px!important}.egh25-engine-status>div{padding:7px 9px!important}.egh25-engine-status small{font-size:.45rem!important}.egh25-engine-status strong{font-size:.66rem!important;margin-top:2px!important}.egh25-command-controls .egh23-btn{min-height:32px!important;padding:0 10px!important;font-size:.6rem!important;border-radius:7px!important}
+body.egh-ai-active .egh23-ai-context{min-height:54px!important;padding:7px 10px!important;margin-bottom:7px!important;border-radius:8px!important}.egh23-context-heading{gap:8px!important;padding-right:10px!important}.egh23-context-icon{width:30px!important;height:30px!important;border-radius:7px!important}.egh23-context-heading strong{font-size:.7rem!important}.egh23-context-heading small{font-size:.52rem!important}.egh23-context-grid{gap:6px!important}.egh23-context-item{min-height:40px!important;padding:6px 9px!important;border-radius:7px!important}.egh23-context-item span{font-size:.45rem!important}.egh23-context-item strong{font-size:.65rem!important;margin-top:2px!important}
+body.egh-ai-active .egh26-hud{grid-template-columns:.95fr 1.03fr 1.15fr!important;gap:7px!important;margin:7px 0!important}.egh26-hud-pane,.egh26-core{border-radius:8px!important;min-height:190px!important}.egh26-hud-pane{padding:10px!important}.egh26-hud-head{margin-bottom:6px!important}.egh26-hud-head span{font-size:.56rem!important}.egh26-hud-head b{font-size:.45rem!important}.egh26-diagnostics{grid-template-columns:repeat(4,1fr)!important;gap:5px!important}.egh26-diagnostic{min-height:58px!important;padding:7px 8px!important;border-radius:7px!important}.egh26-diagnostic small{font-size:.42rem!important}.egh26-diagnostic strong{font-size:.66rem!important;margin-top:4px!important}.egh-ref-disabled{color:#ff6a79!important}.egh26-core{padding:0!important;display:grid!important;place-items:center!important;background:radial-gradient(circle at center,rgba(11,149,205,.22),rgba(3,18,34,.96) 68%)!important}.egh26-core-shell{width:184px!important;height:184px!important}.egh28-core-shell .egh26-core-readout strong{font-size:2rem!important}.egh28-core-shell .egh26-core-readout span{font-size:.52rem!important}.egh28-core-shell .egh26-core-readout em{font-size:.42rem!important}.egh28-orbit-signal{font-size:.44rem!important;padding:3px 6px;border:1px solid rgba(41,214,255,.16);background:#072038;border-radius:999px}.egh28-orbit-signal i{width:7px!important;height:7px!important}.egh28-orbit-signal.s1{left:-10px!important;top:55px!important}.egh28-orbit-signal.s2{right:-10px!important;top:55px!important}.egh28-orbit-signal.s3{right:1px!important;bottom:31px!important}.egh28-orbit-signal.s4{left:1px!important;bottom:31px!important}.egh28-orbit-signal.s5{top:-1px!important}.egh26-log{max-height:164px!important;gap:0!important}.egh26-log-row{grid-template-columns:48px 12px 1fr!important;gap:4px!important;min-height:16px!important;padding:1px 0!important;border:0!important}.egh26-log-row:before{content:"";grid-column:2;width:6px;height:6px;border-radius:50%;background:#35e9a5;box-shadow:0 0 8px rgba(53,233,165,.55);margin-top:4px}.egh26-log-row time{grid-column:1;font-size:.47rem!important}.egh26-log-row span{grid-column:3;font-size:.55rem!important;line-height:1.25!important}
+body.egh-ai-active .egh23-ai-task-head{margin:7px 0 5px!important}.egh23-ai-task-head h3{font-size:.82rem!important}.egh23-step{width:26px!important;height:26px!important;min-width:26px!important;font-size:.55rem!important;border-radius:6px!important}.egh23-ai-task-head .egh23-muted{font-size:.52rem!important}.egh23-ai-modes{gap:6px!important;margin-bottom:7px!important}.egh23-ai-section .egh23-ai-mode{min-height:84px!important;padding:9px!important;border-radius:8px!important}.egh23-ai-section .egh23-mode-icon{width:28px!important;height:28px!important;border-radius:7px!important;font-size:.7rem!important;margin-bottom:6px!important}.egh23-ai-mode strong{font-size:.67rem!important}.egh23-ai-mode small{font-size:.49rem!important;line-height:1.25!important}.egh25-mode-code{font-size:.42rem!important;top:6px!important;right:7px!important}.egh26-mission-status{font-size:.4rem!important;left:9px!important;bottom:5px!important}
+body.egh-ai-active .egh23-ai-workspace{grid-template-columns:1.04fr .96fr!important;gap:7px!important;margin-top:0!important}.egh23-ai-config-card{padding:10px 12px!important;border-radius:8px!important}.egh23-card-head{margin-bottom:4px!important}.egh23-card-head h3{font-size:.82rem!important}.egh23-card-head p{font-size:.52rem!important}.egh25-readiness-ring{width:58px!important;height:58px!important}.egh25-readiness-ring strong{font-size:.88rem!important}.egh25-readiness-ring span{font-size:.38rem!important}.egh25-strength-track{height:4px!important;margin:4px 0 7px!important}.egh25-signal-matrix{gap:4px!important;margin-bottom:5px!important}.egh25-signal-matrix span{padding:5px!important;font-size:.52rem!important;border-radius:6px!important}
+body.egh-ai-active .egh23-ai-form{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px 8px!important}.egh26-form-label{display:none!important}.egh23-ai-form .field-group{gap:3px!important}.egh23-ai-form label{font-size:.54rem!important}.egh23-ai-form input,.egh23-ai-form select,.egh23-ai-form textarea{font-size:.64rem!important;min-height:32px!important;padding:6px 8px!important;border-radius:6px!important}.egh23-ai-form textarea{min-height:48px!important;line-height:1.32!important}.egh23-ai-form .field-group:has(#promptTemplate){grid-column:1}.egh23-ai-form .field-group:has(#jurisdiction){grid-column:2}.egh23-ai-form .field-group:has(#audience){grid-column:3;grid-row:1}.egh23-ai-form .field-group:has(#businessName){grid-column:1}.egh23-ai-form .field-group:has(#industry){grid-column:2}.egh23-ai-form .field-group:has(#goal){grid-column:3}.egh23-ai-form .field-group:has(#offer){grid-column:1/3}.egh23-ai-form .field-group:has(#tone){grid-column:1}.egh23-ai-form .field-group:has(#outputFormat){grid-column:2}.egh23-ai-form .egh23-advanced{grid-column:1/4!important;border-radius:6px!important}.egh23-advanced summary{padding:6px 8px!important;font-size:.54rem!important}.egh23-advanced summary span{font-size:.46rem!important}.egh23-ai-form .egh23-privacy-note{grid-column:1/3!important;min-height:34px!important;padding:6px 8px!important;border-radius:6px!important}.egh23-privacy-note>span{font-size:.65rem!important}.egh23-privacy-note strong{font-size:.56rem!important}.egh23-privacy-note p{font-size:.45rem!important;line-height:1.3!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.egh23-ai-form .egh23-generator-actions{grid-column:3!important;align-self:stretch!important}.egh25-generate-wrap{height:100%!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:6px!important}.egh25-shortcut{font-size:.44rem!important}.egh23-ai-section #generatePromptBtn{min-height:38px!important;font-size:.62rem!important;padding:0 12px!important;border-radius:7px!important}
+body.egh-ai-active .egh25-command-console{position:relative!important;top:auto!important;height:auto!important;min-height:0!important;max-height:none!important;padding:10px!important;border-radius:8px!important}.egh25-command-console .egh23-output-head{margin-bottom:5px!important}.egh25-command-console .egh23-output-head h3{font-size:.8rem!important}.egh25-command-console .egh23-output-head p{font-size:.48rem!important}.egh25-console-badges span{font-size:.42rem!important;padding:4px 7px!important}.egh25-telemetry{margin:5px 0!important;gap:5px!important}.egh25-telemetry>div{min-height:42px!important;padding:6px 8px!important;border-radius:6px!important}.egh25-telemetry span{font-size:.42rem!important}.egh25-telemetry strong{font-size:.62rem!important}.egh26-console-tabs{margin:5px 0!important;padding-bottom:4px!important}.egh26-console-tabs button{font-size:.45rem!important;padding:4px 7px!important}.egh26-console-panel.is-active{display:block!important;flex:none!important}.egh25-console-window{height:134px!important;min-height:134px!important}.egh25-console-window #generatedPrompt{height:100px!important;min-height:100px!important;font-size:.57rem!important;line-height:1.4!important;padding:7px!important}.egh25-console-bar{height:24px!important;padding:0 7px!important}.egh25-console-bar span{width:5px!important;height:5px!important}.egh25-console-bar b{font-size:.4rem!important}.generator-status{display:none!important}.egh25-output-actions{gap:5px!important;margin-top:5px!important}.egh25-output-actions button{min-height:30px!important;font-size:.5rem!important;border-radius:6px!important}.egh28-intelligence-panel{max-height:none!important;margin-top:6px!important;padding:7px 8px!important;border-radius:7px!important;display:grid!important;grid-template-columns:98px 105px 1fr 1fr!important;gap:7px!important;align-items:center!important;overflow:hidden!important}.egh28-intel-head{grid-column:1/-1!important;padding-bottom:5px!important;margin-bottom:0!important}.egh28-intel-head small{display:none!important}.egh28-intel-head strong{font-size:.68rem!important}.egh28-intel-head>span{font-size:.42rem!important;padding:3px 6px!important}.egh28-intel-score-row{grid-column:1/3!important;grid-template-columns:70px 1fr!important;gap:8px!important}.egh28-intel-score strong{font-size:1rem!important}.egh28-intel-score span{font-size:.4rem!important}.egh28-intel-coverage span,.egh28-intel-coverage strong{font-size:.46rem!important}.egh28-mini-track{height:4px!important;margin-top:4px!important}.egh28-signal-grid{grid-column:3!important;grid-template-columns:1fr 1fr!important;gap:3px!important}.egh28-signal-grid span{font-size:.43rem!important}.egh28-profile{grid-column:4!important;gap:3px!important}.egh28-profile-row{grid-template-columns:42px 1fr 28px!important;gap:4px!important}.egh28-profile-row>span{font-size:.42rem!important}.egh28-profile-row>strong{font-size:.38rem!important}.egh28-profile-row>div{height:3px!important}.egh28-recommendation{grid-column:1/-1!important;padding:5px 7px!important;border-radius:0 5px 5px 0!important}.egh28-recommendation small{font-size:.39rem!important}.egh28-recommendation p{font-size:.43rem!important;margin-top:2px!important}
+body.egh-ai-active .egh23-ai-history{margin-top:6px!important;padding:6px 8px!important;border-radius:8px!important}.egh23-ai-history .egh23-section-head{margin:0 0 5px!important}.egh23-ai-history h3{font-size:.7rem!important}.egh23-ai-history p{font-size:.46rem!important}.egh-ref-archive-toolbar{display:flex!important;gap:5px!important;align-items:center!important}.egh-ref-archive-toolbar>span{display:none!important}.egh-ref-archive-toolbar input,.egh-ref-archive-toolbar select{height:24px;border:1px solid rgba(97,231,255,.12);background:#061629;color:#9ab8d0;border-radius:5px;padding:0 7px;font:600 .46rem Inter}.egh-ref-archive-toolbar input{width:145px}.egh-ref-archive-toolbar select{width:74px}.egh-ref-archive-toolbar button{font-size:.44rem!important;padding:3px 5px!important}.egh23-history-list{gap:2px!important}.egh28-archive-item{min-height:26px!important;padding:3px 5px!important;border-radius:4px!important;grid-template-columns:54px 110px 1.3fr 1fr 68px 58px!important;gap:6px!important;background:rgba(5,20,35,.72)!important}.egh28-archive-code{border:0!important;padding:0!important;display:block!important}.egh28-archive-code b{font-size:.42rem!important}.egh28-archive-code span{font-size:.38rem!important}.egh28-archive-main{display:contents!important}.egh28-archive-main>strong{font-size:.45rem!important;white-space:nowrap!important}.egh28-archive-main>small{font-size:.42rem!important;margin:0!important}.egh28-archive-meta{display:contents!important}.egh28-archive-meta span{font-size:.39rem!important}.egh28-archive-meta span:nth-child(n+2){display:none!important}.egh28-archive-quality>div{height:3px!important}.egh28-archive-quality>span{font-size:.38rem!important;margin-top:1px!important}.egh28-archive-item>button{min-height:20px!important;font-size:.4rem!important;border-radius:4px!important}
+@media (min-width:1321px) and (max-height:850px){body.egh-ai-active .egh25-command-hero{min-height:112px!important}.egh26-hud-pane,.egh26-core{min-height:172px!important}.egh26-core-shell{width:170px!important;height:170px!important}.egh23-ai-section .egh23-ai-mode{min-height:76px!important}.egh23-ai-form textarea{min-height:42px!important}.egh25-console-window{height:118px!important;min-height:118px!important}.egh25-console-window #generatedPrompt{height:84px!important;min-height:84px!important}}
+@media (max-width:1320px){.egh-ref-hero-quote{display:none!important}}
+
+body.egh-ai-active #ai-generator section{padding-top:0!important;padding-bottom:0!important}
+body.egh-ai-active .egh26-hud{padding:0!important}
+body.egh-ai-active .egh23-ai-history{padding-top:6px!important;padding-bottom:6px!important}
+body.egh-ai-active .egh25-command-hero:before{left:44%!important;opacity:.72!important}
+body.egh-ai-active .egh-ref-hero-quote{right:300px!important;top:32px!important;max-width:145px!important;font-size:.56rem!important}
+</style>
+
+<style id="egh281-final-density-fix">
+@media (min-width:1321px){
+ body.egh-ai-active .egh25-command-hero{height:126px!important;min-height:126px!important;max-height:126px!important;overflow:hidden!important}
+ body.egh-ai-active .egh23-ai-context{height:54px!important;min-height:54px!important;max-height:54px!important;overflow:hidden!important}
+ body.egh-ai-active .egh26-hud{height:196px!important;min-height:196px!important;max-height:196px!important}
+ body.egh-ai-active .egh26-hud-pane,body.egh-ai-active .egh26-core{height:196px!important;min-height:196px!important;max-height:196px!important;overflow:hidden!important}
+ body.egh-ai-active .egh26-core-shell{width:172px!important;height:172px!important}
+ body.egh-ai-active .egh23-ai-task-head{height:28px!important;margin:5px 0 4px!important}
+ body.egh-ai-active .egh23-ai-modes{margin-bottom:6px!important}
+ body.egh-ai-active .egh23-ai-section .egh23-ai-mode{height:76px!important;min-height:76px!important;max-height:76px!important}
+ body.egh-ai-active .egh23-ai-workspace{align-items:stretch!important}
+ body.egh-ai-active .egh23-ai-config-card{height:344px!important;min-height:344px!important;max-height:344px!important;overflow:hidden!important}
+ body.egh-ai-active .egh25-command-console{height:344px!important;min-height:344px!important;max-height:344px!important;overflow:hidden!important}
+ body.egh-ai-active .egh25-console-window{height:104px!important;min-height:104px!important}
+ body.egh-ai-active .egh25-console-window #generatedPrompt{height:80px!important;min-height:80px!important}
+ body.egh-ai-active .egh28-intelligence-panel{height:78px!important;min-height:78px!important;max-height:78px!important}
+ body.egh-ai-active .egh23-ai-history{height:92px!important;min-height:92px!important;max-height:92px!important;overflow:hidden!important}
+ body.egh-ai-active .egh23-history-list{max-height:52px!important;overflow:auto!important}
+ body.egh-ai-active .egh25-command-hero:before{left:46%!important;width:280px!important;height:126px!important;top:0!important;background-size:contain!important;background-repeat:no-repeat!important;opacity:.84!important}
+ body.egh-ai-active .egh-ref-hero-quote{right:322px!important;top:28px!important}
+}
+</style>
+<script id="egh281-topbar-retry">
+(function(){let tries=0;const t=setInterval(()=>{tries++;if(document.body.classList.contains('egh-ai-active')){const bar=document.querySelector('.ux-workspace-banner');const tools=bar?.querySelector('.ux-workspace-tools');if(tools&&!tools.querySelector('.egh-ref-top-meta')){const meta=document.createElement('div');meta.className='egh-ref-top-meta';meta.innerHTML='<span class="egh-ref-top-search">⌕&nbsp; Search EGH…</span><span class="egh-ref-top-user">EGH</span><span class="egh-ref-top-time">'+new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})+'</span>';tools.prepend(meta)}}if(tries>20)clearInterval(t)},250)})();
+</script>
+
+
+<style id="egh281-functional-height-fix">
+@media (min-width:1321px){
+ body.egh-ai-active .egh23-ai-config-card{height:auto!important;min-height:360px!important;max-height:none!important;overflow:visible!important}
+ body.egh-ai-active .egh25-command-console{height:100%!important;min-height:360px!important;max-height:none!important;overflow:hidden!important;align-self:stretch!important}
+ body.egh-ai-active .egh23-ai-workspace{align-items:stretch!important}
+ body.egh-ai-active .egh-ref-archive-toolbar input,body.egh-ai-active .egh-ref-archive-toolbar select{background:#061629!important;color:#9ab8d0!important;border-color:rgba(97,231,255,.18)!important;color-scheme:dark!important}
+ body.egh-ai-active .egh-ref-archive-toolbar input::placeholder{color:#56758d!important}
+}
+</style>
+
+
+<style id="egh282-desktop-hardening">
+/* EGH v2.9 — Desktop hardening and full-width AI workspace */
+@media (min-width:1321px){
+  /* Use the full available application canvas. */
+  body.egh-ai-active{--egh-sidebar:176px!important;padding-left:176px!important;overflow-x:hidden!important}
+  body.egh-ai-active #main{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+  body.egh-ai-active #main>#ai-generator{width:100%!important;max-width:none!important;margin:0!important;padding:0 0 16px!important;min-height:calc(100vh - 50px)!important}
+  body.egh-ai-active #main>#ai-generator>.container{
+    max-width:none!important;
+    width:calc(100% - 20px)!important;
+    margin:0 10px!important;
+    padding:10px 0 16px!important;
+  }
+
+  /* AI Workspace has its own navigation; no marketing/footer duplication. */
+  body.egh-ai-active>footer,
+  body.egh-ai-active #main~footer{display:none!important}
+
+  /* Slightly stronger top bar and less empty edge spacing. */
+  body.egh-ai-active .ux-workspace-banner{height:54px!important;padding:0 12px!important;border-bottom:1px solid rgba(76,208,255,.22)!important}
+  body.egh-ai-active .ux-workspace-copy strong{font-size:.92rem!important;font-weight:800!important}
+  body.egh-ai-active .ux-workspace-copy small{font-size:.6rem!important}
+  body.egh-ai-active .ux-workspace-tools{gap:7px!important}
+  body.egh-ai-active .ux-workspace-tools button{min-height:34px!important;font-size:.66rem!important;font-weight:800!important}
+  body.egh-ai-active .egh-ref-top-search{min-width:190px!important;height:32px!important;font-size:.62rem!important}
+
+  /* Harden the visual shell. */
+  body.egh-ai-active .egh25-command-hero,
+  body.egh-ai-active .egh23-ai-context,
+  body.egh-ai-active .egh26-hud-pane,
+  body.egh-ai-active .egh26-core,
+  body.egh-ai-active .egh23-ai-config-card,
+  body.egh-ai-active .egh25-command-console,
+  body.egh-ai-active .egh23-ai-history{
+    border-color:rgba(62,208,255,.27)!important;
+    box-shadow:0 0 0 1px rgba(17,82,120,.14),0 16px 38px rgba(0,0,0,.22)!important;
+  }
+
+  /* Hero: more presence, still compact enough for command-center use. */
+  body.egh-ai-active .egh25-command-hero{height:140px!important;min-height:140px!important;max-height:140px!important;padding:16px 20px!important;margin-bottom:8px!important}
+  body.egh-ai-active .egh25-command-hero h2{font-size:2.05rem!important;font-weight:850!important;line-height:1!important;letter-spacing:-.045em!important}
+  body.egh-ai-active .egh25-command-hero p{font-size:.78rem!important;line-height:1.48!important;max-width:620px!important}
+  body.egh-ai-active .egh25-command-kicker{font-size:.58rem!important;font-weight:850!important;letter-spacing:.12em!important}
+  body.egh-ai-active .egh25-system-trust span{font-size:.57rem!important;padding:5px 9px!important}
+  body.egh-ai-active .egh25-engine-status small{font-size:.5rem!important}
+  body.egh-ai-active .egh25-engine-status strong{font-size:.74rem!important}
+  body.egh-ai-active .egh25-command-controls .egh23-btn{font-size:.66rem!important;min-height:34px!important;font-weight:800!important}
+  body.egh-ai-active .egh25-command-hero:before{left:48%!important;width:330px!important;height:140px!important;opacity:.9!important}
+
+  /* Context rail: bolder type and taller hit targets. */
+  body.egh-ai-active .egh23-ai-context{height:62px!important;min-height:62px!important;max-height:62px!important;padding:8px 12px!important;margin-bottom:8px!important}
+  body.egh-ai-active .egh23-context-heading strong{font-size:.78rem!important;font-weight:800!important}
+  body.egh-ai-active .egh23-context-heading small{font-size:.57rem!important}
+  body.egh-ai-active .egh23-context-item{min-height:46px!important;padding:7px 10px!important}
+  body.egh-ai-active .egh23-context-item span{font-size:.5rem!important;font-weight:850!important}
+  body.egh-ai-active .egh23-context-item strong{font-size:.72rem!important;font-weight:800!important}
+
+  /* HUD row gets more visual mass. */
+  body.egh-ai-active .egh26-hud{height:220px!important;min-height:220px!important;max-height:220px!important;gap:9px!important;margin:8px 0!important;grid-template-columns:1fr .9fr 1.14fr!important}
+  body.egh-ai-active .egh26-hud-pane,body.egh-ai-active .egh26-core{height:220px!important;min-height:220px!important;max-height:220px!important}
+  body.egh-ai-active .egh26-hud-pane{padding:12px!important}
+  body.egh-ai-active .egh26-hud-head strong{font-size:.72rem!important;font-weight:850!important}
+  body.egh-ai-active .egh26-hud-head span{font-size:.48rem!important}
+  body.egh-ai-active .egh26-core-shell{width:194px!important;height:194px!important}
+  body.egh-ai-active .egh28-core-percent{font-size:1.95rem!important;font-weight:900!important}
+  body.egh-ai-active .egh28-core-state{font-size:.55rem!important;font-weight:900!important}
+  body.egh-ai-active .egh28-orbit-signal{font-size:.49rem!important;font-weight:800!important;padding:4px 7px!important}
+  body.egh-ai-active .egh26-log{max-height:184px!important}
+  body.egh-ai-active .egh26-log-row time{font-size:.5rem!important}
+  body.egh-ai-active .egh26-log-row span{font-size:.59rem!important;line-height:1.32!important}
+  body.egh-ai-active .egh26-diagnostic-grid{gap:7px!important}
+  body.egh-ai-active .egh26-diagnostic-grid>div{min-height:54px!important;padding:8px 9px!important}
+  body.egh-ai-active .egh26-diagnostic-grid span{font-size:.48rem!important}
+  body.egh-ai-active .egh26-diagnostic-grid strong{font-size:.68rem!important}
+
+  /* Mission selector: larger and bolder without returning to oversized cards. */
+  body.egh-ai-active .egh23-ai-task-head{height:32px!important;margin:7px 0 5px!important}
+  body.egh-ai-active .egh23-ai-task-head h3{font-size:.92rem!important;font-weight:850!important}
+  body.egh-ai-active .egh23-ai-task-head .egh23-muted{font-size:.58rem!important}
+  body.egh-ai-active .egh23-step{width:30px!important;height:30px!important;min-width:30px!important;font-size:.62rem!important}
+  body.egh-ai-active .egh23-ai-modes{gap:7px!important;margin-bottom:8px!important}
+  body.egh-ai-active .egh23-ai-section .egh23-ai-mode{height:92px!important;min-height:92px!important;max-height:92px!important;padding:10px!important}
+  body.egh-ai-active .egh23-ai-section .egh23-mode-icon{width:31px!important;height:31px!important;margin-bottom:6px!important}
+  body.egh-ai-active .egh23-ai-mode strong{font-size:.75rem!important;font-weight:850!important}
+  body.egh-ai-active .egh23-ai-mode small{font-size:.54rem!important;line-height:1.3!important}
+  body.egh-ai-active .egh25-mode-code{font-size:.46rem!important}
+  body.egh-ai-active .egh26-mission-status{font-size:.43rem!important;font-weight:850!important}
+
+  /* Workbench: fill available width with little dead gutter. */
+  body.egh-ai-active .egh23-ai-workspace{grid-template-columns:minmax(0,1.13fr) minmax(610px,.87fr)!important;gap:10px!important;align-items:stretch!important}
+  body.egh-ai-active .egh23-ai-config-card,body.egh-ai-active .egh25-command-console{min-height:440px!important;height:auto!important;max-height:none!important;border-radius:10px!important;padding:12px!important}
+
+  /* Mission parameters: restore readable desktop typography. */
+  body.egh-ai-active .egh23-card-head h3{font-size:.92rem!important;font-weight:850!important}
+  body.egh-ai-active .egh23-card-head p{font-size:.57rem!important}
+  body.egh-ai-active .egh23-ai-form{gap:8px 10px!important}
+  body.egh-ai-active .egh23-ai-form label{font-size:.62rem!important;font-weight:780!important;color:#9db7ce!important}
+  body.egh-ai-active .egh23-ai-form input,body.egh-ai-active .egh23-ai-form select,body.egh-ai-active .egh23-ai-form textarea{font-size:.72rem!important;min-height:36px!important;padding:7px 9px!important;border-radius:7px!important}
+  body.egh-ai-active .egh23-ai-form textarea{min-height:58px!important;line-height:1.4!important}
+  body.egh-ai-active .egh23-advanced summary{padding:7px 9px!important;font-size:.61rem!important}
+  body.egh-ai-active .egh23-privacy-note{min-height:42px!important;padding:7px 9px!important}
+  body.egh-ai-active .egh23-privacy-note strong{font-size:.62rem!important}
+  body.egh-ai-active .egh23-privacy-note p{font-size:.5rem!important;line-height:1.4!important}
+  body.egh-ai-active .egh23-ai-section #generatePromptBtn{min-height:42px!important;font-size:.7rem!important;font-weight:850!important;padding:0 16px!important}
+  body.egh-ai-active .egh25-shortcut{font-size:.49rem!important}
+  body.egh-ai-active .egh-strength strong{font-size:1rem!important}
+
+  /* Console: bolder, taller and more instrument-like. */
+  body.egh-ai-active .egh25-command-console .egh23-output-head h3{font-size:.95rem!important;font-weight:850!important}
+  body.egh-ai-active .egh25-command-console .egh23-output-head p{font-size:.55rem!important}
+  body.egh-ai-active .egh25-console-badges span{font-size:.48rem!important;padding:4px 8px!important;font-weight:850!important}
+  body.egh-ai-active .egh25-telemetry>div{min-height:48px!important;padding:7px 9px!important}
+  body.egh-ai-active .egh25-telemetry span{font-size:.47rem!important}
+  body.egh-ai-active .egh25-telemetry strong{font-size:.7rem!important;font-weight:850!important}
+  body.egh-ai-active .egh26-console-tabs button{font-size:.52rem!important;font-weight:850!important;padding:5px 8px!important}
+  body.egh-ai-active .egh25-console-window{height:166px!important;min-height:166px!important}
+  body.egh-ai-active .egh25-console-window #generatedPrompt{height:138px!important;min-height:138px!important;font-size:.64rem!important;line-height:1.5!important;padding:9px!important}
+  body.egh-ai-active .egh25-output-actions button{min-height:34px!important;font-size:.58rem!important;font-weight:800!important}
+
+  /* Prompt Intelligence gets enough scale to read on 1440–4K desktops. */
+  body.egh-ai-active .egh28-intelligence-panel{height:auto!important;min-height:112px!important;max-height:none!important;padding:9px 10px!important;grid-template-columns:115px 125px 1fr 1fr!important;gap:9px!important}
+  body.egh-ai-active .egh28-intel-head strong{font-size:.77rem!important}
+  body.egh-ai-active .egh28-intel-head>span{font-size:.46rem!important}
+  body.egh-ai-active .egh28-intel-score strong{font-size:1.15rem!important}
+  body.egh-ai-active .egh28-intel-score span,body.egh-ai-active .egh28-intel-coverage span,body.egh-ai-active .egh28-intel-coverage strong{font-size:.5rem!important}
+  body.egh-ai-active .egh28-signal-grid span{font-size:.49rem!important}
+  body.egh-ai-active .egh28-profile-row{grid-template-columns:52px 1fr 32px!important}
+  body.egh-ai-active .egh28-profile-row>span{font-size:.48rem!important}
+  body.egh-ai-active .egh28-profile-row>strong{font-size:.43rem!important}
+  body.egh-ai-active .egh28-recommendation small{font-size:.44rem!important}
+  body.egh-ai-active .egh28-recommendation p{font-size:.49rem!important;line-height:1.35!important}
+
+  /* Mission Archive is part of the command environment, not a tiny afterthought. */
+  body.egh-ai-active .egh23-ai-history{height:auto!important;min-height:108px!important;max-height:none!important;margin-top:8px!important;padding:8px 10px!important;overflow:visible!important}
+  body.egh-ai-active .egh23-ai-history h3{font-size:.78rem!important;font-weight:850!important}
+  body.egh-ai-active .egh23-ai-history p{font-size:.5rem!important}
+  body.egh-ai-active .egh-ref-archive-toolbar input{width:170px!important}
+  body.egh-ai-active .egh-ref-archive-toolbar input,body.egh-ai-active .egh-ref-archive-toolbar select{height:28px!important;font-size:.5rem!important}
+  body.egh-ai-active .egh23-history-list{max-height:112px!important;overflow:auto!important;gap:4px!important}
+  body.egh-ai-active .egh28-archive-item{min-height:34px!important;padding:5px 7px!important;grid-template-columns:64px 128px 1.4fr 1fr 78px 66px!important;gap:8px!important}
+  body.egh-ai-active .egh28-archive-code b{font-size:.47rem!important}
+  body.egh-ai-active .egh28-archive-code span,body.egh-ai-active .egh28-archive-main>small,body.egh-ai-active .egh28-archive-meta span{font-size:.43rem!important}
+  body.egh-ai-active .egh28-archive-main>strong{font-size:.52rem!important;font-weight:800!important}
+  body.egh-ai-active .egh28-archive-item>button{min-height:24px!important;font-size:.44rem!important;font-weight:850!important}
+
+  /* Sidebar itself is kept compact but visually harder. */
+  body.egh-ai-active .egh-sidebar{border-right-color:rgba(56,199,255,.18)!important;box-shadow:12px 0 40px rgba(0,0,0,.28)!important}
+  body.egh-ai-active .egh-side-link{font-size:.75rem!important;font-weight:760!important;padding:9px 9px!important}
+  body.egh-ai-active .egh-side-link.is-active{box-shadow:inset 0 0 0 1px rgba(91,119,255,.18),0 0 22px rgba(58,86,255,.08)!important}
+}
+
+/* Footer is hidden only for AI Workspace, regardless of desktop width. */
+body.egh-ai-active footer{display:none!important}
+</style>
+<script id="egh282-version-stamp">
+(function(){
+  const apply=()=>{
+    const v=document.querySelector('.egh-ref-side-status>span');
+    if(v) v.textContent='v2.8.3';
+  };
+  apply();
+  document.addEventListener('click',()=>setTimeout(apply,25));
+})();
+</script>
+
+
+<style id="egh282-bold-desktop-type">
+@media (min-width:1600px){
+ body.egh-ai-active .egh25-command-hero h2{font-size:2.15rem!important}
+ body.egh-ai-active .egh25-command-hero p{font-size:.82rem!important;font-weight:560!important}
+ body.egh-ai-active .egh23-context-heading strong{font-size:.82rem!important}
+ body.egh-ai-active .egh23-context-item strong{font-size:.76rem!important}
+ body.egh-ai-active .egh26-hud-head strong{font-size:.77rem!important}
+ body.egh-ai-active .egh26-diagnostic-grid strong{font-size:.73rem!important;font-weight:850!important}
+ body.egh-ai-active .egh26-log-row span{font-size:.62rem!important}
+ body.egh-ai-active .egh23-ai-task-head h3{font-size:.98rem!important}
+ body.egh-ai-active .egh23-ai-mode strong{font-size:.8rem!important}
+ body.egh-ai-active .egh23-ai-mode small{font-size:.57rem!important}
+ body.egh-ai-active .egh23-card-head h3{font-size:.98rem!important}
+ body.egh-ai-active .egh23-ai-form label{font-size:.66rem!important}
+ body.egh-ai-active .egh23-ai-form input,body.egh-ai-active .egh23-ai-form select,body.egh-ai-active .egh23-ai-form textarea{font-size:.76rem!important;font-weight:600!important}
+ body.egh-ai-active .egh25-command-console .egh23-output-head h3{font-size:1rem!important}
+ body.egh-ai-active .egh25-telemetry strong{font-size:.75rem!important}
+ body.egh-ai-active .egh25-console-window #generatedPrompt{font-size:.67rem!important}
+ body.egh-ai-active .egh28-intel-head strong{font-size:.82rem!important}
+ body.egh-ai-active .egh28-signal-grid span{font-size:.52rem!important}
+ body.egh-ai-active .egh28-profile-row>span{font-size:.51rem!important}
+ body.egh-ai-active .egh28-recommendation p{font-size:.52rem!important}
+ body.egh-ai-active .egh23-ai-history h3{font-size:.82rem!important}
+ body.egh-ai-active .egh28-archive-main>strong{font-size:.56rem!important}
+}
+</style>
+
+
+<style id="egh283-shipping-hardening">
+/* ================================================================
+   EGH v2.8.3 — AI WORKSPACE SHIPPING HARDENING
+   Final pre-ship desktop geometry, dominant intelligence core,
+   production focus states, robust console sizing, and HUD motion.
+   ================================================================ */
+body.egh-ai-active{--ship-cyan:#58eaff;--ship-green:#60f5c5;--ship-blue:#4e75ff;--ship-violet:#795cff;--ship-deep:#020914;--ship-panel:#07172b;--ship-line:rgba(82,220,255,.28)}
+body.egh-ai-active #main{overflow-x:hidden!important}
+body.egh-ai-active #main>#ai-generator>.container{width:calc(100% - 12px)!important;max-width:none!important;margin:0 6px!important;padding-top:8px!important}
+body.egh-ai-active .egh23-ai-section{padding-bottom:28px!important}
+
+/* Stronger production shell and keyboard focus. */
+body.egh-ai-active button:focus-visible,
+body.egh-ai-active input:focus-visible,
+body.egh-ai-active select:focus-visible,
+body.egh-ai-active textarea:focus-visible,
+body.egh-ai-active a:focus-visible{outline:2px solid var(--ship-cyan)!important;outline-offset:2px!important;box-shadow:0 0 0 4px rgba(88,234,255,.12)!important}
+body.egh-ai-active .egh25-command-hero,
+body.egh-ai-active .egh23-ai-context,
+body.egh-ai-active .egh26-hud-pane,
+body.egh-ai-active .egh26-core,
+body.egh-ai-active .egh23-ai-config-card,
+body.egh-ai-active .egh25-command-console,
+body.egh-ai-active .egh23-ai-history{border-color:rgba(82,220,255,.32)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.025),0 16px 44px rgba(0,0,0,.28)!important}
+
+/* The telemetry row now prioritizes the intelligence core as the primary instrument. */
+@media (min-width:1321px){
+ body.egh-ai-active .egh26-hud{height:344px!important;min-height:344px!important;max-height:344px!important;grid-template-columns:minmax(350px,.84fr) minmax(540px,1.46fr) minmax(390px,1.02fr)!important;gap:12px!important;margin:10px 0 12px!important}
+ body.egh-ai-active .egh26-hud-pane,body.egh-ai-active .egh26-core{height:344px!important;min-height:344px!important;max-height:344px!important}
+ body.egh-ai-active .egh26-hud-pane{padding:15px!important}
+ body.egh-ai-active .egh26-core{overflow:hidden!important;background:radial-gradient(circle at center,rgba(25,215,255,.16),rgba(4,16,31,.97) 65%)!important}
+ body.egh-ai-active .egh26-core-shell{width:318px!important;height:318px!important}
+ body.egh-ai-active .egh28-core-percent{font-size:2.85rem!important;font-weight:900!important;line-height:.95!important;text-shadow:0 0 28px rgba(83,230,255,.34)!important}
+ body.egh-ai-active .egh28-core-state{font-size:.67rem!important;letter-spacing:.1em!important;font-weight:900!important}
+ body.egh-ai-active .egh26-core-readout small{font-size:.5rem!important;letter-spacing:.16em!important;color:#5b8aa6!important}
+ body.egh-ai-active .egh26-core-readout em{font-size:.52rem!important;letter-spacing:.1em!important;color:#4adfc8!important}
+ body.egh-ai-active .egh26-core-label{font-size:.46rem!important;letter-spacing:.18em!important;bottom:7px!important;color:#426981!important}
+ body.egh-ai-active .egh28-orbit-signal{font-size:.57rem!important;font-weight:850!important;padding:5px 9px!important;min-height:28px!important;gap:5px!important;border-color:rgba(74,224,255,.28)!important;background:rgba(4,35,57,.94)!important;box-shadow:0 0 16px rgba(40,214,255,.07)!important}
+ body.egh-ai-active .egh28-orbit-signal i{width:8px!important;height:8px!important;box-shadow:0 0 12px currentColor!important}
+ body.egh-ai-active .egh28-orbit-signal.s1{left:-38px!important;top:138px!important}
+ body.egh-ai-active .egh28-orbit-signal.s2{right:-38px!important;top:138px!important}
+ body.egh-ai-active .egh28-orbit-signal.s3{right:-2px!important;bottom:55px!important}
+ body.egh-ai-active .egh28-orbit-signal.s4{left:-2px!important;bottom:55px!important}
+ body.egh-ai-active .egh28-orbit-signal.s5{top:-4px!important}
+ body.egh-ai-active .egh26-ring.r1{inset:27px!important}.egh26-ring.r2{inset:49px!important}.egh26-ring.r3{inset:72px!important}.egh26-ring.r4{inset:95px!important}
+ body.egh-ai-active .egh26-hud-head{margin-bottom:11px!important}
+ body.egh-ai-active .egh26-hud-head strong,body.egh-ai-active .egh26-hud-head span{font-size:.7rem!important;font-weight:900!important;letter-spacing:.07em!important}
+ body.egh-ai-active .egh26-diagnostic-grid{gap:9px!important}
+ body.egh-ai-active .egh26-diagnostic-grid>div{min-height:65px!important;padding:10px 11px!important;border-radius:9px!important;background:linear-gradient(145deg,rgba(13,34,59,.84),rgba(7,22,40,.92))!important}
+ body.egh-ai-active .egh26-diagnostic-grid span{font-size:.54rem!important;letter-spacing:.08em!important}
+ body.egh-ai-active .egh26-diagnostic-grid strong{font-size:.78rem!important;font-weight:880!important;margin-top:5px!important}
+ body.egh-ai-active .egh26-log{max-height:257px!important;padding-right:6px!important}
+ body.egh-ai-active .egh26-log-row{min-height:21px!important;grid-template-columns:54px 13px 1fr!important}
+ body.egh-ai-active .egh26-log-row time{font-size:.52rem!important}
+ body.egh-ai-active .egh26-log-row span{font-size:.63rem!important;line-height:1.38!important;font-weight:620!important}
+}
+
+/* Additional visible HUD motion that remains tied to the actual core, not fake data. */
+.egh283-core-grid,.egh283-core-sweep,.egh283-crosshair,.egh283-core-pulse{position:absolute;pointer-events:none;z-index:0}
+.egh283-core-grid{inset:17%;border-radius:50%;opacity:.34;background:repeating-radial-gradient(circle at center,transparent 0 16px,rgba(76,219,255,.1) 17px 18px),repeating-conic-gradient(from 0deg,rgba(83,225,255,.10) 0deg 1deg,transparent 1deg 15deg);-webkit-mask:radial-gradient(circle,transparent 0 27%,#000 28% 100%);mask:radial-gradient(circle,transparent 0 27%,#000 28% 100%);animation:egh283-grid-spin 42s linear infinite}
+.egh283-core-sweep{inset:8%;border-radius:50%;opacity:.42;background:conic-gradient(from 0deg,transparent 0 320deg,rgba(63,232,255,.04) 335deg,rgba(63,232,255,.4) 352deg,transparent 360deg);-webkit-mask:radial-gradient(circle,transparent 0 38%,#000 40% 100%);mask:radial-gradient(circle,transparent 0 38%,#000 40% 100%);animation:egh283-sweep 6.5s linear infinite}
+.egh283-crosshair.axis-x{left:10%;right:10%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(78,224,255,.23),transparent)}
+.egh283-crosshair.axis-y{top:10%;bottom:10%;left:50%;width:1px;background:linear-gradient(180deg,transparent,rgba(78,224,255,.23),transparent)}
+.egh283-core-pulse{inset:30%;border-radius:50%;border:1px solid rgba(93,239,255,.18);box-shadow:0 0 35px rgba(56,221,255,.12),inset 0 0 30px rgba(46,220,255,.07);animation:egh283-pulse 2.8s ease-in-out infinite}
+@keyframes egh283-grid-spin{to{transform:rotate(360deg)}}
+@keyframes egh283-sweep{to{transform:rotate(360deg)}}
+@keyframes egh283-pulse{0%,100%{transform:scale(.93);opacity:.35}50%{transform:scale(1.07);opacity:.9}}
+body.egh-ai-active #hudCore.is-compiling .egh283-core-sweep{animation-duration:.85s!important;opacity:.9!important}
+body.egh-ai-active #hudCore.is-compiling .egh283-core-pulse{animation-duration:.7s!important;box-shadow:0 0 56px rgba(96,255,216,.32),inset 0 0 34px rgba(96,255,216,.16)!important}
+
+/* Stronger primary workbench proportions and desktop reading scale. */
+@media (min-width:1321px){
+ body.egh-ai-active .egh23-ai-task-head{margin-top:10px!important;height:36px!important}
+ body.egh-ai-active .egh23-ai-task-head h3{font-size:1rem!important}
+ body.egh-ai-active .egh23-ai-section .egh23-ai-mode{height:98px!important;min-height:98px!important;max-height:98px!important}
+ body.egh-ai-active .egh23-ai-mode strong{font-size:.82rem!important}.egh23-ai-mode small{font-size:.59rem!important}
+ body.egh-ai-active .egh23-ai-workspace{grid-template-columns:minmax(700px,1.05fr) minmax(690px,.95fr)!important;gap:12px!important;align-items:stretch!important}
+ body.egh-ai-active .egh23-ai-config-card,body.egh-ai-active .egh25-command-console{min-height:500px!important;padding:14px!important;border-radius:11px!important}
+ body.egh-ai-active .egh23-card-head h3,body.egh-ai-active .egh25-command-console .egh23-output-head h3{font-size:1.03rem!important;font-weight:900!important}
+ body.egh-ai-active .egh23-card-head p,body.egh-ai-active .egh25-command-console .egh23-output-head p{font-size:.61rem!important;line-height:1.4!important}
+ body.egh-ai-active .egh23-ai-form label{font-size:.69rem!important;font-weight:830!important}
+ body.egh-ai-active .egh23-ai-form input,body.egh-ai-active .egh23-ai-form select,body.egh-ai-active .egh23-ai-form textarea{font-size:.78rem!important;min-height:39px!important;padding:8px 10px!important}
+ body.egh-ai-active .egh23-ai-form textarea{min-height:67px!important}
+ body.egh-ai-active .egh25-console-window{height:202px!important;min-height:202px!important}
+ body.egh-ai-active .egh25-console-window #generatedPrompt{height:171px!important;min-height:171px!important;font-size:.7rem!important;line-height:1.52!important}
+ body.egh-ai-active .egh25-output-actions button{min-height:38px!important;font-size:.62rem!important}
+ body.egh-ai-active .egh28-intelligence-panel{min-height:130px!important;padding:10px 11px!important;grid-template-columns:126px 136px 1fr 1fr!important;gap:11px!important}
+ body.egh-ai-active .egh28-intel-head strong{font-size:.86rem!important}.egh28-intel-score strong{font-size:1.3rem!important}.egh28-signal-grid span{font-size:.55rem!important}.egh28-profile-row>span{font-size:.54rem!important}.egh28-recommendation p{font-size:.54rem!important}
+ body.egh-ai-active .egh23-ai-history{min-height:132px!important;margin-top:10px!important;padding:9px 11px!important}
+ body.egh-ai-active .egh23-history-list{max-height:150px!important}
+ body.egh-ai-active .egh28-archive-item{min-height:40px!important;padding:6px 8px!important;grid-template-columns:74px 142px 1.5fr 1fr 88px 72px!important}
+ body.egh-ai-active .egh28-archive-main>strong{font-size:.58rem!important}.egh28-archive-meta span{font-size:.46rem!important}.egh28-archive-item>button{min-height:27px!important;font-size:.46rem!important}
+}
+
+/* 1440-ish desktop fallback: still visibly larger than v2.8.2, but never clipped. */
+@media (min-width:1321px) and (max-width:1599px){
+ body.egh-ai-active .egh26-hud{grid-template-columns:minmax(320px,.9fr) minmax(410px,1.22fr) minmax(340px,1.02fr)!important;height:304px!important;min-height:304px!important;max-height:304px!important}
+ body.egh-ai-active .egh26-hud-pane,body.egh-ai-active .egh26-core{height:304px!important;min-height:304px!important;max-height:304px!important}
+ body.egh-ai-active .egh26-core-shell{width:276px!important;height:276px!important}
+ body.egh-ai-active .egh28-core-percent{font-size:2.28rem!important}
+ body.egh-ai-active .egh28-orbit-signal.s1{left:-28px!important;top:116px!important}.egh28-orbit-signal.s2{right:-28px!important;top:116px!important}
+ body.egh-ai-active .egh23-ai-workspace{grid-template-columns:minmax(610px,1.04fr) minmax(570px,.96fr)!important}
+ body.egh-ai-active .egh25-console-window{height:185px!important;min-height:185px!important}.egh25-console-window #generatedPrompt{height:154px!important;min-height:154px!important}
+}
+
+/* Tablet / smaller desktop: preserve functionality over spectacle. */
+@media (max-width:1320px){
+ body.egh-ai-active .egh26-hud{height:auto!important;min-height:0!important;max-height:none!important}
+ body.egh-ai-active .egh26-hud-pane,body.egh-ai-active .egh26-core{height:auto!important;min-height:230px!important;max-height:none!important}
+ body.egh-ai-active .egh26-core-shell{width:224px!important;height:224px!important}
+ body.egh-ai-active .egh23-ai-workspace{grid-template-columns:1fr!important}
+}
+
+/* Shipping motion / accessibility guarantee. */
+@media (prefers-reduced-motion:reduce){
+ .egh283-core-grid,.egh283-core-sweep,.egh283-core-pulse{animation:none!important}
+ body.egh-ai-active .egh26-ring{animation:none!important}
+}
+
+/* AI remains an application surface: never show the generic marketing footer. */
+body.egh-ai-active footer{display:none!important}
+</style>
+<script id="egh283-shipping-runtime">
+(function(){
+  function stamp(){
+    const v=document.querySelector('.egh-ref-side-status>span');
+    if(v) v.textContent='v2.8.3';
+  }
+  function strengthenCoreState(){
+    const core=document.getElementById('hudCore');
+    const score=document.getElementById('hudScore');
+    if(!core||!score)return;
+    const value=parseInt(score.textContent,10)||0;
+    core.dataset.readiness=value>=100?'locked':value>=60?'building':'standby';
+    core.setAttribute('aria-label',`Intelligence core readiness ${value} percent`);
+  }
+  function shippingHealth(){
+    const ai=document.getElementById('ai-generator');
+    if(!ai)return;
+    const required=['businessName','industry','offer','audience','goal','generatedPrompt'];
+    const healthy=required.every(id=>document.getElementById(id));
+    ai.dataset.shipStructure=healthy?'ready':'attention';
+  }
+  stamp();strengthenCoreState();shippingHealth();
+  ['businessName','industry','offer','audience','goal'].forEach(id=>document.getElementById(id)?.addEventListener('input',()=>setTimeout(strengthenCoreState,0)));
+  document.querySelectorAll('.egh23-ai-mode').forEach(b=>b.addEventListener('click',()=>setTimeout(strengthenCoreState,30)));
+  document.getElementById('generatePromptBtn')?.addEventListener('click',()=>setTimeout(strengthenCoreState,900));
+  document.addEventListener('click',()=>setTimeout(stamp,20));
+})();
+</script>
+
+
+<style id="egh29-prompt-engine-v2-css">
+body.egh-ai-active .field-group.is-invalid input,body.egh-ai-active .field-group.is-invalid textarea,body.egh-ai-active .field-group.is-invalid select{border-color:#f59e0b!important;box-shadow:0 0 0 1px rgba(245,158,11,.28)!important}
+body.egh-ai-active #aiPromptStrengthLabel[data-ready="true"]{color:#5eead4!important}
+body.egh-ai-active #aiPromptStrengthLabel[data-ready="false"]{color:#fbbf24!important}
+</style>
+<script id="egh29-prompt-engine-v2-runtime">
+(function(){
+ const $=id=>document.getElementById(id);
+ function syncSemantic(){
+   const ev=window.EGHPromptEngineV2?.evaluateCurrent?.();if(!ev)return;
+   const lab=$('aiPromptStrengthLabel');if(lab){lab.textContent=ev.overall+'%';lab.dataset.ready=String(ev.ready)}
+   const bar=$('aiPromptStrengthBar');if(bar)bar.style.width=ev.overall+'%';
+   ['businessName','industry','offer','audience','goal'].forEach(id=>{const el=$(id),wrap=el?.closest?.('.field-group');if(wrap)wrap.classList.toggle('is-invalid',!!el.value.trim()&&ev.scores[id].score<60)});
+   const score=$('hudScore');if(score)score.textContent=ev.overall+'%';
+   const core=$('hudCore');if(core)core.style.setProperty('--hud-score',ev.overall);
+   const state=$('hudCoreState');if(state)state.textContent=ev.ready?'Mission ready':ev.overall>=60?'Improve signals':'Standby';
+ }
+ ['businessName','industry','offer','audience','goal','details'].forEach(id=>$(id)?.addEventListener('input',()=>setTimeout(syncSemantic,0)));
+ $('promptTemplate')?.addEventListener('change',()=>setTimeout(syncSemantic,0));
+ document.querySelectorAll('.egh23-ai-mode').forEach(b=>b.addEventListener('click',()=>setTimeout(syncSemantic,10)));
+ $('useEGHContextBtn')?.addEventListener('click',()=>setTimeout(syncSemantic,120));
+ $('clearGenerator')?.addEventListener('click',()=>setTimeout(syncSemantic,80));
+ document.addEventListener('egh:prompt-quality-blocked',syncSemantic);
+ document.addEventListener('egh:prompt-compiled',syncSemantic);
+ syncSemantic();
 })();
 </script>
 
