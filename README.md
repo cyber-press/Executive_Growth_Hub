@@ -1,24 +1,23 @@
-# Executive Growth Hub v2.9 — AI Prompt Engine v2.0
+# Executive Growth Hub — Prompt Engine v2.2.1
 
-This release preserves the approved HUD interface and replaces the prompt generator logic with a mission-specific execution engine.
+Signal Repair UX Stabilization release.
 
-## Engine changes
-- Semantic context scoring instead of field-completion scoring
-- Mission-specific objective alignment and contamination detection
-- Mission-specific output contracts for Sales, Content, Validation, Planning, Customer Service, Operations, Branding, and Website Copy
-- Quality gate before MISSION READY
-- Invalid/test input detection
-- Broad-audience detection
-- No generic WhatsApp/community advertising injected into external AI prompts
-- No irrelevant finance instructions injected into unrelated missions
-- Explicit anti-fabrication guardrails and labeled assumptions
+## Changes
+- Full-width stable Signal Repair panel inside Prompt Intelligence
+- Multi-offer choices rendered as clickable options
+- Selecting an offer seeds a focused rewrite pattern
+- Apply & Recheck writes the repaired offer back to Mission Parameters and re-runs semantic scoring
+- Content-driven repair height prevents workbench stretching
+- Prompt commands identify as EGH AI EXECUTION COMMAND v2.2.1
+- Existing v2.2 semantic scoring and approved HUD retained
 
-The app remains static and local-first.
+## M01 certification case
+Weak offer: `digital workbooks, ai workflows, tools, templates`
+Audience: `Business owners that just started their business.`
+Expected: one Offer blocker with four detected offer choices.
 
+Focused repair example: `A digital business workbook for first-time business owners that helps them turn an idea into a clear launch plan.`
+Expected: M01 passes quality gate and compilation unlocks.
 
-## Prompt Engine v2.1
-
-- Multi-offer detection blocks acquisition/content missions when several primary offers are bundled into one field.
-- Buyer-context validation distinguishes demographic descriptions from acquisition-ready audience context.
-- Output contracts now synchronize with the selected presentation format, including 30-day timelines, tables, checklists, and copy-ready output.
-- Generated command header upgraded to `EGH AI EXECUTION COMMAND v2.1`.
+## M01 Certification
+M01 Get Customers passed the exact multi-offer repair certification flow. See `M01_CERTIFICATION.md`.
